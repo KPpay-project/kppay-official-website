@@ -23,7 +23,7 @@ const PartnersSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-12 sm:py-16 lg:py-20 bg-surface-secondary">
+    <section className="relative py-12 sm:py-16 lg:py-20 bg-surface-secondary/50">
       {/* Container */}
       <div className="container-padding max-w-5xl mx-auto">
         {/* Header */}

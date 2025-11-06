@@ -1,5 +1,4 @@
 import {
-  FAQSection,
   FeatureShowcaseSection,
   GlobalReachSection,
   HeroSection,
@@ -109,9 +108,6 @@ export default function HomePage() {
 
       {/* Testimonials Section */}
       <TestimonialsSection />
-
-      {/* Frequently Asked Questions */}
-      <FAQSection />
     </main>
   );
 }

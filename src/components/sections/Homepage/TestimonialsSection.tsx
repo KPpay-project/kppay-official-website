@@ -94,14 +94,14 @@ const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section className="relative py-12 sm:py-16 lg:py-20 bg-brand-secondary overflow-hidden">
+    <section className="relative py-12 sm:py-16 lg:py-20 bg-surface-secondary overflow-hidden">
       {/* Container */}
       <div className="container-padding max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
           <h2
             className="heading-bebas text-3xl sm:text-4xl lg:text-5xl mb-0"
-            style={{ color: 'var(--color-text-inverse-secondary)' }}
+            style={{ color: 'var(--color-text-primary)' }}
           >
             OUR USERS LOVE OUR APP AND ARE <span> </span>
             <br className="hidden sm:block" />
@@ -185,7 +185,7 @@ const TestimonialsSection: React.FC = () => {
             <button
               onClick={() => handleScroll('left')}
               disabled={!canScrollLeft}
-              className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent"
+              className="w-10 h-10 rounded-full border border-gray/20 flex items-center justify-center text-gray-500 hover:bg-white/10 transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent"
               aria-label="Previous testimonial"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -193,7 +193,7 @@ const TestimonialsSection: React.FC = () => {
             <button
               onClick={() => handleScroll('right')}
               disabled={!canScrollRight}
-              className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white/10 transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent"
+              className="w-10 h-10 rounded-full border border-gray/20 flex items-center justify-center text-gray-500 hover:bg-white/10 transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent"
               aria-label="Next testimonial"
             >
               <ArrowRight className="w-4 h-4" />

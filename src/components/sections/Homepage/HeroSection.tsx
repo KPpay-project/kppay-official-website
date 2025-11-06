@@ -1,111 +1,53 @@
-'use client';
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { Button, images } from '@/types';
 
 export default function HeroSection() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
-  const peopleImages = [
-    images.hero.people1,
-    images.hero.people2,
-    images.hero.people3,
-    images.hero.people4,
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsTransitioning(true);
-
-      setTimeout(() => {
-        setCurrentImageIndex(
-          (prevIndex) => (prevIndex + 1) % peopleImages.length
-        );
-        setIsTransitioning(false);
-      }, 800);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [peopleImages.length]);
-
-  const getSlideDirection = (index: number) => {
-    const directions = [
-      'translate-x-full', // Slide from right
-      '-translate-x-full', // Slide from left
-      'translate-y-full', // Slide from bottom
-      'translate-x-full', // Slide from right again
-    ];
-    return directions[index % directions.length];
-  };
-
   return (
     <section className="relative -mt-24 overflow-hidden">
       {/* Hero Container */}
       <div className="relative h-[680px] sm:h-[700px] md:h-[750px] lg:h-[800px]">
-        {/* Slideshow Images - Desktop & Tablet */}
-        <div className="hidden sm:block absolute top-12 left-0 right-0 bottom-0">
-          {peopleImages.map((image, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-                index === currentImageIndex && !isTransitioning
-                  ? 'opacity-100 translate-x-0 translate-y-0 scale-100'
-                  : index === currentImageIndex && isTransitioning
-                  ? `opacity-0 ${getSlideDirection(index)} scale-95`
-                  : `opacity-0 ${getSlideDirection(index)} scale-95`
-              }`}
-            >
-              <Image
-                src={image}
-                alt={`KP Pay User ${index + 1}`}
-                fill
-                className="object-cover object-top"
-                priority={index === 0}
-              />
-            </div>
-          ))}
-        </div>
+        {/* Dark overlay for better text contrast - covers entire hero section */}
+        <div className="absolute inset-0 bg-black/40 z-[0]"></div>
 
-        {/* Static Image - Mobile Only - Using people3 */}
-        <div className="block sm:hidden absolute top-12 left-0 right-0 bottom-0">
+        {/* Main Dashboard Image - Background Layer - Now smaller and starts below header */}
+        <div className="absolute top-[120px] left-0 right-0 bottom-[80px]">
           <Image
-            src={images.hero.people3}
-            alt="KP Pay User"
+            src={images.hero.main}
+            alt="KP Pay Platform Dashboard"
             fill
-            className="object-cover object-top"
+            className="object-contain object-center"
             priority
           />
         </div>
 
-        {/* Gradient Overlay - Creates the visual blend */}
+        {/* Gradient Overlay - Blends with main image */}
         <div className="absolute inset-0 z-[1]">
           <Image
             src={images.hero.gradient}
             alt=""
             fill
-            className="object-cover opacity-70 mix-blend-multiply"
+            className="object-cover opacity-90 mix-blend-multiply"
             priority
           />
         </div>
 
-        {/* Dark overlay with gradient - Ensures text readability */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-transparent via-black/30 to-black/70"></div>
+        {/* Additional gradient for depth */}
+        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-black/30 via-transparent to-black/20"></div>
 
-        {/* Content Layer - Better positioning for all viewports */}
-        <div className="relative z-10 container-padding h-full flex flex-col items-center justify-end pb-16 sm:pb-32 md:pb-36 lg:pb-40">
-          <div className="text-center max-w-5xl mx-auto">
-            {/* Heading with text shadow for extra pop */}
-            <h1 className="hero-heading drop-shadow-lg">
+        {/* Content Layer */}
+        <div className="relative z-10 container-padding pt-24 sm:pt-0 h-full flex flex-col items-center justify-center">
+          <div className="text-center">
+            {/* Heading */}
+            <h1 className="hero-heading">
               THE SAFEST AND MOST RELIABLE
               <br />
               MONEY TRANSACTION PLATFORM
             </h1>
 
-            {/* Description with text shadow */}
-            <p className="hero-description drop-shadow-md">
+            {/* Description */}
+            <p className="hero-description">
               Send money globally, receive payments, deposit and request funds,
               invest
               <br className="hidden sm:block" />
