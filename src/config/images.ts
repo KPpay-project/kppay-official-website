@@ -24,7 +24,7 @@ export const images = {
 
   // homepage section images
   homepage: {
-    map: `${CDN_BASE_URL}/image/upload/v1761649870/MapChart_Map_w1loa7.png`,
+    map: `${CDN_BASE_URL}/image/upload/v1763030206/map_rv3vqs.webp`,
     setup1: `${CDN_BASE_URL}/image/upload/v1761391731/image1_ohjudc.png`,
     setup2: `${CDN_BASE_URL}/image/upload/v1761391731/image2_dgiwhx.png`,
     setup3: `${CDN_BASE_URL}/image/upload/v1761391730/image3_mpgqkb.png`,
