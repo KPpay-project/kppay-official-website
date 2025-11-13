@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { images, Button } from '@/types';
+import { Button, images } from '@/types';
 
 export default function HeroSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(-1); // -1 means show center content
   const [isDesktop, setIsDesktop] = useState(false);
 
   const setupImages = [
@@ -16,7 +16,7 @@ export default function HeroSection() {
     images.homepage.setup2,
   ];
 
-  // Check if desktop (1024px and above - excludes tablets)
+  // Check if desktop
   useEffect(() => {
     const checkDesktop = () => {
       setIsDesktop(window.innerWidth >= 1024);
@@ -26,34 +26,78 @@ export default function HeroSection() {
     return () => window.removeEventListener('resize', checkDesktop);
   }, []);
 
-  // Auto-slide carousel - smoother timing
+  // Slideshow loop logic (only on desktop)
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % setupImages.length);
-    }, 4000);
+    if (!isDesktop) return;
 
-    return () => clearInterval(timer);
-  }, [setupImages.length]);
+    const timer = setTimeout(
+      () => {
+        if (currentImageIndex === -1) {
+          // Start slideshow after initial center display with vector lines
+          setCurrentImageIndex(0);
+        } else if (currentImageIndex < setupImages.length - 1) {
+          // Move to next image
+          setCurrentImageIndex((prev) => prev + 1);
+        } else {
+          // After last image, return to center, then restart
+          setCurrentImageIndex(-1);
+        }
+      },
+      currentImageIndex === -1 ? 15000 : 8000
+    ); // Center with vectors: 15s, each image: 8s
 
-  // Get the 3 visible images (left, center, right)
-  const getVisibleImages = () => {
-    const prevIndex =
-      (currentIndex - 1 + setupImages.length) % setupImages.length;
-    const nextIndex = (currentIndex + 1) % setupImages.length;
+    return () => clearTimeout(timer);
+  }, [currentImageIndex, isDesktop, setupImages.length]);
+
+  const showSlideshow = currentImageIndex >= 0 && isDesktop;
+
+  const getImageVariants = (index: number) => {
+    const directions = [
+      // Image 0 (setup1) - from bottom
+      {
+        enter: { y: '50%', opacity: 0, scale: 0.8 } as const,
+        center: { y: 0, opacity: 1, scale: 1 } as const,
+        exit: { y: '-20%', opacity: 0, scale: 0.9 } as const,
+      },
+      // Image 1 (setup3) - from right
+      {
+        enter: { x: '80%', opacity: 0, scale: 0.85 } as const,
+        center: { x: 0, opacity: 1, scale: 1 } as const,
+        exit: { x: '-30%', opacity: 0, scale: 0.9 } as const,
+      },
+      // Image 2 (setup2) - pop from center
+      {
+        enter: { scale: 0.5, opacity: 0 } as const,
+        center: { scale: 1, opacity: 1 } as const,
+        exit: { scale: 0.7, opacity: 0 } as const,
+      },
+    ];
+
+    const direction = directions[index];
 
     return {
-      left: setupImages[prevIndex],
-      center: setupImages[currentIndex],
-      right: setupImages[nextIndex],
+      enter: direction.enter,
+      center: {
+        ...direction.center,
+        transition: {
+          duration: 1.2,
+          ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+        },
+      },
+      exit: {
+        ...direction.exit,
+        transition: {
+          duration: 1,
+          ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+        },
+      },
     };
   };
 
-  const visibleImages = getVisibleImages();
-
   return (
-    <section className="relative -mt-24 overflow-visible">
+    <section className="relative -mt-24 overflow-hidden">
       {/* Hero Container */}
-      <div className="relative h-[680px] sm:h-[700px] md:h-[750px] lg:h-[800px] overflow-visible">
+      <div className="relative h-[680px] sm:h-[700px] md:h-[750px] lg:h-[800px]">
         {/* Dark overlay for better text contrast */}
         <div className="absolute inset-0 bg-black/40 z-[0]"></div>
 
@@ -97,12 +141,16 @@ export default function HeroSection() {
           transition={{ duration: 0.3 }}
         ></motion.div>
 
-        {/* Animated Tech Vector Lines - Left side */}
+        {/* Animated Tech Vector Lines - Moves between left and right on desktop, always left on mobile */}
         <motion.div
-          className="absolute left-0 top-0 w-full lg:w-1/2 h-full z-[3] overflow-hidden"
+          className="absolute top-0 w-full lg:w-1/2 h-full z-[3] overflow-hidden"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          animate={{
+            left: showSlideshow ? 'auto' : 0,
+            right: showSlideshow ? 0 : 'auto',
+            opacity: 1,
+          }}
+          transition={{ duration: 0.4, opacity: { duration: 0.5 } }}
         >
           <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 800">
             <defs>
@@ -232,195 +280,111 @@ export default function HeroSection() {
           </svg>
         </motion.div>
 
-        {/* Content Layer - Pushed down more on mobile */}
-        <div className="relative z-[4] container-padding pt-40 sm:pt-36 md:pt-40 lg:pt-44 h-full flex flex-col items-center">
-          <div className="text-center">
-            <h1 className="hero-heading">
-              THE SAFEST AND MOST RELIABLE
-              <br />
-              MONEY TRANSACTION PLATFORM
-            </h1>
-
-            <p className="hero-description mt-4 md:mt-6">
-              Send money globally, receive payments, deposit and request funds,
-              invest
-              <br className="hidden sm:block" />
-              and exchange across multiple currencies with low fees, speed and
-              safety.
-            </p>
-
-            <div className="flex flex-row items-center justify-center gap-4 mt-6 md:mt-8">
-              <Button variant="primary" size="md" className="md:size-lg">
-                Get started for free
-                <ArrowRight className="w-5 h-5" />
-              </Button>
-              <Button variant="outlined-white" size="md" className="md:size-lg">
-                Learn more
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Carousel - Desktop Only (3 Images) */}
-        {isDesktop && (
-          <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-full max-w-[85%] lg:max-w-[1000px] xl:max-w-[1200px] z-[50] px-6">
-            <div className="relative w-full flex items-center justify-center gap-3 mt-8">
-              {/* Left Image */}
+        {/* Slideshow Images (Desktop Only) */}
+        {showSlideshow && (
+          <div className="absolute right-[8%] top-1/2 -translate-y-1/2 w-[35%] h-[65%] z-[4]">
+            <AnimatePresence mode="wait">
               <motion.div
-                key={`left-${currentIndex}`}
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative w-[30%] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
+                key={currentImageIndex}
+                initial={getImageVariants(currentImageIndex).enter}
+                animate={getImageVariants(currentImageIndex).center}
+                exit={getImageVariants(currentImageIndex).exit}
+                className="absolute inset-0"
               >
-                <Image
-                  src={visibleImages.left}
-                  alt="Setup preview"
-                  fill
-                  className="object-cover"
-                />
-              </motion.div>
-
-              {/* Center Image - Largest */}
-              <motion.div
-                key={`center-${currentIndex}`}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative w-[42%] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
-              >
-                <Image
-                  src={visibleImages.center}
-                  alt="Setup featured"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </motion.div>
-
-              {/* Right Image */}
-              <motion.div
-                key={`right-${currentIndex}`}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 50 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="relative w-[30%] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
-              >
-                <Image
-                  src={visibleImages.right}
-                  alt="Setup preview"
-                  fill
-                  className="object-cover"
-                />
-              </motion.div>
-            </div>
-
-            {/* Carousel Indicators */}
-            <div className="flex items-center justify-center gap-2 mt-6">
-              {setupImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex
-                      ? 'w-8 bg-white'
-                      : 'w-2 bg-white/40 hover:bg-white/60'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Bottom Carousel - Mobile & Tablet (1 Image with side previews) */}
-        {!isDesktop && (
-          <div className="absolute -bottom-24 left-0 right-0 z-[50] px-6">
-            <div className="relative w-full max-w-md mx-auto mt-8">
-              {/* Container for all images */}
-              <div className="relative h-[300px] sm:h-[350px]">
-                {/* Left preview image - 80% height with blur edge */}
+                {/* Puffy glow behind */}
                 <motion.div
-                  key={`left-hint-${currentIndex}`}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -30 }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 w-[35%] rounded-xl overflow-hidden shadow-lg z-[1]"
-                  style={{ height: '70%' }}
-                >
-                  <Image
-                    src={visibleImages.left}
-                    alt="Previous"
-                    fill
-                    className="object-cover"
-                  />
-                  {/* Subtle glow edge */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-purple-500/20 backdrop-blur-[1px]"></div>
-                  <div className="absolute inset-0 shadow-[inset_0_0_20px_rgba(168,85,247,0.3)]"></div>
-                </motion.div>
+                  className="absolute inset-0 bg-gradient-to-br from-purple-500/50 to-pink-500/50 blur-[70px] scale-110"
+                  animate={{
+                    opacity: [0.3, 0.6, 0.3],
+                    scale: [1.1, 1.15, 1.1],
+                  }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                />
 
-                {/* Center main image - 100% height */}
-                <motion.div
-                  key={`center-mobile-${currentIndex}`}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[85%] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl z-[2]"
-                >
+                <div className="relative w-full h-full">
                   <Image
-                    src={visibleImages.center}
-                    alt="Setup featured"
+                    src={setupImages[currentImageIndex]}
+                    alt={`Setup ${currentImageIndex + 1}`}
                     fill
-                    className="object-cover"
+                    className="object-contain drop-shadow-2xl"
                     priority
                   />
-                </motion.div>
-
-                {/* Right preview image - 80% height with blur edge */}
-                <motion.div
-                  key={`right-hint-${currentIndex}`}
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 30 }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 w-[35%] rounded-xl overflow-hidden shadow-lg z-[1]"
-                  style={{ height: '70%' }}
-                >
-                  <Image
-                    src={visibleImages.right}
-                    alt="Next"
-                    fill
-                    className="object-cover"
-                  />
-                  {/* Subtle glow edge */}
-                  <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-pink-500/20 backdrop-blur-[1px]"></div>
-                  <div className="absolute inset-0 shadow-[inset_0_0_20px_rgba(236,72,153,0.3)]"></div>
-                </motion.div>
-              </div>
-
-              {/* Carousel Indicators */}
-              <div className="flex items-center justify-center gap-2 mt-6">
-                {setupImages.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      index === currentIndex
-                        ? 'w-8 bg-white'
-                        : 'w-2 bg-white/40 hover:bg-white/60'
-                    }`}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         )}
+
+        {/* Content Layer */}
+        <AnimatePresence mode="wait">
+          {showSlideshow ? (
+            <motion.div
+              key="left"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -30 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="relative z-10 container-padding pt-24 sm:pt-0 h-full flex flex-col items-start justify-center lg:pl-16"
+            >
+              <div className="text-left max-w-xl lg:max-w-2xl">
+                <h1 className="hero-heading whitespace-normal">
+                  THE SAFEST AND MOST RELIABLE MONEY TRANSACTION PLATFORM
+                </h1>
+
+                <p className="hero-description">
+                  Send money globally, receive payments, deposit and request
+                  funds, invest and exchange across multiple currencies with low
+                  fees, speed and safety.
+                </p>
+
+                <div className="flex flex-col sm:flex-row items-start gap-4">
+                  <Button variant="primary" size="lg">
+                    Get started for free
+                    <ArrowRight className="w-5 h-5" />
+                  </Button>
+                  <Button variant="outlined-white" size="lg">
+                    Learn more
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="relative z-10 container-padding pt-24 sm:pt-0 h-full flex flex-col items-center justify-center"
+            >
+              <div className="text-center">
+                <h1 className="hero-heading">
+                  THE SAFEST AND MOST RELIABLE
+                  <br />
+                  MONEY TRANSACTION PLATFORM
+                </h1>
+
+                <p className="hero-description">
+                  Send money globally, receive payments, deposit and request
+                  funds, invest
+                  <br className="hidden sm:block" />
+                  and exchange across multiple currencies with low fees, speed
+                  and safety.
+                </p>
+
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <Button variant="primary" size="lg">
+                    Get started for free
+                    <ArrowRight className="w-5 h-5" />
+                  </Button>
+                  <Button variant="outlined-white" size="lg">
+                    Learn more
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
