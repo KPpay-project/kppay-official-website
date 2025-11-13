@@ -12,7 +12,6 @@ const PartnersSection: React.FC = () => {
     { name: 'BSIC', logo: images.partners.bsic },
     { name: 'MTN', logo: images.partners.mtn },
     { name: 'Vodacom', logo: images.partners.vodacom },
-    { name: 'BNI', logo: images.partners.bni },
     { name: 'CIC', logo: images.partners.cic },
     { name: 'Bank of Africa', logo: images.partners.bankOfAfrica },
     { name: 'Orange', logo: images.partners.orange },

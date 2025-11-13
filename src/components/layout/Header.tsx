@@ -189,7 +189,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
 
       {isScrolled && (
         <div
-          className="fixed top-0 left-0 right-0 pointer-events-none z-40 transition-all duration-300"
+          className="fixed top-0 left-0 right-0 pointer-events-none z-60 transition-all duration-300"
           style={{
             height: isScrolled ? '72px' : '88px',
             backdropFilter: 'blur(70px)',
@@ -202,7 +202,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
       )}
 
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-70 transition-all duration-300 ${
           isScrolled ? 'py-2' : 'py-4'
         }`}
       >
@@ -329,16 +329,18 @@ export default function Header({ variant = 'light' }: HeaderProps) {
                 <Button
                   variant={useWhiteText ? 'outlined-white' : 'outlined'}
                   size="sm"
-                  href="/login"
+                  href="https://dev.d32yml5hzs7qtc.amplifyapp.com/onboarding/login?user=user"
                   className="md:text-xs md:px-2.5 md:py-1.5 lg:text-sm lg:px-4 lg:py-2"
+                  target="_self"
                 >
                   Log in
                 </Button>
                 <Button
                   variant="primary"
                   size="sm"
-                  href="/signup"
+                  href="https://dev.d32yml5hzs7qtc.amplifyapp.com/onboarding/create-account"
                   className="md:text-xs md:px-2.5 md:py-1.5 lg:text-sm lg:py-2"
+                  target="_self"
                 >
                   Sign up
                 </Button>
@@ -372,7 +374,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
       {megaMenuOpen && !mobileMenuOpen && (
         <>
           <div
-            className={`fixed inset-0 z-40 bg-text-main-dark/20 transition-opacity duration-150 ${
+            className={`fixed inset-0 z-60 bg-text-main-dark/20 transition-opacity duration-150 ${
               isClosing ? 'opacity-0' : 'opacity-100 animate-fade-in'
             }`}
             onClick={() => {
@@ -384,7 +386,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
             }}
           />
           <div
-            className={`hidden md:block fixed left-1/2 -translate-x-1/2 w-full max-w-7xl rounded-lg border border-border-secondary bg-surface-primary shadow-xl z-50 transition-all duration-300 ${
+            className={`hidden md:block fixed left-1/2 -translate-x-1/2 w-full max-w-7xl rounded-lg border border-border-secondary bg-surface-primary shadow-xl z-70 transition-all duration-300 ${
               isScrolled ? 'top-[69px]' : 'top-[78px]'
             } ${
               isClosing
@@ -718,10 +720,22 @@ export default function Header({ variant = 'light' }: HeaderProps) {
               </Link>
             </div>
             <div className="mt-auto flex flex-col gap-4 px-6">
-              <Button variant="outlined" size="md" href="/login" fullWidth>
+              <Button
+                variant="outlined"
+                size="md"
+                href="https://dev.d32yml5hzs7qtc.amplifyapp.com/onboarding/login?user=user"
+                fullWidth
+                target="_self"
+              >
                 Log in
               </Button>
-              <Button variant="primary" size="md" href="/signup" fullWidth>
+              <Button
+                variant="primary"
+                size="md"
+                href="https://dev.d32yml5hzs7qtc.amplifyapp.com/onboarding/create-account"
+                fullWidth
+                target="_self"
+              >
                 Sign up
               </Button>
             </div>

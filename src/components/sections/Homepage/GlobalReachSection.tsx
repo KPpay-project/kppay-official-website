@@ -19,7 +19,7 @@ export default function GlobalReachSection() {
   ];
 
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 bg-surface-primary overflow-hidden">
+    <section className="relative pt-40 lg:pt-40 py-16 md:py-20 lg:py-24 bg-surface-primary overflow-hidden">
       <div className="container-padding">
         {/* Heading */}
         <div className="text-center mb-12 md:mb-16">

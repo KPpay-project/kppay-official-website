@@ -74,7 +74,7 @@ export default function Footer() {
           <div className="lg:col-span-3 text-center lg:text-left">
             {/* Logo */}
             <Link href="/" className="inline-block mb-6">
-              <div className="relative w-[120px] h-[35px] mx-auto lg:mx-0">
+              <div className="bg-white/60 rounded-sm p-4 relative w-[120px] h-[35px] mx-auto lg:mx-0">
                 <Image
                   src={images.logos.primary}
                   alt="KP Pay Logo"

@@ -7,7 +7,7 @@ const CDN_BASE_URL =
 export const images = {
   // Logos
   logos: {
-    primary: `${CDN_BASE_URL}/image/upload/v1761604811/kppaylogomain_raaxqp.png`,
+    primary: `${CDN_BASE_URL}/image/upload/v1763045346/Logo_principal_lob563.png`,
     white: `${CDN_BASE_URL}/image/upload/v1761604811/kppaylogomaintransparent_vzwak0.png`,
     icon: `${CDN_BASE_URL}/logos/logo-icon.svg`,
   },
@@ -25,9 +25,9 @@ export const images = {
   // homepage section images
   homepage: {
     map: `${CDN_BASE_URL}/image/upload/v1763030206/map_rv3vqs.webp`,
-    setup1: `${CDN_BASE_URL}/image/upload/v1761391731/image1_ohjudc.png`,
-    setup2: `${CDN_BASE_URL}/image/upload/v1761391731/image2_dgiwhx.png`,
-    setup3: `${CDN_BASE_URL}/image/upload/v1761391730/image3_mpgqkb.png`,
+    setup1: `${CDN_BASE_URL}/image/upload/v1763030421/herobottomimage3_nt7kc1.webp`,
+    setup2: `${CDN_BASE_URL}/image/upload/v1763030421/herobottomimage1_zarrgq.webp`,
+    setup3: `${CDN_BASE_URL}/image/upload/v1763030420/herobottomimage2_irunh7.webp`,
   },
 
   // about section images
@@ -62,7 +62,7 @@ export const images = {
     bsic: `${CDN_BASE_URL}/image/upload/v1761540389/biic_r4bsly.webp`,
     mtn: `${CDN_BASE_URL}/image/upload/v1761540379/mtn_vvickz.webp`,
     vodacom: `${CDN_BASE_URL}/image/upload/v1761540385/vodacom_kowncv.webp`,
-    bni: `${CDN_BASE_URL}/image/upload/v1761540378/bni_ueitnn.webp`,
+    // bni: `${CDN_BASE_URL}/image/upload/v1761540378/bni_ueitnn.webp`,
     cic: `${CDN_BASE_URL}/image/upload/v1761540378/cic_bws1l9.webp`,
     bankOfAfrica: `${CDN_BASE_URL}/image/upload/v1761540386/bankofafrica_qlkus9.webp`,
     orange: `${CDN_BASE_URL}/image/upload/v1761540382/orange_ogh3mo.webp`,
