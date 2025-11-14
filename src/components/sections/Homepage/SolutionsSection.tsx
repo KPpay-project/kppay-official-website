@@ -14,12 +14,12 @@ import {
   Store,
   Heart,
   GraduationCap,
-  Plug2,
-  Database,
   Code,
   Headphones,
   BookOpen,
-  LifeBuoy,
+  Plug2,
+  Database,
+  Users,
   Maximize2,
   Minimize2,
 } from 'lucide-react';
@@ -59,7 +59,7 @@ const SolutionsSection: React.FC = () => {
   const tabs = [
     { id: 'services' as const, label: 'Our Services' },
     { id: 'industries' as const, label: 'Industries' },
-    { id: 'integration' as const, label: 'Solutions' },
+    { id: 'integration' as const, label: 'Integration' },
     { id: 'support' as const, label: 'Resources' },
   ];
 
@@ -114,9 +114,156 @@ const SolutionsSection: React.FC = () => {
         link: '/services/instant-setup',
       },
     ],
-    industries: [],
-    integration: [],
-    support: [],
+    industries: [
+      {
+        title: 'Retail & Commerce',
+        description:
+          'Transform your retail operations with KPpay. Accept payments in-store and online, manage inventory, track sales analytics, and provide customers with flexible payment options including installments and digital wallets.',
+        image: images.solutions.retail,
+        icon: <Store className="w-6 h-6" />,
+        link: '/industries/retail',
+      },
+      {
+        title: 'Hospitality & Travel',
+        description:
+          'Elevate guest experiences with seamless payment solutions for hotels, restaurants, and travel services. Process bookings, manage reservations, and accept international payments with multi-currency support.',
+        image: images.solutions.hospitality,
+        icon: <Building2 className="w-6 h-6" />,
+        link: '/industries/hospitality',
+      },
+      {
+        title: 'Healthcare & Wellness',
+        description:
+          'Streamline healthcare payments with HIPAA-compliant solutions. Enable patients to pay bills online, schedule appointments, manage insurance claims, and access flexible payment plans for medical services.',
+        image: images.solutions.healthcare,
+        icon: <Heart className="w-6 h-6" />,
+        link: '/industries/healthcare',
+      },
+      {
+        title: 'Education',
+        description:
+          'Simplify fee collection for schools, universities, and online learning platforms. Accept tuition payments, process scholarship distributions, and provide parents with convenient payment options and transparent billing.',
+        image: images.solutions.education,
+        icon: <GraduationCap className="w-6 h-6" />,
+        link: '/industries/education',
+      },
+      {
+        title: 'Professional Services',
+        description:
+          'Power your consulting, legal, or agency business with professional payment solutions. Send invoices, accept retainers, set up recurring billing, and manage client payments efficiently.',
+        image: images.solutions.professional,
+        icon: <Users className="w-6 h-6" />,
+        link: '/industries/professional',
+      },
+      {
+        title: 'Utilities & Telecom',
+        description:
+          'Enable customers to pay utility bills, mobile recharges, and subscription services effortlessly. Automate billing cycles, send payment reminders, and reduce collection times with our reliable infrastructure.',
+        image: images.solutions.utilities,
+        icon: <Plug2 className="w-6 h-6" />,
+        link: '/industries/utilities',
+      },
+    ],
+    integration: [
+      {
+        title: 'Payment APIs',
+        description:
+          'Integrate KPpay into your applications with our robust REST APIs. Access comprehensive documentation, code samples, and SDKs for multiple programming languages. Build custom payment flows that match your business needs.',
+        image: images.solutions.api,
+        icon: <Code className="w-6 h-6" />,
+        link: '/integration/api',
+      },
+      {
+        title: 'E-Commerce Plugins',
+        description:
+          'Ready-made plugins for popular e-commerce platforms including WooCommerce, Shopify, Magento, and PrestaShop. Install in minutes and start accepting payments with zero coding required.',
+        image: images.solutions.plugins,
+        icon: <Plug2 className="w-6 h-6" />,
+        link: '/integration/plugins',
+      },
+      {
+        title: 'Custom Integration',
+        description:
+          'Need something unique? Our technical team works with you to build custom integrations tailored to your specific requirements. From legacy systems to modern platforms, we make it work seamlessly.',
+        image: images.solutions.customization,
+        icon: <Database className="w-6 h-6" />,
+        link: '/integration/custom',
+      },
+      {
+        title: 'Mobile SDKs',
+        description:
+          'Native SDKs for iOS and Android allow you to embed payment functionality directly into your mobile apps. Provide users with smooth, in-app payment experiences with just a few lines of code.',
+        image: images.solutions.mobileSdk,
+        icon: <Smartphone className="w-6 h-6" />,
+        link: '/integration/mobile-sdk',
+      },
+      {
+        title: 'Webhooks & Notifications',
+        description:
+          'Stay informed with real-time webhooks for payment events. Automate workflows, sync data with your systems, and provide instant confirmations to your customers with reliable event notifications.',
+        image: images.solutions.webhooks,
+        icon: <Zap className="w-6 h-6" />,
+        link: '/integration/webhooks',
+      },
+      {
+        title: 'Testing Sandbox',
+        description:
+          'Test your integration thoroughly in our sandbox environment before going live. Access test credentials, simulate transactions, and ensure everything works perfectly without risking real money.',
+        image: images.solutions.sandbox,
+        icon: <Shield className="w-6 h-6" />,
+        link: '/integration/sandbox',
+      },
+    ],
+    support: [
+      {
+        title: '24/7 Customer Support',
+        description:
+          'Our dedicated support team is available round the clock to assist you. Reach us via phone, email, or live chat. Get quick responses to your questions and expert guidance whenever you need it.',
+        image: images.solutions.support247,
+        icon: <Headphones className="w-6 h-6" />,
+        link: '/support/contact',
+      },
+      {
+        title: 'Developer Documentation',
+        description:
+          'Comprehensive technical documentation with detailed guides, API references, code examples, and best practices. Everything you need to integrate and optimize KPpay for your business.',
+        image: images.solutions.documentation,
+        icon: <BookOpen className="w-6 h-6" />,
+        link: '/support/docs',
+      },
+      {
+        title: 'Training & Onboarding',
+        description:
+          'Get your team up to speed quickly with personalized training sessions. We offer webinars, video tutorials, and hands-on workshops to ensure you maximize the value of our platform.',
+        image: images.solutions.training,
+        icon: <GraduationCap className="w-6 h-6" />,
+        link: '/support/training',
+      },
+      {
+        title: 'Community Forum',
+        description:
+          'Join our vibrant community of merchants and developers. Share experiences, get answers from peers, discover integration tips, and stay updated with the latest features and best practices.',
+        image: images.solutions.community,
+        icon: <Users className="w-6 h-6" />,
+        link: '/support/community',
+      },
+      {
+        title: 'Security & Compliance',
+        description:
+          'Learn about our security measures, compliance certifications, and data protection policies. Access resources on PCI DSS compliance, fraud prevention, and keeping your transactions secure.',
+        image: images.solutions.security,
+        icon: <Shield className="w-6 h-6" />,
+        link: '/support/security',
+      },
+      {
+        title: 'Business Resources',
+        description:
+          'Download guides, whitepapers, and case studies to help grow your business. Access industry insights, payment trends, and strategies to optimize your payment operations and increase conversions.',
+        image: images.solutions.resources,
+        icon: <FileText className="w-6 h-6" />,
+        link: '/support/resources',
+      },
+    ],
   };
 
   const activeContent = contentData[activeTab];
@@ -271,7 +418,7 @@ const SolutionsSection: React.FC = () => {
           }`}
           style={{
             border: '1px solid rgba(59, 130, 246, 0.1)',
-            height: '320px',
+            height: '430px',
           }}
         >
           <div
@@ -282,7 +429,7 @@ const SolutionsSection: React.FC = () => {
             {/* Image Section */}
             <div
               className={`relative overflow-hidden transition-all duration-700 ease-out ${
-                isExpanded ? 'w-1/2' : 'w-full h-40'
+                isExpanded ? 'w-1/2' : 'w-full h-56'
               }`}
             >
               <img
@@ -310,8 +457,8 @@ const SolutionsSection: React.FC = () => {
 
             {/* Content Section */}
             <div
-              className={`p-5 flex flex-col justify-center transition-all duration-700 ease-out bg-white relative ${
-                isExpanded ? 'w-1/2' : 'w-full'
+              className={`p-6 flex flex-col justify-center transition-all duration-700 ease-out bg-white relative ${
+                isExpanded ? 'w-1/2' : 'w-full flex-1'
               }`}
             >
               {/* Minimize Button - Only show when expanded */}
@@ -329,8 +476,8 @@ const SolutionsSection: React.FC = () => {
               )}
 
               <h3
-                className={`font-bold text-gray-900 mb-2 transition-all duration-700 ${
-                  isExpanded ? 'text-xl' : 'text-lg group-hover:text-blue-600'
+                className={`font-bold text-gray-900 mb-3 transition-all duration-700 ${
+                  isExpanded ? 'text-2xl' : 'text-xl group-hover:text-blue-600'
                 }`}
               >
                 {card.title}
@@ -338,15 +485,15 @@ const SolutionsSection: React.FC = () => {
               <p
                 className={`text-gray-600 leading-relaxed transition-all duration-700 ${
                   isExpanded
-                    ? 'line-clamp-none text-sm'
-                    : 'line-clamp-3 text-xs'
+                    ? 'line-clamp-none text-base'
+                    : 'line-clamp-4 text-sm'
                 }`}
               >
                 {card.description}
               </p>
               {card.link && (
                 <div
-                  className={`mt-4 transition-all duration-700 ${
+                  className={`mt-5 transition-all duration-700 ${
                     isExpanded
                       ? 'opacity-100 translate-y-0'
                       : 'opacity-0 translate-y-4 pointer-events-none'
@@ -367,9 +514,9 @@ const SolutionsSection: React.FC = () => {
 
   return (
     <section
-      className="relative flex items-center py-8 overflow-hidden"
+      className="relative flex items-center py-10 overflow-hidden w-full"
       style={{
-        minHeight: 'calc(100vh - 80px)',
+        minHeight: '100vh',
         background:
           'linear-gradient(180deg, #ffffff 0%, #f0f7ff 20%, #e0f0ff 40%, #f0f7ff 60%, #f8faff 80%, #ffffff 100%)',
       }}
@@ -380,103 +527,112 @@ const SolutionsSection: React.FC = () => {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-400/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        {/* Main Heading */}
-        <div className="text-center mb-8">
-          <h2 className="heading-bebas-light text-4xl sm:text-5xl text-text-main-dark">
-            KPPAY SOLUTIONS
-          </h2>
-        </div>
-
-        {/* Tab Navigation */}
-        <div className="flex flex-wrap justify-center gap-6 mb-10">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => {
-                setActiveTab(tab.id);
-                setExpandedCard(null);
-              }}
-              className={`relative px-2 pb-2 font-semibold text-base transition-all duration-500 group ${
-                activeTab === tab.id
-                  ? 'text-blue-600'
-                  : 'text-gray-600 hover:text-blue-500'
-              }`}
-            >
-              <span className="relative z-10">{tab.label}</span>
-              <div
-                className={`absolute bottom-0 left-0 right-0 h-1 rounded-full transition-all duration-500 ${
-                  activeTab === tab.id
-                    ? 'opacity-100'
-                    : 'opacity-0 group-hover:opacity-60'
-                }`}
-                style={{
-                  background:
-                    'linear-gradient(90deg, #60a5fa 0%, #3b82f6 25%, #2563eb 50%, #3b82f6 75%, #60a5fa 100%)',
-                  boxShadow:
-                    activeTab === tab.id
-                      ? '0 4px 12px rgba(59, 130, 246, 0.4)'
-                      : 'none',
-                }}
-              />
-            </button>
-          ))}
-        </div>
-
-        {/* Content Area */}
-        <div className="relative px-16">
-          {/* Navigation Arrows */}
-          <button
-            onClick={() => scroll('left')}
-            aria-label="Scroll left"
-            disabled={scrollPosition.atStart}
-            className={`hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl items-center justify-center transition-all duration-300 ${
-              scrollPosition.atStart
-                ? 'opacity-0 pointer-events-none scale-90'
-                : 'opacity-100 hover:scale-110 hover:bg-blue-50 z-[60]'
-            }`}
-            style={{ border: '2px solid rgba(59, 130, 246, 0.1)' }}
-          >
-            <ChevronLeft className="w-6 h-6 text-gray-700" />
-          </button>
-
-          <button
-            onClick={() => scroll('right')}
-            aria-label="Scroll right"
-            disabled={scrollPosition.atEnd}
-            className={`hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl items-center justify-center transition-all duration-300 ${
-              scrollPosition.atEnd
-                ? 'opacity-0 pointer-events-none scale-90'
-                : 'opacity-100 hover:scale-110 hover:bg-blue-50 z-[60]'
-            }`}
-            style={{ border: '2px solid rgba(59, 130, 246, 0.1)' }}
-          >
-            <ChevronRight className="w-6 h-6 text-gray-700" />
-          </button>
-
-          {/* Scrollable Container */}
-          <div
-            ref={scrollContainerRef}
-            onScroll={checkScroll}
-            className="overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            <div className="grid grid-flow-col auto-cols-[100%] sm:auto-cols-[80%] md:auto-cols-[48%] lg:auto-cols-[32%] gap-5">
-              {activeContent.map((card, index) => (
-                <div key={`${activeTab}-${index}`} className="snap-start">
-                  <CardContent card={card} index={index} />
-                </div>
-              ))}
-            </div>
+      <div className="relative w-full px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto w-full">
+          {/* Main Heading */}
+          <div className="text-center mb-2">
+            <h2 className="heading-bebas-light text-3xl sm:text-4xl lg:text-5xl text-text-main-dark">
+              KPPAY SOLUTIONS
+            </h2>
           </div>
 
-          {/* Scroll Progress Bar */}
-          <div className="flex justify-center mt-8">
-            <div className="w-64 h-1 bg-gray-200 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-gradient-to-r from-blue-400 via-blue-600 to-indigo-500 rounded-full transition-all duration-300"
-                style={{ width: `${scrollPosition.scrollPercentage}%` }}
-              />
+          {/* Tab Navigation */}
+          <div className="flex justify-center gap-3 sm:gap-6 mb-8 overflow-x-auto scrollbar-hide pb-2">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => {
+                  setActiveTab(tab.id);
+                  setExpandedCard(null);
+                }}
+                className={`relative px-2 pb-2 font-semibold text-sm sm:text-base whitespace-nowrap transition-all duration-500 group ${
+                  activeTab === tab.id
+                    ? 'text-blue-600'
+                    : 'text-gray-600 hover:text-blue-500'
+                }`}
+              >
+                <span className="relative z-10">{tab.label}</span>
+                <div
+                  className={`absolute bottom-0 left-0 right-0 h-1 rounded-full transition-all duration-500 ${
+                    activeTab === tab.id
+                      ? 'opacity-100'
+                      : 'opacity-0 group-hover:opacity-60'
+                  }`}
+                  style={{
+                    background:
+                      'linear-gradient(90deg, #60a5fa 0%, #3b82f6 25%, #2563eb 50%, #3b82f6 75%, #60a5fa 100%)',
+                    boxShadow:
+                      activeTab === tab.id
+                        ? '0 4px 12px rgba(59, 130, 246, 0.4)'
+                        : 'none',
+                  }}
+                />
+              </button>
+            ))}
+          </div>
+
+          {/* Content Area */}
+          <div className="relative px-0 md:px-16">
+            {/* Navigation Arrows */}
+            <button
+              onClick={() => scroll('left')}
+              aria-label="Scroll left"
+              disabled={scrollPosition.atStart}
+              className={`hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl items-center justify-center transition-all duration-300 ${
+                scrollPosition.atStart
+                  ? 'opacity-0 pointer-events-none scale-90'
+                  : 'opacity-100 hover:scale-110 hover:bg-blue-50 z-[60]'
+              }`}
+              style={{ border: '2px solid rgba(59, 130, 246, 0.1)' }}
+            >
+              <ChevronLeft className="w-6 h-6 text-gray-700" />
+            </button>
+
+            <button
+              onClick={() => scroll('right')}
+              aria-label="Scroll right"
+              disabled={scrollPosition.atEnd}
+              className={`hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl items-center justify-center transition-all duration-300 ${
+                scrollPosition.atEnd
+                  ? 'opacity-0 pointer-events-none scale-90'
+                  : 'opacity-100 hover:scale-110 hover:bg-blue-50 z-[60]'
+              }`}
+              style={{ border: '2px solid rgba(59, 130, 246, 0.1)' }}
+            >
+              <ChevronRight className="w-6 h-6 text-gray-700" />
+            </button>
+
+            {/* Scrollable Container */}
+            <div
+              ref={scrollContainerRef}
+              onScroll={checkScroll}
+              className="overflow-x-auto scrollbar-hide scroll-smooth snap-x snap-mandatory"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              <div className="flex gap-5 pb-2">
+                {activeContent.map((card, index) => (
+                  <div
+                    key={`${activeTab}-${index}`}
+                    className="snap-start flex-shrink-0"
+                    style={{
+                      width: 'calc(100vw - 2rem)',
+                      maxWidth: '500px',
+                    }}
+                  >
+                    <CardContent card={card} index={index} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Scroll Progress Bar */}
+            <div className="flex justify-center mt-8">
+              <div className="w-64 h-1 bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-blue-400 via-blue-600 to-indigo-500 rounded-full transition-all duration-300"
+                  style={{ width: `${scrollPosition.scrollPercentage}%` }}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -486,9 +642,9 @@ const SolutionsSection: React.FC = () => {
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }
-        .line-clamp-3 {
+        .line-clamp-4 {
           display: -webkit-box;
-          -webkit-line-clamp: 3;
+          -webkit-line-clamp: 4;
           -webkit-box-orient: vertical;
           overflow: hidden;
         }

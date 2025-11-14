@@ -54,8 +54,16 @@ export const images = {
     // Industries We Serve - Real People, Real Solutions
     retail:
       'https://images.unsplash.com/photo-1556742111-a301076d9d18?w=800&q=80', // Retail worker helping customer at checkout
-    hospitality: 'https://images.unsplash.com/photo-7abDBJ9bylA?w=800&q=80', // Hotel receptionist assisting guest with tablet
-    healthcare: 'https://images.unsplash.com/photo-iyeUwItlIPk?w=800&q=80', // Healthcare professional consulting with patient
+    hospitality:
+      'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&q=80', // Hotel receptionist with tablet
+    healthcare:
+      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80', // Healthcare professional with patient
+    education:
+      'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80', // Students in classroom with technology
+    professional:
+      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80', // Professional team meeting
+    utilities:
+      'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80', // Urban infrastructure and connectivity
 
     // Integration Solutions - Your Tech Team
     api: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&q=80', // Focused developer working on API integration
@@ -63,13 +71,26 @@ export const images = {
       'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&q=80', // Team collaborating on plugin development
     customization:
       'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80', // Professional customizing business solutions
+    mobileSdk:
+      'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80', // Mobile app development
+    webhooks:
+      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80', // Real-time data monitoring
+    sandbox:
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80', // Testing and development environment
 
     // Support & Resources - Always Here For You
-    support247: 'https://images.unsplash.com/photo-ieayo480x78?w=800&q=80', // Smiling support agent with headset ready to help
+    support247:
+      'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&q=80', // Smiling support agent with headset ready to help
     documentation:
       'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80', // Professional reviewing technical documentation
     training:
       'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80', // Instructor training team members on platform
+    community:
+      'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&q=80', // Community collaboration and networking
+    security:
+      'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80', // Security and protection concept
+    resources:
+      'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80', // Business resources and documentation
   },
 
   // about section images
