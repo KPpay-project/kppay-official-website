@@ -35,6 +35,43 @@ export const images = {
     // setup3: `${CDN_BASE_URL}/image/upload/v1763030420/herobottomimage2_irunh7.webp`,
   },
 
+  // Solutions Section Images - Human-Focused Story Collection
+  solutions: {
+    // Our Services - The Customer Journey
+    payment:
+      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80', // Young woman smiling with mobile banking app
+    wallet:
+      'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80', // Happy professional checking digital wallet balance
+    billPayment:
+      'https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=800&q=80', // Relaxed person smiling while paying bills on phone
+    ecommerce:
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80', // Diverse team collaborating on e-commerce business
+    mobileRecharge:
+      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80', // African woman confidently using mobile payment
+    instantSetup:
+      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80', // Entrepreneur celebrating successful business launch
+
+    // Industries We Serve - Real People, Real Solutions
+    retail:
+      'https://images.unsplash.com/photo-1556742111-a301076d9d18?w=800&q=80', // Retail worker helping customer at checkout
+    hospitality: 'https://images.unsplash.com/photo-7abDBJ9bylA?w=800&q=80', // Hotel receptionist assisting guest with tablet
+    healthcare: 'https://images.unsplash.com/photo-iyeUwItlIPk?w=800&q=80', // Healthcare professional consulting with patient
+
+    // Integration Solutions - Your Tech Team
+    api: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&q=80', // Focused developer working on API integration
+    plugins:
+      'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&q=80', // Team collaborating on plugin development
+    customization:
+      'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80', // Professional customizing business solutions
+
+    // Support & Resources - Always Here For You
+    support247: 'https://images.unsplash.com/photo-ieayo480x78?w=800&q=80', // Smiling support agent with headset ready to help
+    documentation:
+      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80', // Professional reviewing technical documentation
+    training:
+      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80', // Instructor training team members on platform
+  },
+
   // about section images
   about: {
     discover: `${CDN_BASE_URL}/image/upload/v1761614255/discover_vli4sy.webp`,
@@ -55,6 +92,13 @@ export const images = {
     currency: `${CDN_BASE_URL}/image/upload/v1761541049/currency_vvtarw.webp`,
     flexible: `${CDN_BASE_URL}/image/upload/v1761541049/flexible_asewnw.webp`,
     payment: `${CDN_BASE_URL}/image/upload/v1761541049/payment_pppa8v.webp`,
+  },
+
+  // payments/online-payments icons
+  onlinePaymentsIcons: {
+    instant: `${CDN_BASE_URL}/image/upload/v1763055190/instant_zb7ml5.webp`,
+    enterprise: `${CDN_BASE_URL}/image/upload/v1763055190/enterprise_fbqwmv.webp`,
+    global: `${CDN_BASE_URL}/image/upload/v1763055190/global_tylixd.webp`,
   },
 
   // Partners logos

@@ -6,6 +6,7 @@ import {
   PartnersSection,
   SecurePaymentsSection,
   ServicesSection,
+  SolutionsSection,
   TestimonialsSection,
   WhyChooseKPpay,
 } from '@/types';
@@ -95,7 +96,10 @@ export default function HomePage() {
       /> */}
 
       {/* Our Services section */}
-      <ServicesSection />
+      {/* <ServicesSection /> */}
+
+      {/* Solutions Section */}
+      <SolutionsSection />
 
       {/* Why Choose Us */}
       <WhyChooseKPpay />

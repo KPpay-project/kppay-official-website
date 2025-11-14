@@ -1,5 +1,6 @@
 import React from 'react';
-import { EnterpriseCTA } from '@/types';
+import { ReusableCTA } from '@/types';
+import { Phone, Users, ShieldCheck } from 'lucide-react';
 
 const WhyChooseEnterprise = () => {
   const stats = [
@@ -29,7 +30,7 @@ const WhyChooseEnterprise = () => {
       <div className="py-12 md:py-16 lg:py-20">
         <div className="container-padding max-w-7xl mx-auto">
           {/* Section Header */}
-          <h2 className="heading-bebas text-3xl md:text-4xl lg:text-5xl text-text-primary text-center mb-10 md:mb-12 lg:mb-16">
+          <h2 className="heading-bebas-light text-3xl md:text-4xl lg:text-5xl text-text-primary text-center mb-10 md:mb-12 lg:mb-16">
             Why Choose KP Pay Enterprise
           </h2>
 
@@ -60,7 +61,32 @@ const WhyChooseEnterprise = () => {
       </div>
 
       {/* CTA Section */}
-      <EnterpriseCTA />
+      <ReusableCTA
+        heading="Ready to scale your business?"
+        description="Let's discuss how our enterprise solutions can transform your financial operations"
+        benefits={[
+          { icon: Phone, text: 'Get a response within 24 hours' },
+          { icon: Users, text: 'Dedicated enterprise support team' },
+          { icon: ShieldCheck, text: 'SOC 2 and PCI-DSS compliant' },
+        ]}
+        buttons={[
+          {
+            text: 'Schedule a Demo',
+            href: '/contact',
+            variant: 'outlined-white',
+            size: 'md',
+            showArrow: true,
+            className: 'bg-white text-brand-primary hover:bg-white/90',
+          },
+          {
+            text: 'Request Custom Quote',
+            href: '/contact',
+            variant: 'outlined-white',
+            size: 'md',
+            showArrow: true,
+          },
+        ]}
+      />
     </section>
   );
 };

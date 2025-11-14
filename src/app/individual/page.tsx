@@ -1,9 +1,10 @@
 import {
-  EnterpriseCTA,
   IndividualPricingCards,
   IndividualPricingHero,
   ModernBankingFeatures,
+  ReusableCTA,
 } from '@/types';
+import { Phone, Users, ShieldCheck } from 'lucide-react';
 
 export const metadata = {
   title: 'Individual Pricing | KPPay - Banking Made Simple',
@@ -17,7 +18,34 @@ const IndividualPricingPage = () => {
       <IndividualPricingHero />
       <IndividualPricingCards />
       <ModernBankingFeatures />
-      <EnterpriseCTA />
+
+      {/* CTA Section */}
+      <ReusableCTA
+        heading="Ready to scale your business?"
+        description="Let's discuss how our enterprise solutions can transform your financial operations"
+        benefits={[
+          { icon: Phone, text: 'Get a response within 24 hours' },
+          { icon: Users, text: 'Dedicated enterprise support team' },
+          { icon: ShieldCheck, text: 'SOC 2 and PCI-DSS compliant' },
+        ]}
+        buttons={[
+          {
+            text: 'Schedule a Demo',
+            href: '/contact',
+            variant: 'outlined-white',
+            size: 'md',
+            showArrow: true,
+            className: 'bg-white text-brand-primary hover:bg-white/90',
+          },
+          {
+            text: 'Request Custom Quote',
+            href: '/contact',
+            variant: 'outlined-white',
+            size: 'md',
+            showArrow: true,
+          },
+        ]}
+      />
     </main>
   );
 };

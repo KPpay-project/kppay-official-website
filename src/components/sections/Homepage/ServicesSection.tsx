@@ -47,7 +47,7 @@ const ServicesSection: React.FC = () => {
       <div className="container-padding max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="heading-bebas text-3xl sm:text-4xl text-text-main-dark">
+          <h2 className="heading-bebas-light text-3xl sm:text-4xl text-text-main-dark">
             OUR SERVICES
           </h2>
         </div>

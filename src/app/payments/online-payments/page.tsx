@@ -7,6 +7,7 @@ import {
   images,
   type ServiceFeature,
   type IntegrationOption,
+  OnlinePaymentsBenefits,
 } from '@/types';
 import {
   CreditCard,
@@ -149,6 +150,9 @@ export default function OnlinePaymentsPage() {
         heading="Choose Your Integration"
         options={integrationOptions}
       />
+
+      {/* Why Choose KP Pay Online Payments */}
+      <OnlinePaymentsBenefits />
     </main>
   );
 }

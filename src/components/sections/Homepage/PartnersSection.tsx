@@ -22,7 +22,7 @@ const PartnersSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-12 sm:py-16 lg:py-20 bg-surface-secondary/50">
+    <section className="relative py-12 sm:py-16 lg:py-20 bg-surface-primary">
       {/* Container */}
       <div className="container-padding max-w-5xl mx-auto">
         {/* Header */}
@@ -37,7 +37,7 @@ const PartnersSection: React.FC = () => {
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="flex items-center justify-center p-4 bg-surface-primary rounded-lg hover:shadow-md transition-shadow duration-200 w-24 sm:w-28 lg:w-32"
+              className="flex items-center justify-center p-4 rounded-lg hover:shadow-md transition-shadow duration-200 w-24 sm:w-28 lg:w-32"
             >
               <div className="relative w-full h-8 sm:h-10">
                 <Image

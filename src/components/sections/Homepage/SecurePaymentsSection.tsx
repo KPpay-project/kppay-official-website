@@ -65,7 +65,7 @@ const SecurePaymentsSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-16 sm:py-20 lg:py-24 bg-surface-primary">
+    <section className="relative py-16 sm:py-20 lg:py-24 bg-surface-secondary/50">
       {/* Container */}
       <div className="container-padding max-w-6xl mx-auto">
         {/* Header */}

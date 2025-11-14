@@ -23,6 +23,7 @@ export { default as TestimonialsSection } from '@/components/sections/Homepage/T
 export { default as SecurePaymentsSection } from '@/components/sections/Homepage/SecurePaymentsSection';
 export { default as PartnersSection } from '@/components/sections/Homepage/PartnersSection';
 export { default as ServicesSection } from '@/components/sections/Homepage/ServicesSection';
+export { default as SolutionsSection } from '@/components/sections/Homepage/SolutionsSection';
 export { default as ScrollToTop } from '@/components/ScrollToTop';
 export { default as AnimationProvider } from '@/components/AnimationProvider';
 
@@ -51,7 +52,8 @@ export { default as IndividualPricingCards } from '@/components/sections/Individ
 export { default as ModernBankingFeatures } from '@/components/sections/Individual/ModernBankingFeatures';
 export { default as EnterprisePricingCards } from '@/components/sections/Enterprise/EnterprisePricingCards';
 
-export { default as EnterpriseCTA } from '@/components/sections/Enterprise/EnterpriseCTA';
+export { default as ReusableCTA } from '@/components/sections/shared/ReusableCTA';
+export { default as OnlinePaymentsBenefits } from '@/components/sections/shared/OnlinePaymentsBenefits';
 export { default as WhyChooseEnterprise } from '@/components/sections/Enterprise/WhyChooseEnterprise';
 export { default as BusinessBankingSuite } from '@/components/sections/Enterprise/BusinessBankingSuite';
 

@@ -744,7 +744,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
       )}
 
       {mobileSubMenuOpen && mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-surface-primary z-[60] overflow-y-auto animate-slide-left">
+        <div className="md:hidden fixed inset-0 bg-surface-primary z-[80] overflow-y-auto animate-slide-left">
           <div className="sticky top-0 bg-surface-primary border-b border-border-secondary z-10">
             <div className="flex items-center justify-between px-6 py-5">
               <button
