@@ -58,9 +58,9 @@ const SolutionsSection: React.FC = () => {
 
   const tabs = [
     { id: 'services' as const, label: 'Our Services' },
-    { id: 'industries' as const, label: 'Industries We Serve' },
-    { id: 'integration' as const, label: 'Integration Solutions' },
-    { id: 'support' as const, label: 'Support & Resources' },
+    { id: 'industries' as const, label: 'Industries' },
+    { id: 'integration' as const, label: 'Solutions' },
+    { id: 'support' as const, label: 'Resources' },
   ];
 
   const contentData: ContentDataType = {
