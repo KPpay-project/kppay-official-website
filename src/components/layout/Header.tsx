@@ -20,6 +20,15 @@ import {
   FileText,
   Receipt,
   Shield,
+  Zap,
+  Link2,
+  Layers,
+  Code,
+  Building,
+  Users,
+  ShieldCheck,
+  Calculator,
+  UserCheck,
 } from 'lucide-react';
 import Image from 'next/image';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
@@ -31,13 +40,19 @@ interface HeaderProps {
 export default function Header({ variant = 'light' }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [solutionsMegaMenuOpen, setSolutionsMegaMenuOpen] = useState(false);
   const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState(false);
+  const [mobileSolutionsSubMenuOpen, setMobileSolutionsSubMenuOpen] =
+    useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [isSolutionsClosing, setIsSolutionsClosing] = useState(false);
 
   const isLight = variant === 'light';
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const closingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const solutionsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const solutionsClosingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) {
@@ -62,6 +77,29 @@ export default function Header({ variant = 'light' }: HeaderProps) {
     }, 100);
   };
 
+  const handleSolutionsMouseEnter = () => {
+    if (solutionsTimeoutRef.current) {
+      clearTimeout(solutionsTimeoutRef.current);
+      solutionsTimeoutRef.current = null;
+    }
+    if (solutionsClosingTimeoutRef.current) {
+      clearTimeout(solutionsClosingTimeoutRef.current);
+      solutionsClosingTimeoutRef.current = null;
+    }
+    setIsSolutionsClosing(false);
+    setSolutionsMegaMenuOpen(true);
+  };
+
+  const handleSolutionsMouseLeave = () => {
+    solutionsTimeoutRef.current = setTimeout(() => {
+      setIsSolutionsClosing(true);
+      solutionsClosingTimeoutRef.current = setTimeout(() => {
+        setSolutionsMegaMenuOpen(false);
+        setIsSolutionsClosing(false);
+      }, 150);
+    }, 100);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -76,12 +114,19 @@ export default function Header({ variant = 'light' }: HeaderProps) {
       if (closingTimeoutRef.current) {
         clearTimeout(closingTimeoutRef.current);
       }
+      if (solutionsTimeoutRef.current) {
+        clearTimeout(solutionsTimeoutRef.current);
+      }
+      if (solutionsClosingTimeoutRef.current) {
+        clearTimeout(solutionsClosingTimeoutRef.current);
+      }
     };
   }, []);
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
     setMobileSubMenuOpen(false);
+    setMobileSolutionsSubMenuOpen(false);
   };
 
   const openMobileSubMenu = () => {
@@ -90,6 +135,14 @@ export default function Header({ variant = 'light' }: HeaderProps) {
 
   const closeMobileSubMenu = () => {
     setMobileSubMenuOpen(false);
+  };
+
+  const openMobileSolutionsSubMenu = () => {
+    setMobileSolutionsSubMenuOpen(true);
+  };
+
+  const closeMobileSolutionsSubMenu = () => {
+    setMobileSolutionsSubMenuOpen(false);
   };
 
   const useSolidBg = isScrolled || mobileMenuOpen;
@@ -274,6 +327,31 @@ export default function Header({ variant = 'light' }: HeaderProps) {
                   />
                 </div>
 
+                <div
+                  className="relative flex items-center gap-1 py-2"
+                  onMouseEnter={handleSolutionsMouseEnter}
+                  onMouseLeave={handleSolutionsMouseLeave}
+                >
+                  <span
+                    className={`font-medium text-xs lg:text-sm transition-colors cursor-default ${
+                      useWhiteText
+                        ? 'text-text-main-white hover:text-brand-primary'
+                        : 'text-text-primary hover:text-brand-primary'
+                    }`}
+                  >
+                    Solutions
+                  </span>
+                  <ChevronDown
+                    className={`w-5 h-5 transition-all duration-300 ${
+                      solutionsMegaMenuOpen ? 'rotate-180' : ''
+                    } ${
+                      useWhiteText
+                        ? 'text-text-main-white'
+                        : 'text-text-primary'
+                    }`}
+                  />
+                </div>
+
                 <Link
                   href="/individual"
                   className={`font-medium text-xs lg:text-sm transition-colors ${
@@ -371,6 +449,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
         </nav>
       </header>
 
+      {/* Product Mega Menu */}
       {megaMenuOpen && !mobileMenuOpen && (
         <>
           <div
@@ -679,7 +758,357 @@ export default function Header({ variant = 'light' }: HeaderProps) {
         </>
       )}
 
-      {mobileMenuOpen && !mobileSubMenuOpen && (
+      {/* Solutions Mega Menu */}
+      {solutionsMegaMenuOpen && !mobileMenuOpen && (
+        <>
+          <div
+            className={`fixed inset-0 z-60 bg-text-main-dark/20 transition-opacity duration-150 ${
+              isSolutionsClosing ? 'opacity-0' : 'opacity-100 animate-fade-in'
+            }`}
+            onClick={() => {
+              setIsSolutionsClosing(true);
+              setTimeout(() => {
+                setSolutionsMegaMenuOpen(false);
+                setIsSolutionsClosing(false);
+              }, 150);
+            }}
+          />
+          <div
+            className={`hidden md:block fixed left-1/2 -translate-x-1/2 w-full max-w-7xl rounded-lg border border-border-secondary bg-surface-primary shadow-xl z-70 transition-all duration-300 ${
+              isScrolled ? 'top-[69px]' : 'top-[78px]'
+            } ${
+              isSolutionsClosing
+                ? 'animate-slide-up-fade-out'
+                : 'animate-slide-down-fade'
+            }`}
+            onMouseEnter={handleSolutionsMouseEnter}
+            onMouseLeave={handleSolutionsMouseLeave}
+          >
+            <div className="px-12 py-12">
+              <div className="relative mb-8">
+                <div className="grid grid-cols-3 gap-12">
+                  <div>
+                    <h3 className="text-text-tertiary uppercase text-xs font-semibold tracking-wider mb-2">
+                      PAYMENT INFRASTRUCTURE
+                    </h3>
+                    <p className="text-text-secondary text-sm mb-4">
+                      Complete payment processing solutions
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-text-tertiary uppercase text-xs font-semibold tracking-wider mb-2">
+                      FINANCIAL SERVICES
+                    </h3>
+                    <p className="text-text-secondary text-sm mb-4">
+                      Comprehensive financial management tools
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-text-tertiary uppercase text-xs font-semibold tracking-wider mb-2">
+                      DEVELOPER & ENTERPRISE
+                    </h3>
+                    <p className="text-text-secondary text-sm mb-4">
+                      Tools and resources for developers
+                    </p>
+                  </div>
+                </div>
+                <hr className="absolute bottom-0 left-0 right-0 border-t border-border-secondary" />
+              </div>
+
+              <div className="grid grid-cols-3 gap-12">
+                <div className="space-y-6">
+                  <Link
+                    href="/solutions/payment-gateway"
+                    className="block group"
+                    onClick={() => setSolutionsMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <Zap className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Payment Gateway
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Fast and secure payment processing
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/solutions/subscriptions"
+                    className="block group"
+                    onClick={() => setSolutionsMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <RotateCcw className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Subscriptions
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Recurring payment management
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/solutions/connect-platforms"
+                    className="block group"
+                    onClick={() => setSolutionsMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <Link2 className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Connect Platforms
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Multi-party payment orchestration
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/solutions/virtual-cards"
+                    className="block group"
+                    onClick={() => setSolutionsMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <CreditCard className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Virtual Cards
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Issue virtual payment cards instantly
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/solutions/pos-terminal"
+                    className="block group"
+                    onClick={() => setSolutionsMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <Store className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          POS Terminal
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Smart point-of-sale solutions
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+
+                <div className="space-y-6">
+                  <Link
+                    href="/solutions/treasury-accounts"
+                    className="block group"
+                    onClick={() => setSolutionsMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <Building2 className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Treasury and Accounts
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Business treasury management
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/solutions/identity-kyc"
+                    className="block group"
+                    onClick={() => setSolutionsMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <UserCheck className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Identity and KYC
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Identity verification and compliance
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/solutions/financial-connections"
+                    className="block group"
+                    onClick={() => setSolutionsMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <Layers className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Financial Connections
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Connect to bank accounts securely
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/solutions/fraud-shield"
+                    className="block group"
+                    onClick={() => setSolutionsMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <ShieldCheck className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Fraud Shield Protection
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Advanced fraud detection and prevention
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/solutions/tax-automation"
+                    className="block group"
+                    onClick={() => setSolutionsMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <Calculator className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Tax Automation
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Automated tax calculation and filing
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+
+                <div className="space-y-6">
+                  <Link
+                    href="/solutions/api-documentation"
+                    className="block group"
+                    onClick={() => setSolutionsMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <Code className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          API Documentation
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Complete API reference and guides
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/solutions/enterprise-infrastructure"
+                    className="block group"
+                    onClick={() => setSolutionsMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <Building className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Enterprise Financial Infrastructure
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Scalable enterprise payment solutions
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/solutions/partners-program"
+                    className="block group"
+                    onClick={() => setSolutionsMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <Users className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Partners Program
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Join our partner ecosystem
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/solutions/trust-security"
+                    className="block group"
+                    onClick={() => setSolutionsMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <Shield className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Trust and Security Center
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Security certifications and compliance
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* Mobile Menu - Main */}
+      {mobileMenuOpen && !mobileSubMenuOpen && !mobileSolutionsSubMenuOpen && (
         <div className="md:hidden fixed inset-0 bg-surface-primary z-[40] animate-slide-up">
           <div className="flex flex-col h-full justify-center px-6 pb-8 pt-36">
             <div className="flex flex-col gap-8 text-2xl px-6">
@@ -695,6 +1124,13 @@ export default function Header({ variant = 'light' }: HeaderProps) {
                 className="font-medium flex items-center justify-between text-text-primary hover:text-brand-primary transition-colors"
               >
                 Product
+                <ChevronDown className="w-6 h-6 -rotate-90" />
+              </button>
+              <button
+                onClick={openMobileSolutionsSubMenu}
+                className="font-medium flex items-center justify-between text-text-primary hover:text-brand-primary transition-colors"
+              >
+                Solutions
                 <ChevronDown className="w-6 h-6 -rotate-90" />
               </button>
               <Link
@@ -743,6 +1179,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
         </div>
       )}
 
+      {/* Mobile Menu - Product Submenu */}
       {mobileSubMenuOpen && mobileMenuOpen && (
         <div className="md:hidden fixed inset-0 bg-surface-primary z-[80] overflow-y-auto animate-slide-left">
           <div className="sticky top-0 bg-surface-primary border-b border-border-secondary z-10">
@@ -914,6 +1351,219 @@ export default function Header({ variant = 'light' }: HeaderProps) {
                     icon: Shield,
                     title: 'Compliance',
                     desc: 'Stay compliant with financial regulations',
+                  },
+                ].map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block group"
+                    onClick={closeMobileMenu}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <item.icon className="w-6 h-6 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary text-lg mb-1">
+                          {item.title}
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Mobile Menu - Solutions Submenu */}
+      {mobileSolutionsSubMenuOpen && mobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 bg-surface-primary z-[80] overflow-y-auto animate-slide-left">
+          <div className="sticky top-0 bg-surface-primary border-b border-border-secondary z-10">
+            <div className="flex items-center justify-between px-6 py-5">
+              <button
+                onClick={closeMobileSolutionsSubMenu}
+                className="flex items-center gap-2 text-text-primary hover:text-brand-primary transition-colors"
+                aria-label="Go back"
+              >
+                <ChevronDown className="w-5 h-5 rotate-90" />
+                <span className="font-medium text-lg">Back</span>
+              </button>
+              <button
+                onClick={closeMobileMenu}
+                className="p-2"
+                aria-label="Close menu"
+              >
+                <X className="w-6 h-6 text-text-primary" />
+              </button>
+            </div>
+          </div>
+
+          <div className="px-6 py-8 space-y-10">
+            <div>
+              <h3 className="text-text-tertiary uppercase text-xs font-semibold tracking-wider mb-3">
+                PAYMENT INFRASTRUCTURE
+              </h3>
+              <p className="text-text-secondary text-sm mb-6">
+                Complete payment processing solutions
+              </p>
+              <div className="space-y-6">
+                {[
+                  {
+                    href: '/solutions/payment-gateway',
+                    icon: Zap,
+                    title: 'Payment Gateway',
+                    desc: 'Fast and secure payment processing',
+                  },
+                  {
+                    href: '/solutions/subscriptions',
+                    icon: RotateCcw,
+                    title: 'Subscriptions',
+                    desc: 'Recurring payment management',
+                  },
+                  {
+                    href: '/solutions/connect-platforms',
+                    icon: Link2,
+                    title: 'Connect Platforms',
+                    desc: 'Multi-party payment orchestration',
+                  },
+                  {
+                    href: '/solutions/virtual-cards',
+                    icon: CreditCard,
+                    title: 'Virtual Cards',
+                    desc: 'Issue virtual payment cards instantly',
+                  },
+                  {
+                    href: '/solutions/pos-terminal',
+                    icon: Store,
+                    title: 'POS Terminal',
+                    desc: 'Smart point-of-sale solutions',
+                  },
+                ].map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block group"
+                    onClick={closeMobileMenu}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <item.icon className="w-6 h-6 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary text-lg mb-1">
+                          {item.title}
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-text-tertiary uppercase text-xs font-semibold tracking-wider mb-3">
+                FINANCIAL SERVICES
+              </h3>
+              <p className="text-text-secondary text-sm mb-6">
+                Comprehensive financial management tools
+              </p>
+              <div className="space-y-6">
+                {[
+                  {
+                    href: '/solutions/treasury-accounts',
+                    icon: Building2,
+                    title: 'Treasury and Accounts',
+                    desc: 'Business treasury management',
+                  },
+                  {
+                    href: '/solutions/identity-kyc',
+                    icon: UserCheck,
+                    title: 'Identity and KYC',
+                    desc: 'Identity verification and compliance',
+                  },
+                  {
+                    href: '/solutions/financial-connections',
+                    icon: Layers,
+                    title: 'Financial Connections',
+                    desc: 'Connect to bank accounts securely',
+                  },
+                  {
+                    href: '/solutions/fraud-shield',
+                    icon: ShieldCheck,
+                    title: 'Fraud Shield Protection',
+                    desc: 'Advanced fraud detection and prevention',
+                  },
+                  {
+                    href: '/solutions/tax-automation',
+                    icon: Calculator,
+                    title: 'Tax Automation',
+                    desc: 'Automated tax calculation and filing',
+                  },
+                ].map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block group"
+                    onClick={closeMobileMenu}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <item.icon className="w-6 h-6 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary text-lg mb-1">
+                          {item.title}
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-text-tertiary uppercase text-xs font-semibold tracking-wider mb-3">
+                DEVELOPER & ENTERPRISE
+              </h3>
+              <p className="text-text-secondary text-sm mb-6">
+                Tools and resources for developers
+              </p>
+              <div className="space-y-6">
+                {[
+                  {
+                    href: '/solutions/api-documentation',
+                    icon: Code,
+                    title: 'API Documentation',
+                    desc: 'Complete API reference and guides',
+                  },
+                  {
+                    href: '/solutions/enterprise-infrastructure',
+                    icon: Building,
+                    title: 'Enterprise Financial Infrastructure',
+                    desc: 'Scalable enterprise payment solutions',
+                  },
+                  {
+                    href: '/solutions/partners-program',
+                    icon: Users,
+                    title: 'Partners Program',
+                    desc: 'Join our partner ecosystem',
+                  },
+                  {
+                    href: '/solutions/trust-security',
+                    icon: Shield,
+                    title: 'Trust and Security Center',
+                    desc: 'Security certifications and compliance',
                   },
                 ].map((item) => (
                   <Link
