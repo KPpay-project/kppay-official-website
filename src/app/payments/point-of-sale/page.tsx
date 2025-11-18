@@ -7,6 +7,9 @@ import {
   images,
   type ServiceFeature,
   type IntegrationOption,
+  BenefitsGrid,
+  CTABox,
+  TrustStats,
 } from '@/types';
 import {
   CreditCard,
@@ -171,6 +174,85 @@ export default function PointOfSalePage() {
     },
   ];
 
+  // Define the Feature type inline if not exported from @/types
+  interface BenefitFeature {
+    icon: string;
+    title: string;
+    description: string;
+  }
+
+  // Define CTAButton type inline if not exported from @/types
+  interface CTAButton {
+    text: string;
+    href: string;
+    variant?:
+      | 'primary'
+      | 'white'
+      | 'outlined'
+      | 'outlined-white'
+      | 'ghost'
+      | 'secondary';
+    size?: 'sm' | 'md' | 'lg' | 'xl';
+    showArrow?: boolean;
+    className?: string;
+  }
+
+  const benefitsFeatures: BenefitFeature[] = [
+    {
+      icon: images.onlinePaymentsIcons.instant,
+      title: 'Instant Settlement',
+      description:
+        'Get paid instantly with real-time settlement to your account',
+    },
+    {
+      icon: images.onlinePaymentsIcons.enterprise,
+      title: 'Enterprise Security',
+      description: 'PCI DSS level 1 compliance and advanced fraud protection',
+    },
+    {
+      icon: images.onlinePaymentsIcons.global,
+      title: 'Global Reach',
+      description: 'Accept payments from customers worldwide in 150+ countries',
+    },
+  ];
+
+  const ctaButtons: CTAButton[] = [
+    {
+      text: 'Start Integration Now',
+      href: '/integration',
+      variant: 'outlined-white',
+      size: 'md',
+      showArrow: true,
+      className: 'bg-white text-brand-primary hover:bg-white/90',
+    },
+    {
+      text: 'Contact Sales',
+      href: '/sales',
+      variant: 'outlined-white',
+      size: 'md',
+      showArrow: true,
+    },
+  ];
+
+  const stats = [
+    {
+      value: '50K+',
+      label: 'Active Merchants',
+    },
+    {
+      value: '$2B+',
+      label: 'Processed Annually',
+    },
+    {
+      value: '99.9%',
+      label: 'Uptime Guarantee',
+    },
+    {
+      value: '24/7',
+      label: 'Customer Support',
+    },
+  ];
+
   return (
     <main>
       <ServiceHero
@@ -207,6 +289,28 @@ export default function PointOfSalePage() {
       <IntegrationSelector
         heading="Choose Your Hardware"
         options={hardwareOptions}
+      />
+
+      {/* Benefits Grid Section */}
+      <BenefitsGrid
+        backgroundColor="bg-[#F9FAFB]"
+        heading="Why Choose KP Pay Online Payments"
+        features={benefitsFeatures}
+      />
+
+      <TrustStats
+        heading="Trusted by Businesses Everywhere"
+        subheading="Join thousands of businesses processing payments with KP Pay POS"
+        stats={stats}
+      />
+
+      {/* CTA Box Section */}
+      <CTABox
+        heading="Ready to upgrade your pos?"
+        description="Start accepting payments today with KP Pay's complete point-of-sale solution."
+        buttons={ctaButtons}
+        sectionBackgroundColor="bg-gray/900"
+        ctaBackgroundColor="bg-brand-primary"
       />
     </main>
   );

@@ -33,10 +33,13 @@ export const MobileAppCard: React.FC<MobileAppCardProps> = ({
     description,
     useCases,
     features,
-    ctaText = 'Learn More',
+    ctaText,
     ctaHref,
     onCtaClick,
   } = option;
+
+  // Check if button should be rendered
+  const shouldRenderButton = ctaText && ctaHref;
 
   return (
     <div
@@ -81,7 +84,12 @@ export const MobileAppCard: React.FC<MobileAppCardProps> = ({
 
       {/* Blue Features Section */}
       <div className="bg-brand-primary rounded-lg p-6 flex flex-col flex-grow">
-        <ul className="space-y-2.5 mb-6 flex-grow">
+        <ul
+          className={cn(
+            'space-y-2.5 flex-grow',
+            shouldRenderButton ? 'mb-6' : ''
+          )}
+        >
           {features.map((feature, index) => (
             <li
               key={index}
@@ -95,15 +103,18 @@ export const MobileAppCard: React.FC<MobileAppCardProps> = ({
           ))}
         </ul>
 
-        <Button
-          variant="outlined-white"
-          size="md"
-          fullWidth
-          href={ctaHref}
-          onClick={onCtaClick}
-        >
-          {ctaText}
-        </Button>
+        {/* Only render button if both ctaText and ctaHref are provided */}
+        {shouldRenderButton && (
+          <Button
+            variant="outlined-white"
+            size="md"
+            fullWidth
+            href={ctaHref}
+            onClick={onCtaClick}
+          >
+            {ctaText}
+          </Button>
+        )}
       </div>
     </div>
   );

@@ -4,10 +4,11 @@ import {
   ServiceHero,
   ServiceFeatures,
   IntegrationSelector,
+  BenefitsGrid,
+  CTABox,
   images,
   type ServiceFeature,
   type IntegrationOption,
-  OnlinePaymentsBenefits,
 } from '@/types';
 import {
   CreditCard,
@@ -18,8 +19,31 @@ import {
   Code,
 } from 'lucide-react';
 
+// Define the Feature type inline if not exported from @/types
+interface BenefitFeature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+// Define CTAButton type inline if not exported from @/types
+interface CTAButton {
+  text: string;
+  href: string;
+  variant?:
+    | 'primary'
+    | 'white'
+    | 'outlined'
+    | 'outlined-white'
+    | 'ghost'
+    | 'secondary';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  showArrow?: boolean;
+  className?: string;
+}
+
 export default function OnlinePaymentsPage() {
-  const features: ServiceFeature[] = [
+  const serviceFeatures: ServiceFeature[] = [
     {
       icon: <CreditCard className="w-10 h-10" />,
       title: 'Credit and Debit Cards',
@@ -57,8 +81,8 @@ export default function OnlinePaymentsPage() {
     },
     {
       icon: <Lock className="w-10 h-10" />,
-      title: 'Security & Compliance', // Changed this title
-      description: 'Enterprise-grade security for your payments.', // Changed this description
+      title: 'Security & Compliance',
+      description: 'Enterprise-grade security for your payments.',
       items: [
         'Samsung Pay',
         'Alipay & WeChat Pay',
@@ -119,6 +143,43 @@ export default function OnlinePaymentsPage() {
     },
   ];
 
+  const benefitsFeatures: BenefitFeature[] = [
+    {
+      icon: images.onlinePaymentsIcons.instant,
+      title: 'Instant Settlement',
+      description:
+        'Get paid instantly with real-time settlement to your account',
+    },
+    {
+      icon: images.onlinePaymentsIcons.enterprise,
+      title: 'Enterprise Security',
+      description: 'PCI DSS level 1 compliance and advanced fraud protection',
+    },
+    {
+      icon: images.onlinePaymentsIcons.global,
+      title: 'Global Reach',
+      description: 'Accept payments from customers worldwide in 150+ countries',
+    },
+  ];
+
+  const ctaButtons: CTAButton[] = [
+    {
+      text: 'Start Integration Now',
+      href: '/integration',
+      variant: 'outlined-white',
+      size: 'md',
+      showArrow: true,
+      className: 'bg-white text-brand-primary hover:bg-white/90',
+    },
+    {
+      text: 'Contact Sales',
+      href: '/sales',
+      variant: 'outlined-white',
+      size: 'md',
+      showArrow: true,
+    },
+  ];
+
   return (
     <main>
       <ServiceHero
@@ -134,7 +195,7 @@ export default function OnlinePaymentsPage() {
 
       <ServiceFeatures
         title="Accept Any Payment Method"
-        features={features}
+        features={serviceFeatures}
         variant="primary"
         customColors={{
           sectionTitle: 'text-text-inverse-primary',
@@ -151,8 +212,21 @@ export default function OnlinePaymentsPage() {
         options={integrationOptions}
       />
 
-      {/* Why Choose KP Pay Online Payments */}
-      <OnlinePaymentsBenefits />
+      {/* Benefits Grid Section */}
+      <BenefitsGrid
+        backgroundColor="bg-[#F9FAFB]"
+        heading="Why Choose KP Pay Online Payments"
+        features={benefitsFeatures}
+      />
+
+      {/* CTA Box Section */}
+      <CTABox
+        heading="Ready to start accepting payment?"
+        description="Join thousands of businessess processing payment with KPapy. Get started in minutes."
+        buttons={ctaButtons}
+        sectionBackgroundColor="bg-gray/900"
+        ctaBackgroundColor="bg-brand-primary"
+      />
     </main>
   );
 }

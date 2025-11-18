@@ -115,6 +115,12 @@ export const images = {
     payment: `${CDN_BASE_URL}/image/upload/v1761541049/payment_pppa8v.webp`,
   },
 
+  // Icons base
+  Icons: {
+    ios: `${CDN_BASE_URL}/image/upload/v1763383588/ios_bnjw6w.png`,
+    android: `${CDN_BASE_URL}/image/upload/v1763383588/android_hvwnqe.png`,
+  },
+
   // payments/online-payments icons
   onlinePaymentsIcons: {
     instant: `${CDN_BASE_URL}/image/upload/v1763055190/instant_zb7ml5.webp`,
@@ -129,7 +135,7 @@ export const images = {
     airtel: `${CDN_BASE_URL}/image/upload/v1761540386/airtel_eols4k.webp`,
     safaricom: `${CDN_BASE_URL}/image/upload/v1761540383/safaricom_lka7tb.webp`,
     nsia: `${CDN_BASE_URL}/image/upload/v1761540379/nsia_q4dwkv.webp`,
-    bsic: `${CDN_BASE_URL}/image/upload/v1761540389/biic_r4bsly.webp`,
+    bsic: `${CDN_BASE_URL}/image/upload/v1761540378/bsic_zo2iqz.webp`,
     mtn: `${CDN_BASE_URL}/image/upload/v1761540379/mtn_vvickz.webp`,
     vodacom: `${CDN_BASE_URL}/image/upload/v1761540385/vodacom_kowncv.webp`,
     bni: `${CDN_BASE_URL}/image/upload/v1761540378/bni_ueitnn.webp`,

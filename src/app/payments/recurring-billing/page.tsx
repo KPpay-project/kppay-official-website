@@ -8,6 +8,11 @@ import {
   images,
   type ServiceFeature,
   type IntegrationOption,
+  SubscriptionFeatures,
+  CustomerSuccessStories,
+  SubscriptionPricing,
+  BenefitsGrid,
+  CTABox,
 } from '@/types';
 import { RefreshCw, Target, Users, TrendingUp } from 'lucide-react';
 
@@ -72,8 +77,8 @@ export default function SubscriptionsPage() {
         'Annual memberships',
         'Service plans',
       ],
-      ctaText: 'Learn More',
-      ctaHref: '/billing/fixed',
+      // ctaText: 'Learn More',
+      // ctaHref: '/billing/fixed',
     },
     {
       id: 'usage-based',
@@ -83,8 +88,8 @@ export default function SubscriptionsPage() {
       timeToIntegrate: '2.9% + 30¢',
       complexity: 'PER SUCCESSFUL TRANSACTION',
       features: ['API calls', 'Storage usage', 'Transaction volume'],
-      ctaText: 'Learn More',
-      ctaHref: '/billing/usage-based',
+      // ctaText: 'Learn More',
+      // ctaHref: '/billing/usage-based',
     },
     {
       id: 'tiered-pricing',
@@ -98,8 +103,8 @@ export default function SubscriptionsPage() {
         'Annual memberships',
         'Service plans',
       ],
-      ctaText: 'Learn More',
-      ctaHref: '/billing/tiered',
+      // ctaText: 'Learn More',
+      // ctaHref: '/billing/tiered',
     },
     {
       id: 'hybrid-models',
@@ -109,8 +114,47 @@ export default function SubscriptionsPage() {
       timeToIntegrate: '2.9% + 30¢',
       complexity: 'PER SUCCESSFUL TRANSACTION',
       features: ['Base fee + overages', 'Seat-based + usage', 'Credits system'],
-      ctaText: 'Learn More',
-      ctaHref: '/billing/hybrid',
+      // ctaText: 'Learn More',
+      // ctaHref: '/billing/hybrid',
+    },
+  ];
+
+  const subscriptionFeatures = [
+    {
+      icon: images.onlinePaymentsIcons.instant,
+      title: 'Smart Retry Logic',
+      description:
+        'Recover failed payments with intelligent retry timing and dunning management.',
+    },
+    {
+      icon: images.onlinePaymentsIcons.enterprise,
+      title: 'PCI Compliance',
+      description:
+        'Secure card storage and processing with full PCIDSS compliance.',
+    },
+    {
+      icon: images.onlinePaymentsIcons.global,
+      title: 'Revenue Insights',
+      description:
+        'Comprehensive analytics to understand and optimize your subscription business',
+    },
+  ];
+
+  const ctaButtons = [
+    {
+      text: 'Get Started Today',
+      href: '/get-started',
+      variant: 'outlined-white' as const,
+      size: 'md' as const,
+      showArrow: true,
+      className: 'bg-white text-brand-primary hover:bg-white/90',
+    },
+    {
+      text: 'Talk to an Expert',
+      href: '/contact-expert',
+      variant: 'outlined-white' as const,
+      size: 'md' as const,
+      showArrow: true,
     },
   ];
 
@@ -144,6 +188,33 @@ export default function SubscriptionsPage() {
       <IntegrationSelector
         heading="Flexible Billing Models"
         options={billingModelOptions}
+      />
+
+      {/* Complete Subscription Section */}
+      <SubscriptionFeatures />
+
+      {/* Customers Success Stories */}
+      <CustomerSuccessStories />
+
+      {/* Simple Subscription Pricing */}
+      <SubscriptionPricing />
+
+      {/* Benefits Grid */}
+      <BenefitsGrid
+        backgroundColor="bg-white"
+        heading="Why KP Pay for Subscriptions"
+        features={subscriptionFeatures}
+      />
+
+      {/* CTA Box */}
+      <CTABox
+        heading="Ready to Launch Your Subscription Business?"
+        description="Start building recurring revenue with KP Pay's comprehensive subscription billing platform."
+        buttons={ctaButtons}
+        headingColor="text-text-inverse-primary"
+        ctaBackgroundColor="bg-brand-primary"
+        sectionBackgroundColor="bg-white"
+        paddingY="pt-0 pb-12 md:pb-16 lg:pb-20"
       />
     </main>
   );

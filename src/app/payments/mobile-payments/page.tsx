@@ -10,6 +10,9 @@ import {
   type ServiceFeature,
   type MobileAppOption,
   type SDKOption,
+  QuickIntegrationSteps,
+  TrustStats,
+  CTABox,
 } from '@/types';
 import {
   Smartphone,
@@ -84,8 +87,8 @@ export default function MobilePaymentsPage() {
         'Order Management',
         'Customer Profiles',
       ],
-      ctaText: 'Learn More',
-      ctaHref: '/solutions/ecommerce',
+      // ctaText: 'Learn More',
+      // ctaHref: '/solutions/ecommerce',
     },
     {
       id: 'on-demand-services',
@@ -104,8 +107,8 @@ export default function MobilePaymentsPage() {
         'Rating systems',
         'Multi-party payments',
       ],
-      ctaText: 'Learn More',
-      ctaHref: '/solutions/on-demand',
+      // ctaText: 'Learn More',
+      // ctaHref: '/solutions/on-demand',
     },
     {
       id: 'subscription-apps',
@@ -124,8 +127,37 @@ export default function MobilePaymentsPage() {
         'Plan management',
         'Usage tracking',
       ],
-      ctaText: 'Learn More',
-      ctaHref: '/solutions/subscriptions',
+      // ctaText: 'Learn More',
+      // ctaHref: '/solutions/subscriptions',
+    },
+  ];
+
+  const integrationSteps = [
+    {
+      number: '1',
+      title: 'Install SDK',
+      description:
+        'Add KP Pay SDK to your iOS or Android project using package managers',
+      code: 'npm install kppay-mobile-sdk',
+    },
+    {
+      number: '2',
+      title: 'Initialize',
+      description:
+        'Configure the SDK with your API keys and payment preferences',
+      code: 'KPPay.initialize(apiKey, options)',
+    },
+    {
+      number: '3',
+      title: 'Process Payment',
+      description: 'Create payment sessions and handle successful transactions',
+      code: 'KPPay.createPayment(amount, options)',
+    },
+    {
+      number: '4',
+      title: 'Handle Response',
+      description: "Receive payment confirmations and update your app's state",
+      code: 'onPaymentSuccess(paymentResult)',
     },
   ];
 
@@ -162,6 +194,43 @@ export default function MobilePaymentsPage() {
     },
   ];
 
+  const mobileStats = [
+    {
+      value: '10K+',
+      label: 'Mobile Apps',
+    },
+    {
+      value: '95%',
+      label: 'Success Rate',
+    },
+    {
+      value: '<3S',
+      label: 'Payment Time',
+    },
+    {
+      value: '150+',
+      label: 'Countries',
+    },
+  ];
+
+  const ctaButtons = [
+    {
+      text: 'Get Started Now',
+      href: '/get-started',
+      variant: 'outlined-white' as const,
+      size: 'md' as const,
+      showArrow: true,
+      className: 'bg-white text-brand-primary hover:bg-white/90',
+    },
+    {
+      text: 'View Documentation',
+      href: '/documentation',
+      variant: 'outlined-white' as const,
+      size: 'md' as const,
+      showArrow: true,
+    },
+  ];
+
   return (
     <main>
       <ServiceHero
@@ -189,12 +258,37 @@ export default function MobilePaymentsPage() {
         boxOpacity={10}
       />
 
+      {/* Quick Integration section */}
+      <QuickIntegrationSteps
+        heading="Quick Integration"
+        steps={integrationSteps}
+      />
+
       <MobileAppSelector
         heading="Perfect For Any Mobile App"
         options={mobileAppOptions}
       />
 
       <SDKSelector heading="Native Mobile SDKs" options={sdkOptions} />
+
+      {/* Mobile Payment Stats */}
+      <TrustStats
+        heading="Mobile Payment Success"
+        subheading="Leading mobile apps trust KP Pay for their payment processing"
+        stats={mobileStats}
+        backgroundColor="bg-white"
+      />
+
+      {/* CTA Box */}
+      <CTABox
+        heading="Ready to Go Mobile"
+        description="Start accepting mobile payments today with our native SDKs and comprehensive mobile solutions."
+        buttons={ctaButtons}
+        headingColor="text-text-inverse-primary"
+        ctaBackgroundColor="bg-brand-primary"
+        sectionBackgroundColor="bg-white"
+        paddingY="pt-0 pb-12 md:pb-16 lg:pb-20"
+      />
     </main>
   );
 }

@@ -31,9 +31,13 @@ export { default as AnimationProvider } from '@/components/AnimationProvider';
 export { default as FAQSection } from '@/components/sections/shared/FAQSection';
 export { default as FeatureCard } from '@/components/sections/shared/FeatureCard';
 export { default as FeaturedResources } from '@/components/sections/shared/FeaturedResources';
+export { default as SubscriptionFeatures } from '@/components/sections/shared/SubscriptionFeatures';
+export { default as CustomerSuccessStories } from '@/components/sections/shared/CustomerSuccessStories';
+export { default as SubscriptionPricing } from '@/components/sections/shared/SubscriptionPricing';
 
 export { default as IntegrationSelector } from '@/components/sections/shared/IntegrationSelector';
 export { default as IntegrationCard } from '@/components/sections/shared/IntegrationCard';
+export { default as QuickIntegrationSteps } from '@/components/sections/shared/QuickIntegrationSteps';
 export { MobileAppCard } from '@/components/sections/shared/MobileAppCard';
 export { MobileAppSelector } from '@/components/sections/shared/MobileAppSelector';
 export { SDKCard } from '@/components/sections/shared/SDKCard';
@@ -53,7 +57,9 @@ export { default as ModernBankingFeatures } from '@/components/sections/Individu
 export { default as EnterprisePricingCards } from '@/components/sections/Enterprise/EnterprisePricingCards';
 
 export { default as ReusableCTA } from '@/components/sections/shared/ReusableCTA';
-export { default as OnlinePaymentsBenefits } from '@/components/sections/shared/OnlinePaymentsBenefits';
+export { default as BenefitsGrid } from '@/components/sections/shared/BenefitsGrid';
+export { default as CTABox } from '@/components/sections/shared/CTABox';
+export { default as TrustStats } from '@/components/sections/shared/TrustStats';
 export { default as WhyChooseEnterprise } from '@/components/sections/Enterprise/WhyChooseEnterprise';
 export { default as BusinessBankingSuite } from '@/components/sections/Enterprise/BusinessBankingSuite';
 
