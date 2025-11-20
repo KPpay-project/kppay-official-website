@@ -5,6 +5,8 @@ import {
   ServiceFeatures,
   images,
   type ServiceFeature,
+  BenefitsGrid,
+  TrustStats,
 } from '@/types';
 import { TrendingUp, Award, Shield, Target } from 'lucide-react';
 
@@ -60,6 +62,53 @@ export default function SavingsInvestmentPage() {
     },
   ];
 
+  // Define the Feature type inline if not exported from @/types
+  interface BenefitFeature {
+    icon: string;
+    title: string;
+    description: string;
+  }
+
+  const benefitsFeatures: BenefitFeature[] = [
+    {
+      icon: images.productIcons.alerts,
+      title: 'Competitive Returns',
+      description:
+        'High-yield savings and diversified investment options for optimal growth',
+    },
+    {
+      icon: images.productIcons.fdic,
+      title: 'FDIC Insured',
+      description:
+        'Savings accounts insured up to $250,000 for maximum security',
+    },
+    {
+      icon: images.productIcons.card,
+      title: 'Goal-based',
+      description:
+        'Automated tools to help you reach specific financial goals faster',
+    },
+  ];
+
+  const stats = [
+    {
+      value: '$8B+',
+      label: 'Assets Under Management',
+    },
+    {
+      value: '500K+',
+      label: 'Investment Accounts',
+    },
+    {
+      value: '4.8%',
+      label: 'Average Portfolio Return',
+    },
+    {
+      value: '150+',
+      label: 'Customer Satisfaction',
+    },
+  ];
+
   return (
     <main>
       <ServiceHero
@@ -85,6 +134,20 @@ export default function SavingsInvestmentPage() {
           listItem: 'text-white',
         }}
         boxOpacity={10}
+      />
+
+      {/* Benefits Grid Section */}
+      <BenefitsGrid
+        backgroundColor="bg-[#F9FAFB]"
+        heading="Why Save & Invest with KP Pay"
+        features={benefitsFeatures}
+      />
+
+      <TrustStats
+        heading="Growing Wealth Together"
+        subheading="Join thousands building wealth with KP Pay savings and investments"
+        stats={stats}
+        statValueClassName="heading-bebas-light text-5xl md:text-6xl lg:text-7xl text-[#3d3d3d] mb-2 md:mb-3"
       />
     </main>
   );

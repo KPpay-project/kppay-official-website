@@ -5,6 +5,9 @@ import {
   ServiceFeatures,
   images,
   type ServiceFeature,
+  BenefitsGrid,
+  TrustStats,
+  CTABox,
 } from '@/types';
 import { Globe, Receipt, CreditCard, Link } from 'lucide-react';
 
@@ -59,6 +62,86 @@ export default function BusinessAccountsPage() {
     },
   ];
 
+  // Define the Feature type inline if not exported from @/types
+  interface BenefitFeature {
+    icon: string;
+    title: string;
+    description: string;
+  }
+
+  const benefitsFeatures: BenefitFeature[] = [
+    {
+      icon: images.productIcons.global,
+      title: 'Global Banking',
+      description:
+        'Operate globally with multi-currency accounts and international transfers',
+    },
+    {
+      icon: images.productIcons.fdic,
+      title: 'Bank-Grade Security',
+      description:
+        'FDIC insured deposits with enterprise-grade security and compliance',
+    },
+    {
+      icon: images.productIcons.support,
+      title: 'Dedicated Support',
+      description: 'Personal relationship managers and 24/7 business support',
+    },
+  ];
+
+  const stats = [
+    {
+      value: '25K+',
+      label: 'Business Accounts',
+    },
+    {
+      value: '$5B+',
+      label: 'Total Deposits',
+    },
+    {
+      value: '50+',
+      label: 'Supported Currencies',
+    },
+    {
+      value: '99.9%',
+      label: 'Uptime Guarantee',
+    },
+  ];
+
+  // Define CTAButton type inline if not exported from @/types
+  interface CTAButton {
+    text: string;
+    href: string;
+    variant?:
+      | 'primary'
+      | 'white'
+      | 'outlined'
+      | 'outlined-white'
+      | 'ghost'
+      | 'secondary';
+    size?: 'sm' | 'md' | 'lg' | 'xl';
+    showArrow?: boolean;
+    className?: string;
+  }
+
+  const ctaButtons: CTAButton[] = [
+    {
+      text: 'Start Integration Now',
+      href: '/integration',
+      variant: 'outlined-white',
+      size: 'md',
+      showArrow: true,
+      className: 'bg-white text-brand-primary hover:bg-white/90',
+    },
+    {
+      text: 'Contact Sales',
+      href: '/sales',
+      variant: 'outlined-white',
+      size: 'md',
+      showArrow: true,
+    },
+  ];
+
   return (
     <main>
       <ServiceHero
@@ -84,6 +167,30 @@ export default function BusinessAccountsPage() {
           listItem: 'text-white',
         }}
         boxOpacity={10}
+      />
+
+      {/* Benefits Grid Section */}
+      <BenefitsGrid
+        backgroundColor="bg-[#F9FAFB]"
+        heading="Why Choose KP Pay Business Accounts"
+        features={benefitsFeatures}
+      />
+
+      <TrustStats
+        heading="Trusted by Growing Businesses"
+        subheading="Join thousands of businesses banking with KP Pay"
+        stats={stats}
+        statValueClassName="heading-bebas-light text-5xl md:text-6xl lg:text-7xl text-[#3d3d3d] mb-2 md:mb-3"
+      />
+
+      {/* CTA Box Section */}
+      <CTABox
+        heading="Ready to Modernize Your Business Banking?"
+        description="Open your KP Pay business account today and experience the future of business banking."
+        buttons={ctaButtons}
+        headingColor="text-text-inverse-dark"
+        sectionBackgroundColor="bg-gray/900"
+        ctaBackgroundColor="bg-text-secondary-dark"
       />
     </main>
   );

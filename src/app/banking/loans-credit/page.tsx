@@ -1,6 +1,13 @@
 // app/services/loans/page.tsx
 import React from 'react';
-import { ServiceHero, LoanCards, images, type LoanCardData } from '@/types';
+import {
+  ServiceHero,
+  LoanCards,
+  images,
+  type LoanCardData,
+  BenefitsGrid,
+  TrustStats,
+} from '@/types';
 
 export default function LoansPage() {
   const loans: LoanCardData[] = [
@@ -59,6 +66,53 @@ export default function LoansPage() {
     },
   ];
 
+  // Define the Feature type inline if not exported from @/types
+  interface BenefitFeature {
+    icon: string;
+    title: string;
+    description: string;
+  }
+
+  const benefitsFeatures: BenefitFeature[] = [
+    {
+      icon: images.productIcons.data,
+      title: 'Data Protection',
+      description:
+        'Bank-level encryption and security to protect your personal information',
+    },
+    {
+      icon: images.productIcons.fees,
+      title: 'No Hidden Fees',
+      description:
+        'Transparent pricing with no origination fees or prepayment penalties',
+    },
+    {
+      icon: images.productIcons.lending,
+      title: 'Responsible Lending',
+      description:
+        'Ethical lending practices focused on your financial well-being',
+    },
+  ];
+
+  const stats = [
+    {
+      value: '$2B+',
+      label: 'Loans Funded',
+    },
+    {
+      value: '100K+',
+      label: 'Happy Borrowers',
+    },
+    {
+      value: '4.8',
+      label: 'Customer Rating',
+    },
+    {
+      value: '24HR',
+      label: 'Average Approval Time',
+    },
+  ];
+
   return (
     <main>
       <ServiceHero
@@ -73,6 +127,20 @@ export default function LoansPage() {
       />
 
       <LoanCards title="Lending Solutions for Every Need" loans={loans} />
+
+      {/* Benefits Grid Section */}
+      <BenefitsGrid
+        backgroundColor="bg-[#F9FAFB]"
+        heading="Secure & Transparent Lending"
+        features={benefitsFeatures}
+      />
+
+      <TrustStats
+        heading="Trusted Lending Partner"
+        subheading="Join thousands who've achieved their goals with KP Pay loans"
+        stats={stats}
+        statValueClassName="heading-bebas-light text-5xl md:text-6xl lg:text-7xl text-[#3d3d3d] mb-2 md:mb-3"
+      />
     </main>
   );
 }

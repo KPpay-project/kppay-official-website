@@ -5,6 +5,8 @@ import {
   ServiceFeatures,
   images,
   type ServiceFeature,
+  BenefitsGrid,
+  TrustStats,
 } from '@/types';
 import { PiggyBank, Smartphone, Globe, CreditCard } from 'lucide-react';
 
@@ -60,6 +62,53 @@ export default function PersonalBankingPage() {
     },
   ];
 
+  // Define the Feature type inline if not exported from @/types
+  interface BenefitFeature {
+    icon: string;
+    title: string;
+    description: string;
+  }
+
+  const benefitsFeatures: BenefitFeature[] = [
+    {
+      icon: images.productIcons.fdic,
+      title: 'FDIC Insured',
+      description:
+        'Deposits protected up to $250,000 per account by FDIC insurance',
+    },
+    {
+      icon: images.productIcons.alerts,
+      title: 'Real-time Alerts',
+      description:
+        'Instant notifications for every transaction and account activity',
+    },
+    {
+      icon: images.productIcons.card,
+      title: 'Card Controls',
+      description:
+        'Instantly freeze cards, set spending limits, and control where cards work',
+    },
+  ];
+
+  const stats = [
+    {
+      value: '2M+',
+      label: 'Personal Accounts',
+    },
+    {
+      value: '4.8',
+      label: 'App Store Rating',
+    },
+    {
+      value: '$20B+',
+      label: 'Safely Deposited',
+    },
+    {
+      value: '150+',
+      label: 'Countries Served',
+    },
+  ];
+
   return (
     <main>
       <ServiceHero
@@ -85,6 +134,20 @@ export default function PersonalBankingPage() {
           listItem: 'text-white',
         }}
         boxOpacity={10}
+      />
+
+      {/* Benefits Grid Section */}
+      <BenefitsGrid
+        backgroundColor="bg-[#F9FAFB]"
+        heading="Your Money, Protected"
+        features={benefitsFeatures}
+      />
+
+      <TrustStats
+        heading="Trusted by millions"
+        subheading="Join the growing community of satisfied KP Pay customers"
+        stats={stats}
+        statValueClassName="heading-bebas-light text-5xl md:text-6xl lg:text-7xl text-[#3d3d3d] mb-2 md:mb-3"
       />
     </main>
   );

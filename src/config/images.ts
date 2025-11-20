@@ -128,6 +128,18 @@ export const images = {
     global: `${CDN_BASE_URL}/image/upload/v1763055190/global_tylixd.webp`,
   },
 
+  // business accounts icons
+  productIcons: {
+    global: `${CDN_BASE_URL}/image/upload/v1763543826/globalDark_tbmqtb.png`,
+    fdic: `${CDN_BASE_URL}/image/upload/v1763545685/thefdicicon_gd4kla.png`,
+    support: `${CDN_BASE_URL}/image/upload/v1763544543/supportDark_vaslac.png`,
+    alerts: `${CDN_BASE_URL}/image/upload/v1763543590/competitveReturns_elakpz.png`,
+    card: `${CDN_BASE_URL}/image/upload/v1763543590/goal_keglek.png`,
+    data: `${CDN_BASE_URL}/image/upload/v1763544004/dataProtection_fajzd9.png`,
+    fees: `${CDN_BASE_URL}/image/upload/v1763544005/noHiddenFees_b9h40x.png`,
+    lending: `${CDN_BASE_URL}/image/upload/v1763544006/responsibleLending_dr2oir.png`,
+  },
+
   // Partners logos
   partners: {
     ecobank: `${CDN_BASE_URL}/image/upload/v1761540380/ecobank_kxq90x.webp`,
