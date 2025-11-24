@@ -7,6 +7,10 @@ import {
   type ServiceFeature,
   BenefitsGrid,
   TrustStats,
+  FinancialToolkit,
+  BusinessAccount,
+  FlexibleBillingModels,
+  CTABox,
 } from '@/types';
 import { PiggyBank, Smartphone, Globe, CreditCard } from 'lucide-react';
 
@@ -109,6 +113,40 @@ export default function PersonalBankingPage() {
     },
   ];
 
+  // Define CTAButton type inline if not exported from @/types
+  interface CTAButton {
+    text: string;
+    href: string;
+    variant?:
+      | 'primary'
+      | 'white'
+      | 'outlined'
+      | 'outlined-white'
+      | 'ghost'
+      | 'secondary';
+    size?: 'sm' | 'md' | 'lg' | 'xl';
+    showArrow?: boolean;
+    className?: string;
+  }
+
+  const ctaButtons: CTAButton[] = [
+    {
+      text: 'Open Account Now',
+      href: '/integration',
+      variant: 'outlined-white',
+      size: 'md',
+      showArrow: true,
+      className: 'bg-white text-black hover:bg-white/90',
+    },
+    {
+      text: 'Download App',
+      href: '/sales',
+      variant: 'outlined-white',
+      size: 'md',
+      showArrow: true,
+    },
+  ];
+
   return (
     <main>
       <ServiceHero
@@ -136,6 +174,15 @@ export default function PersonalBankingPage() {
         boxOpacity={10}
       />
 
+      {/* Choose your business account */}
+      <BusinessAccount />
+
+      {/* Complete financial toolkit */}
+      <FinancialToolkit />
+
+      {/* Flexible Billing Models */}
+      <FlexibleBillingModels />
+
       {/* Benefits Grid Section */}
       <BenefitsGrid
         backgroundColor="bg-[#F9FAFB]"
@@ -148,6 +195,16 @@ export default function PersonalBankingPage() {
         subheading="Join the growing community of satisfied KP Pay customers"
         stats={stats}
         statValueClassName="heading-bebas-light text-5xl md:text-6xl lg:text-7xl text-[#3d3d3d] mb-2 md:mb-3"
+      />
+
+      {/* CTA Box Section */}
+      <CTABox
+        heading="Ready to Experience Better Banking?"
+        description="Join millions who've switched to KP Pay for smarter, simpler personal banking."
+        buttons={ctaButtons}
+        headingColor="text-text-inverse-dark"
+        sectionBackgroundColor="bg-gray/900"
+        ctaBackgroundColor="bg-text-secondary-dark"
       />
     </main>
   );

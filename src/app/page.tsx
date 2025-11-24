@@ -4,6 +4,7 @@ import {
   HeroSection,
   images,
   PartnersSection,
+  PaymentScrollSection,
   SecurePaymentsSection,
   ServicesSection,
   SolutionsSection,
@@ -109,6 +110,9 @@ export default function HomePage() {
 
       {/* Partners section */}
       <PartnersSection />
+
+      {/* Payment Scroll Section */}
+      <PaymentScrollSection />
 
       {/* Testimonials Section */}
       <TestimonialsSection />

@@ -8,6 +8,8 @@ import {
   BenefitsGrid,
   TrustStats,
   CTABox,
+  CorporateBankingSuite,
+  BankingExperience,
 } from '@/types';
 import { Globe, Receipt, CreditCard, Link } from 'lucide-react';
 
@@ -131,7 +133,7 @@ export default function BusinessAccountsPage() {
       variant: 'outlined-white',
       size: 'md',
       showArrow: true,
-      className: 'bg-white text-brand-primary hover:bg-white/90',
+      className: 'bg-white text-black hover:bg-white/90',
     },
     {
       text: 'Contact Sales',
@@ -168,6 +170,12 @@ export default function BusinessAccountsPage() {
         }}
         boxOpacity={10}
       />
+
+      {/* Choose your banking experience */}
+      <BankingExperience />
+
+      {/* Complete business banking */}
+      <CorporateBankingSuite />
 
       {/* Benefits Grid Section */}
       <BenefitsGrid

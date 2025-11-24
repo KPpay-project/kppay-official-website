@@ -5,6 +5,7 @@ import { Inter, Bebas_Neue } from 'next/font/google';
 import { usePathname } from 'next/navigation';
 import { Header, getLayoutConfig, images, Footer, ScrollToTop } from '@/types';
 import './globals.css';
+import { useEffect } from 'react';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -35,6 +36,73 @@ export default function RootLayout({
   const pathname = usePathname();
   const layoutConfig = getLayoutConfig(pathname);
 
+  useEffect(() => {
+    // Scroll to top on route change
+    window.scrollTo(0, 0);
+
+    setTimeout(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('show');
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+
+      // Specific selectors for elements that should animate
+      const animatableSelectors = [
+        'h1',
+        'h2',
+        'h3',
+        'h4',
+        'h5',
+        'h6',
+        'p',
+        'button',
+        'a:not(header a):not(footer a)',
+        'div[class*="card"]',
+        'div[class*="Card"]',
+        '[class*="grid"] > div',
+        '[class*="flex"] > div:not(svg):not([class*="icon"])',
+        'input',
+        'textarea',
+        'label',
+        'span:not([class*="icon"]):not(svg span)',
+        'img:not(header img):not(footer img)',
+      ];
+
+      const main = document.querySelector('main');
+      if (main) {
+        animatableSelectors.forEach((selector) => {
+          const elements = main.querySelectorAll(selector);
+          elements.forEach((el) => {
+            // Skip if it's inside header/footer or is an SVG child or icon
+            const tagName = el.tagName.toLowerCase();
+            if (
+              !el.closest('header') &&
+              !el.closest('footer') &&
+              tagName !== 'svg' &&
+              tagName !== 'path' &&
+              !el.closest('svg') &&
+              !el.classList.contains('lucide') &&
+              !el.querySelector('svg')
+            ) {
+              el.classList.add('fade-in');
+              observer.observe(el);
+            }
+          });
+        });
+      }
+
+      return () => observer.disconnect();
+    }, 100);
+  }, [pathname]);
+
   return (
     <html lang="en">
       <head>
@@ -52,12 +120,9 @@ export default function RootLayout({
       >
         <div className="min-h-screen flex flex-col">
           <Header variant={layoutConfig.header} />
-          <main className="flex-1 pt-24">
-            <div className="page-transition">{children}</div>
-          </main>
+          <main className="flex-1 pt-24">{children}</main>
           <Footer />
           <ScrollToTop />
-          {/* {layoutConfig.footer === 'footer1' ? <Footer1 /> : <Footer2 />} */}
         </div>
       </body>
     </html>

@@ -41,7 +41,7 @@ const ReusableCTA: React.FC<ReusableCTAProps> = ({
   backgroundColor = 'bg-brand-primary',
 }) => {
   return (
-    <section className="w-full py-12 md:py-16">
+    <section className="w-full py-4 md:py-6">
       <div className="container-padding max-w-7xl mx-auto">
         <div
           className={`${backgroundColor} py-10 md:py-12 px-6 md:px-10 lg:px-14 rounded-xl`}

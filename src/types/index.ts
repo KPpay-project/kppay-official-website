@@ -20,6 +20,7 @@ export { default as GlobalReachSection } from '@/components/sections/Homepage/Gl
 export { default as FeatureShowcaseSection } from '@/components/sections/Homepage/FeatureShowcaseSection';
 export { default as WhyChooseKPpay } from '@/components/sections/Homepage/WhyChooseKPpay';
 export { default as TestimonialsSection } from '@/components/sections/Homepage/TestimonialsSection';
+export { default as PaymentScrollSection } from '@/components/sections/Homepage/PaymentScrollSection';
 export { default as SecurePaymentsSection } from '@/components/sections/Homepage/SecurePaymentsSection';
 export { default as PartnersSection } from '@/components/sections/Homepage/PartnersSection';
 export { default as ServicesSection } from '@/components/sections/Homepage/ServicesSection';
@@ -32,6 +33,15 @@ export { default as FAQSection } from '@/components/sections/shared/FAQSection';
 export { default as FeatureCard } from '@/components/sections/shared/FeatureCard';
 export { default as FeaturedResources } from '@/components/sections/shared/FeaturedResources';
 export { default as SubscriptionFeatures } from '@/components/sections/shared/SubscriptionFeatures';
+export { default as FinancialToolkit } from '@/components/sections/shared/FinancialToolkit';
+export { default as CorporateBankingSuite } from '@/components/sections/shared/CorporateBankingSuite';
+export { default as BankingExperience } from '@/components/sections/shared/BankingExperience';
+export { default as BusinessAccount } from '@/components/sections/shared/BusinessAccount';
+export { default as InvestmentPortfolio } from '@/components/sections/shared/InvestmentPortfolio';
+export { default as KPPayLoans } from '@/components/sections/shared/KPPayLoans';
+export { default as FlexibleBillingModels } from '@/components/sections/shared/FlexibleBillingModels';
+export { default as FinancialPlanningTools } from '@/components/sections/shared/FinancialPlanningTools';
+export { default as SavingsInvestmentTools } from '@/components/sections/shared/SavingsInvestmentTools';
 export { default as CustomerSuccessStories } from '@/components/sections/shared/CustomerSuccessStories';
 export { default as SubscriptionPricing } from '@/components/sections/shared/SubscriptionPricing';
 

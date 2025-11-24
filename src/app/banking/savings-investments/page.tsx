@@ -7,6 +7,10 @@ import {
   type ServiceFeature,
   BenefitsGrid,
   TrustStats,
+  SavingsInvestmentTools,
+  InvestmentPortfolio,
+  FinancialPlanningTools,
+  CTABox,
 } from '@/types';
 import { TrendingUp, Award, Shield, Target } from 'lucide-react';
 
@@ -109,6 +113,40 @@ export default function SavingsInvestmentPage() {
     },
   ];
 
+  // Define CTAButton type inline if not exported from @/types
+  interface CTAButton {
+    text: string;
+    href: string;
+    variant?:
+      | 'primary'
+      | 'white'
+      | 'outlined'
+      | 'outlined-white'
+      | 'ghost'
+      | 'secondary';
+    size?: 'sm' | 'md' | 'lg' | 'xl';
+    showArrow?: boolean;
+    className?: string;
+  }
+
+  const ctaButtons: CTAButton[] = [
+    {
+      text: 'Open Savings Account',
+      href: '/integration',
+      variant: 'outlined-white',
+      size: 'md',
+      showArrow: true,
+      className: 'bg-white text-black hover:bg-white/90',
+    },
+    {
+      text: 'Start Investing',
+      href: '/sales',
+      variant: 'outlined-white',
+      size: 'md',
+      showArrow: true,
+    },
+  ];
+
   return (
     <main>
       <ServiceHero
@@ -136,6 +174,15 @@ export default function SavingsInvestmentPage() {
         boxOpacity={10}
       />
 
+      {/* Investment Portfolio Options */}
+      <InvestmentPortfolio />
+
+      {/* Smart savings */}
+      <SavingsInvestmentTools />
+
+      {/* Financial Planning Tools */}
+      <FinancialPlanningTools />
+
       {/* Benefits Grid Section */}
       <BenefitsGrid
         backgroundColor="bg-[#F9FAFB]"
@@ -148,6 +195,16 @@ export default function SavingsInvestmentPage() {
         subheading="Join thousands building wealth with KP Pay savings and investments"
         stats={stats}
         statValueClassName="heading-bebas-light text-5xl md:text-6xl lg:text-7xl text-[#3d3d3d] mb-2 md:mb-3"
+      />
+
+      {/* CTA Box Section */}
+      <CTABox
+        heading="Ready to Start Growing Your Wealth?"
+        description="Open a high-yield savings account or start investing today with KP Pay's smart financial tools. "
+        buttons={ctaButtons}
+        headingColor="text-text-inverse-dark"
+        sectionBackgroundColor="bg-gray/900"
+        ctaBackgroundColor="bg-text-secondary-dark"
       />
     </main>
   );

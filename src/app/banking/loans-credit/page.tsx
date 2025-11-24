@@ -7,6 +7,8 @@ import {
   type LoanCardData,
   BenefitsGrid,
   TrustStats,
+  KPPayLoans,
+  CTABox,
 } from '@/types';
 
 export default function LoansPage() {
@@ -113,6 +115,40 @@ export default function LoansPage() {
     },
   ];
 
+  // Define CTAButton type inline if not exported from @/types
+  interface CTAButton {
+    text: string;
+    href: string;
+    variant?:
+      | 'primary'
+      | 'white'
+      | 'outlined'
+      | 'outlined-white'
+      | 'ghost'
+      | 'secondary';
+    size?: 'sm' | 'md' | 'lg' | 'xl';
+    showArrow?: boolean;
+    className?: string;
+  }
+
+  const ctaButtons: CTAButton[] = [
+    {
+      text: 'Apply Now',
+      href: '/integration',
+      variant: 'outlined-white',
+      size: 'md',
+      showArrow: true,
+      className: 'bg-white text-black hover:bg-white/90',
+    },
+    {
+      text: 'Speak to a Loan Advisor',
+      href: '/sales',
+      variant: 'outlined-white',
+      size: 'md',
+      showArrow: true,
+    },
+  ];
+
   return (
     <main>
       <ServiceHero
@@ -128,6 +164,9 @@ export default function LoansPage() {
 
       <LoanCards title="Lending Solutions for Every Need" loans={loans} />
 
+      {/* Why Choose Kp Pay Loans */}
+      <KPPayLoans />
+
       {/* Benefits Grid Section */}
       <BenefitsGrid
         backgroundColor="bg-[#F9FAFB]"
@@ -140,6 +179,16 @@ export default function LoansPage() {
         subheading="Join thousands who've achieved their goals with KP Pay loans"
         stats={stats}
         statValueClassName="heading-bebas-light text-5xl md:text-6xl lg:text-7xl text-[#3d3d3d] mb-2 md:mb-3"
+      />
+
+      {/* CTA Box Section */}
+      <CTABox
+        heading="Ready to Get the Funding You Need?"
+        description="Check your personalized rates in minutes without affecting your credit score."
+        buttons={ctaButtons}
+        headingColor="text-text-inverse-dark"
+        sectionBackgroundColor="bg-gray/900"
+        ctaBackgroundColor="bg-text-secondary-dark"
       />
     </main>
   );

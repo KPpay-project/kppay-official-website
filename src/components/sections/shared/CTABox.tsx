@@ -39,7 +39,7 @@ const CTABox: React.FC<CTABoxProps> = ({
   headingColor = 'text-text-inverse-primary',
   ctaBackgroundColor = 'bg-brand-primary',
   sectionBackgroundColor = 'bg-gray-900',
-  paddingY = 'pb-12 md:pb-16 lg:pb-20',
+  paddingY = 'pb-6 md:pb-8 lg:pb-12',
   maxWidth = 'max-w-7xl',
 }) => {
   return (

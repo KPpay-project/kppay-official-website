@@ -305,6 +305,9 @@ const SolutionsSection: React.FC = () => {
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
+      // Close any expanded cards before scrolling
+      setExpandedCard(null);
+
       const container = scrollContainerRef.current;
       const scrollAmount = container.clientWidth * 0.8;
 
@@ -330,7 +333,8 @@ const SolutionsSection: React.FC = () => {
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
     const getExpandPosition = () => {
-      if (!scrollContainerRef.current || isMobile) return 'none';
+      // Only calculate position if this specific card is expanded
+      if (!isExpanded || !scrollContainerRef.current || isMobile) return 'none';
 
       const cards =
         scrollContainerRef.current.querySelectorAll('.card-wrapper');
@@ -407,6 +411,7 @@ const SolutionsSection: React.FC = () => {
         className="card-wrapper relative transition-all duration-700 ease-out flex-shrink-0"
         style={{
           zIndex: isExpanded ? 50 : 10,
+          willChange: isExpanded ? 'width, transform' : 'auto',
           ...getExpandedStyle(),
         }}
       >
@@ -435,9 +440,10 @@ const SolutionsSection: React.FC = () => {
               <img
                 src={card.image}
                 alt={card.title}
-                className={`w-full h-full object-cover transition-all duration-1000 ease-out ${
+                className={`no-animate w-full h-full object-cover transition-all duration-1000 ease-out ${
                   isExpanded ? 'scale-105' : 'group-hover:scale-110'
                 }`}
+                style={{ willChange: 'transform' }}
               />
 
               {/* Zoom Button - Only show when not expanded */}
