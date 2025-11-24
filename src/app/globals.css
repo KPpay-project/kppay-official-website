@@ -439,9 +439,14 @@ footer * {
   transition: none !important;
 }
 
-/* Smooth scrolling */
-html {
+/* Smooth scrolling - only for anchor links within the same page */
+html:not([data-scroll-disabled]) {
   scroll-behavior: smooth;
+}
+
+/* Disable smooth scroll during route changes */
+html[data-scroll-disabled] {
+  scroll-behavior: auto !important;
 }
 
 /* Reduce motion for accessibility */

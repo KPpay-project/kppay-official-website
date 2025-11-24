@@ -37,8 +37,20 @@ export default function RootLayout({
   const layoutConfig = getLayoutConfig(pathname);
 
   useEffect(() => {
-    // Scroll to top on route change
-    window.scrollTo(0, 0);
+    // Disable smooth scrolling during route change
+    document.documentElement.setAttribute('data-scroll-disabled', 'true');
+
+    // Instant scroll to top on route change without animation
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+    // Force scroll position before any rendering
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    // Re-enable smooth scrolling after a brief delay
+    setTimeout(() => {
+      document.documentElement.removeAttribute('data-scroll-disabled');
+    }, 50);
 
     setTimeout(() => {
       const observer = new IntersectionObserver(
