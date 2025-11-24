@@ -70,9 +70,9 @@
   --spacing-section-lg: 8rem;
 
   /* Container Padding - Consistent horizontal padding for all sections */
-  --spacing-container-x: 1.5rem; /* 24px - Default for mobile */
-  --spacing-container-x-md: 2rem; /* 32px - Tablet */
-  --spacing-container-x-lg: 3rem; /* 48px - Desktop */
+  --spacing-container-x: 0.5rem; /* 24px - Default for mobile */
+  --spacing-container-x-md: 1rem; /* 32px - Tablet */
+  --spacing-container-x-lg: 2rem; /* 48px - Desktop */
 
   /* Header Specific */
   --color-header-bg-light: rgba(

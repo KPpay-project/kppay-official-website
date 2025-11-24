@@ -112,7 +112,7 @@ export default function HomePage() {
       <PartnersSection />
 
       {/* Payment Scroll Section */}
-      <PaymentScrollSection />
+      {/* <PaymentScrollSection /> */}
 
       {/* Testimonials Section */}
       <TestimonialsSection />

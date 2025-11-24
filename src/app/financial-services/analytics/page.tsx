@@ -1,12 +1,18 @@
 // app/services/analytics/page.tsx
+'use client';
 import React from 'react';
 import {
   ServiceHero,
   ServiceFeatures,
   images,
   type ServiceFeature,
+  DashboardWidgets,
+  CTABox,
+  BenefitsGrid,
+  TrustStats,
 } from '@/types';
 import { BarChart3, TrendingUp, Users, Target } from 'lucide-react';
+import AutomatedReporting from '@/components/sections/FinancialServices/AutomatedReportingSuite';
 
 export default function AnalyticsPage() {
   const features: ServiceFeature[] = [
@@ -58,6 +64,71 @@ export default function AnalyticsPage() {
     },
   ];
 
+  const stats = [
+    {
+      value: '32%',
+      label: 'Revenue Increase',
+    },
+    {
+      value: '45%',
+      label: 'Faster Decisions',
+    },
+    {
+      value: '28%',
+      label: 'Cost Reduction',
+    },
+    {
+      value: '90%',
+      label: 'User Satisfaction',
+    },
+  ];
+
+  // Define the Feature type inline if not exported from @/types
+  interface BenefitFeature {
+    icon: string;
+    title: string;
+    description: string;
+  }
+
+  const benefitsFeatures: BenefitFeature[] = [
+    {
+      icon: images.onlinePaymentsIcons.instant,
+      title: 'Increase Revenue',
+      description:
+        'Identify growth opportunities and optimize pricing strategies with data insights',
+    },
+    {
+      icon: images.onlinePaymentsIcons.enterprise,
+      title: 'Understand Customers',
+      description:
+        'Gain deep insights into customer behavior and preferences to improve satisfaction',
+    },
+    {
+      icon: images.onlinePaymentsIcons.global,
+      title: 'Reduce Costs',
+      description:
+        'Optimize operations and reduce expenses through intelligent data analysis',
+    },
+  ];
+
+  const ctaButtons = [
+    {
+      text: 'Get Started Today',
+      href: '/get-started',
+      variant: 'outlined-white' as const,
+      size: 'md' as const,
+      showArrow: true,
+      className: 'bg-white text-brand-secondary hover:bg-white/90',
+    },
+    {
+      text: 'Schedule Consultation',
+      href: '/contact-expert',
+      variant: 'outlined-white' as const,
+      size: 'md' as const,
+      showArrow: true,
+    },
+  ];
+
   return (
     <main>
       <ServiceHero
@@ -83,6 +154,37 @@ export default function AnalyticsPage() {
           listItem: 'text-white',
         }}
         boxOpacity={10}
+      />
+
+      {/* Comprehensive Dashboard Widgets */}
+      <DashboardWidgets />
+
+      {/* Automated Reporting Suite */}
+      <AutomatedReporting />
+
+      {/* Benefits Grid Section */}
+      <BenefitsGrid
+        backgroundColor="bg-[#F9FAFB]"
+        heading="Data-Driven Business Growth"
+        features={benefitsFeatures}
+      />
+
+      <TrustStats
+        heading="Analytics That Drive Results"
+        subheading="Businesses using KP Pay Analytics see measurable improvements"
+        stats={stats}
+        statValueClassName="heading-bebas-light text-5xl md:text-6xl lg:text-7xl text-brand-secondary mb-2 md:mb-3"
+      />
+
+      {/* CTA Box */}
+      <CTABox
+        heading="Ready to Unlock Your Data's Potential?"
+        description="Start making data-driven decisions with KP Pay's comprehensive analytics platform."
+        buttons={ctaButtons}
+        headingColor="text-text-main-white"
+        ctaBackgroundColor="bg-brand-secondary"
+        sectionBackgroundColor="bg-white"
+        paddingY="pt-0 pb-12 md:pb-16 lg:pb-20"
       />
     </main>
   );

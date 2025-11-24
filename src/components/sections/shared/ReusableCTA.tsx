@@ -42,9 +42,9 @@ const ReusableCTA: React.FC<ReusableCTAProps> = ({
 }) => {
   return (
     <section className="w-full py-4 md:py-6">
-      <div className="container-padding max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div
-          className={`${backgroundColor} py-10 md:py-12 px-6 md:px-10 lg:px-14 rounded-xl`}
+          className={`${backgroundColor} py-8 md:py-12 px-6 md:px-8 lg:px-10 rounded-md`}
         >
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 lg:gap-8">
             {/* Left Content */}

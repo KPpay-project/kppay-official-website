@@ -28,6 +28,20 @@ export { default as SolutionsSection } from '@/components/sections/Homepage/Solu
 export { default as ScrollToTop } from '@/components/ScrollToTop';
 export { default as AnimationProvider } from '@/components/AnimationProvider';
 
+// product mega menu - financial services
+export { default as DashboardWidgets } from '@/components/sections/FinancialServices/DashboardWidgets';
+export { default as CustomReportBuilder } from '@/components/sections/FinancialServices/CustomReportBuilder';
+export { default as AdvancedComplianceTools } from '@/components/sections/FinancialServices/AdvancedComplianceTools';
+export { default as ReportBuilderGrid } from '@/components/sections/FinancialServices/ReportBuilderGrid';
+export { default as ComplianceReadiness } from '@/components/sections/FinancialServices/ComplianceReadiness';
+export { default as RegulatoryStandards } from '@/components/sections/FinancialServices/RegulatoryStandards';
+export { default as RiskManagementGrid } from '@/components/sections/FinancialServices/RiskManagementGrid';
+export { default as FinancialPlanningGrid } from '@/components/sections/FinancialServices/FinancialPlanningGrid';
+export { default as AutomatedReportingSuite } from '@/components/sections/FinancialServices/AutomatedReportingSuite';
+export { default as IntegrationsGrid } from '@/components/sections/FinancialServices/IntegrationsGrid';
+export { default as ReportingFeaturesGrid } from '@/components/sections/FinancialServices/ReportingFeaturesGrid';
+export { default as DeliveryMethodsGrid } from '@/components/sections/FinancialServices/DeliveryMethodsGrid';
+
 // Shared Components
 export { default as FAQSection } from '@/components/sections/shared/FAQSection';
 export { default as FeatureCard } from '@/components/sections/shared/FeatureCard';
