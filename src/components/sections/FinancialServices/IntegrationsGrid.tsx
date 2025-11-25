@@ -52,27 +52,31 @@ const IntegrationsGrid: React.FC = () => {
                 />
               </div>
 
-              {/* Title */}
-              <h3 className="text-text-primary font-bold text-lg mb-2">
-                {integration.title}
-              </h3>
+              <div>
+                <div>
+                  {/* Title */}
+                  <h3 className="text-text-primary font-bold text-lg mb-2">
+                    {integration.title}
+                  </h3>
 
-              {/* Description */}
-              <p className="text-text-secondary text-sm mb-6">
-                {integration.description}
-              </p>
+                  {/* Description */}
+                  <p className="text-text-secondary text-sm mb-6">
+                    {integration.description}
+                  </p>
+                </div>
 
-              {/* Platform Pills */}
-              <div className="bg-brand-primary rounded-lg p-4">
-                <div className="flex flex-wrap gap-2">
-                  {integration.platforms.map((platform, i) => (
-                    <span
-                      key={i}
-                      className="bg-interactive-primary text-text-main-white text-xs font-medium px-3 py-1 rounded-full"
-                    >
-                      {platform}
-                    </span>
-                  ))}
+                {/* Platform Pills */}
+                <div className="bg-brand-secondary rounded-lg p-4">
+                  <div className="flex flex-wrap gap-2">
+                    {integration.platforms.map((platform, i) => (
+                      <span
+                        key={i}
+                        className="bg-interactive-primary text-text-main-white text-xs font-medium px-3 py-1 rounded-full"
+                      >
+                        {platform}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

@@ -10,6 +10,7 @@ import {
   CTABox,
   BenefitsGrid,
   TrustStats,
+  IntegrationsGrid,
 } from '@/types';
 import { BarChart3, TrendingUp, Users, Target } from 'lucide-react';
 import AutomatedReporting from '@/components/sections/FinancialServices/AutomatedReportingSuite';
@@ -92,19 +93,19 @@ export default function AnalyticsPage() {
 
   const benefitsFeatures: BenefitFeature[] = [
     {
-      icon: images.onlinePaymentsIcons.instant,
+      icon: images.Icons.iconIncrease,
       title: 'Increase Revenue',
       description:
         'Identify growth opportunities and optimize pricing strategies with data insights',
     },
     {
-      icon: images.onlinePaymentsIcons.enterprise,
+      icon: images.Icons.iconCustomers,
       title: 'Understand Customers',
       description:
         'Gain deep insights into customer behavior and preferences to improve satisfaction',
     },
     {
-      icon: images.onlinePaymentsIcons.global,
+      icon: images.Icons.iconCosts,
       title: 'Reduce Costs',
       description:
         'Optimize operations and reduce expenses through intelligent data analysis',
@@ -161,6 +162,9 @@ export default function AnalyticsPage() {
 
       {/* Automated Reporting Suite */}
       <AutomatedReporting />
+
+      {/* Seamless Integrations */}
+      <IntegrationsGrid />
 
       {/* Benefits Grid Section */}
       <BenefitsGrid

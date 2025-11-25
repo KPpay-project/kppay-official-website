@@ -119,6 +119,21 @@ export const images = {
   Icons: {
     ios: `${CDN_BASE_URL}/image/upload/v1763383588/ios_bnjw6w.png`,
     android: `${CDN_BASE_URL}/image/upload/v1763383588/android_hvwnqe.png`,
+    iconArrow: `${CDN_BASE_URL}/image/upload/v1764061296/iconarrow_ov6mzz.png`,
+    iconApi: `${CDN_BASE_URL}/image/upload/v1764061295/iconapi_vwvcam.png`,
+    iconAnalytics: `${CDN_BASE_URL}/image/upload/v1764061294/iconanalytics_qdjl17.png`,
+    iconX: `${CDN_BASE_URL}/image/upload/v1764061294/iconx_tdmwpc.png`,
+    iconUp: `${CDN_BASE_URL}/image/upload/v1764061289/iconup_riacka.png`,
+    iconSecure: `${CDN_BASE_URL}/image/upload/v1764061289/iconsecure_n1ipis.png`,
+    iconCustom: `${CDN_BASE_URL}/image/upload/v1764061288/iconcustom_e6srpp.png`,
+    iconEmail: `${CDN_BASE_URL}/image/upload/v1764061288/iconemail_bcul5k.png`,
+    iconDown: `${CDN_BASE_URL}/image/upload/v1764061288/icondown_xld214.png`,
+    iconScan: `${CDN_BASE_URL}/image/upload/v1764061288/iconscan_vyqaxm.png`,
+    iconRound: `${CDN_BASE_URL}/image/upload/v1764061288/iconround_lsmtaj.png`,
+    iconAuto: `${CDN_BASE_URL}/image/upload/v1764061288/iconauto_p9wssy.png`,
+    iconIncrease: `${CDN_BASE_URL}/image/upload/v1764062717/increase_qw2q9s.png`,
+    iconCosts: `${CDN_BASE_URL}/image/upload/v1764062717/costs_tl9rgd.png`,
+    iconCustomers: `${CDN_BASE_URL}/image/upload/v1764062717/customers_cludm1.png`,
   },
 
   // payments/online-payments icons

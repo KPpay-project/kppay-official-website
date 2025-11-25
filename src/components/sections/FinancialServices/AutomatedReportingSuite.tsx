@@ -6,7 +6,7 @@ const AutomatedReporting: React.FC = () => {
     {
       title: 'Executive Summary',
       description: 'High-level overview for leadership and stakeholders',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconDown,
       frequency: 'Weekly/Monthly',
       frequencyLabel: 'FREQUENCY',
       audience: 'C-suite, Board',
@@ -16,7 +16,7 @@ const AutomatedReporting: React.FC = () => {
     {
       title: 'Financial Reports',
       description: 'Detailed financial performance and accounting data',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconUp,
       frequency: 'Monthly/Quarterly',
       frequencyLabel: 'FREQUENCY',
       audience: 'Finance, Accounting',
@@ -26,7 +26,7 @@ const AutomatedReporting: React.FC = () => {
     {
       title: 'Operations Report',
       description: 'Operational metric and performance indicators',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconRound,
       frequency: 'Daily/Weekly',
       frequencyLabel: 'FREQUENCY',
       audience: 'Operations, Management',
@@ -36,7 +36,7 @@ const AutomatedReporting: React.FC = () => {
     {
       title: 'Customer Analytics',
       description: 'Customer behavior and satisfaction metrics',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconCustom,
       frequency: 'Monthly',
       frequencyLabel: 'FREQUENCY',
       audience: 'Marketing, Sales',
