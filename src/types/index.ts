@@ -34,7 +34,7 @@ export { default as CustomReportBuilder } from '@/components/sections/FinancialS
 export { default as AdvancedComplianceTools } from '@/components/sections/FinancialServices/AdvancedComplianceTools';
 export { default as ReportBuilderGrid } from '@/components/sections/FinancialServices/ReportBuilderGrid';
 export { default as ComplianceReadiness } from '@/components/sections/FinancialServices/ComplianceReadiness';
-export { default as RegulatoryStandards } from '@/components/sections/FinancialServices/RegulatoryStandards';
+export { default as RegulatoryStandardsAndCerts } from '@/components/sections/FinancialServices/RegulatoryStandardsAndCerts';
 export { default as RiskManagementGrid } from '@/components/sections/FinancialServices/RiskManagementGrid';
 export { default as FinancialPlanningGrid } from '@/components/sections/FinancialServices/FinancialPlanningGrid';
 export { default as AutomatedReportingSuite } from '@/components/sections/FinancialServices/AutomatedReportingSuite';

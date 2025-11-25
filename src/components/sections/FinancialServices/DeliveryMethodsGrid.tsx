@@ -6,7 +6,7 @@ const DeliveryMethodsGrid: React.FC = () => {
     {
       title: 'Email Delivery',
       description: 'High-level overview for leadership and stakeholders',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconEmail,
       pricing: 'Included',
       pricingLabel: 'PER MONTH',
       features: [
@@ -20,7 +20,7 @@ const DeliveryMethodsGrid: React.FC = () => {
     {
       title: 'Secure Portal',
       description: 'Detailed financial performance and accounting data',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconUp,
       pricing: 'Included',
       pricingLabel: 'PER MONTH',
       features: [
@@ -34,7 +34,7 @@ const DeliveryMethodsGrid: React.FC = () => {
     {
       title: 'API Access',
       description: 'Operational metric and performance indicators',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconApi,
       pricing: '$50/month',
       pricingLabel: 'PER MONTH',
       features: [
@@ -48,7 +48,7 @@ const DeliveryMethodsGrid: React.FC = () => {
     {
       title: 'Flexible Delivery Methods',
       description: 'Customer behavior and satisfaction metrics',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconCustom,
       pricing: '$25/month',
       pricingLabel: 'PER MONTH',
       features: [
@@ -64,7 +64,7 @@ const DeliveryMethodsGrid: React.FC = () => {
   return (
     <section className="py-16 bg-surface-primary container-padding">
       <div className="max-w-7xl mx-auto">
-        <h2 className="heading-bebas text-4xl md:text-5xl text-center text-text-main-dark mb-12">
+        <h2 className="heading-bebas-light text-4xl md:text-5xl text-center text-text-main-dark mb-12">
           FLEXIBLE DELIVERY METHODS
         </h2>
 
@@ -72,7 +72,7 @@ const DeliveryMethodsGrid: React.FC = () => {
           {methods.map((method, index) => (
             <div
               key={index}
-              className="bg-surface-secondary rounded-lg p-6 flex flex-col fade-in"
+              className="bg-surface-secondary rounded-lg p-6 flex flex-col h-full fade-in"
             >
               {/* Icon */}
               <div className="w-12 h-12 mb-4">
@@ -93,31 +93,34 @@ const DeliveryMethodsGrid: React.FC = () => {
                 {method.description}
               </p>
 
-              {/* Pricing Box */}
-              <div className="bg-brand-primary rounded-lg p-4 mb-6">
-                <p className="text-text-main-white text-lg font-bold text-center mb-1">
-                  {method.pricing}
-                </p>
-                <p className="text-text-main-white text-xs text-center">
-                  {method.pricingLabel}
-                </p>
-              </div>
+              {/* Blue box section - pushed to bottom */}
+              <div className="bg-brand-secondary rounded-lg mt-auto">
+                {/* Pricing Box */}
+                <div className="border-2 border-white/20 rounded-lg p-4 m-4 mb-6">
+                  <p className="text-text-main-white text-lg font-bold text-center mb-1">
+                    {method.pricing}
+                  </p>
+                  <p className="text-text-main-white text-xs text-center">
+                    {method.pricingLabel}
+                  </p>
+                </div>
 
-              {/* Feature List */}
-              <div className="bg-brand-primary rounded-lg p-4 space-y-2 mb-6 flex-grow">
-                {method.features.map((feature, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center text-text-main-white text-sm"
-                  >
-                    <span className="mr-2">○</span>
-                    <span>{feature}</span>
-                  </div>
-                ))}
+                {/* Feature List */}
+                <div className="px-4 pb-4 space-y-2 mb-6">
+                  {method.features.map((feature, i) => (
+                    <div
+                      key={i}
+                      className="flex items-center text-text-main-white text-sm"
+                    >
+                      <span className="mr-2">○</span>
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* Button */}
-              <button className="w-full bg-surface-primary border-2 border-interactive-primary text-interactive-primary font-semibold py-3 rounded-full hover:bg-interactive-primary hover:text-text-main-white transition-colors">
+              <button className="w-full bg-surface-primary border-2 border-interactive-primary text-interactive-primary font-semibold py-3 rounded-full hover:bg-interactive-primary hover:text-text-main-white transition-colors mt-4">
                 {method.buttonText}
               </button>
             </div>

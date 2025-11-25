@@ -6,7 +6,7 @@ const ReportingFeaturesGrid: React.FC = () => {
     {
       title: 'Automated Generation',
       description: 'Reports generated automatically on your schedule',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconAuto,
       items: [
         'Set Custom Schedules',
         'Multiple Formats',
@@ -17,7 +17,7 @@ const ReportingFeaturesGrid: React.FC = () => {
     {
       title: 'Custom Formatting',
       description: 'Calculate how much to save for your goals',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconCustom,
       items: [
         'Set Custom Schedules',
         'Multiple Formats',
@@ -28,7 +28,7 @@ const ReportingFeaturesGrid: React.FC = () => {
     {
       title: 'Multi-format Export',
       description: 'Plan for a comfortable retirement',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconDown,
       items: [
         'Set Custom Schedules',
         'Multiple Formats',
@@ -39,7 +39,7 @@ const ReportingFeaturesGrid: React.FC = () => {
     {
       title: 'Automated Distribution',
       description: 'Forecast investment portfolio growth',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconArrow,
       items: [
         'Set Custom Schedules',
         'Multiple Formats',
@@ -50,9 +50,9 @@ const ReportingFeaturesGrid: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 bg-surface-secondary container-padding">
+    <section className="py-16 bg-surface-primary container-padding">
       <div className="max-w-7xl mx-auto">
-        <h2 className="heading-bebas text-4xl md:text-5xl text-center text-text-main-dark mb-12">
+        <h2 className="heading-bebas-light text-4xl md:text-5xl text-center text-text-main-dark mb-12">
           POWERFUL REPORTING FEATURES
         </h2>
 
@@ -60,7 +60,7 @@ const ReportingFeaturesGrid: React.FC = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-surface-primary rounded-lg p-6 fade-in"
+              className="bg-surface-secondary rounded-lg p-6 fade-in flex flex-col h-full"
             >
               {/* Icon */}
               <div className="w-12 h-12 mb-4">
@@ -82,7 +82,7 @@ const ReportingFeaturesGrid: React.FC = () => {
               </p>
 
               {/* Feature List */}
-              <div className="bg-brand-primary rounded-lg p-4 space-y-2">
+              <div className="bg-brand-secondary rounded-lg p-4 space-y-2 mt-auto">
                 {feature.items.map((item, i) => (
                   <div
                     key={i}

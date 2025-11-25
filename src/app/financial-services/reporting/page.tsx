@@ -9,6 +9,9 @@ import {
   CTABox,
   BenefitsGrid,
   TrustStats,
+  ReportingFeaturesGrid,
+  DeliveryMethodsGrid,
+  ReportBuilderGrid,
 } from '@/types';
 import { FileText, BarChart, Users, Shield } from 'lucide-react';
 
@@ -92,19 +95,19 @@ export default function ReportingPage() {
 
   const benefitsFeatures: BenefitFeature[] = [
     {
-      icon: images.onlinePaymentsIcons.instant,
+      icon: images.Icons.iconIncrease,
       title: 'Save Time',
       description:
         'Automated report generation saves hours of manual work each month',
     },
     {
-      icon: images.onlinePaymentsIcons.enterprise,
+      icon: images.Icons.iconCustomers,
       title: 'Stay Compliant',
       description:
         'Automated compliance reporting keeps you audit-ready at all times',
     },
     {
-      icon: images.onlinePaymentsIcons.global,
+      icon: images.Icons.iconCosts,
       title: 'Make Better Decisions',
       description:
         'Regular insights help you identify trends and opportunities faster',
@@ -156,8 +159,17 @@ export default function ReportingPage() {
         boxOpacity={10}
       />
 
+      {/* Powerful Reporting Features */}
+      <ReportingFeaturesGrid />
+
       {/* Custom Report Builder */}
       <CustomReportBuilder />
+
+      {/* Flexible Delivery Methods */}
+      <DeliveryMethodsGrid />
+
+      {/* Custom Reporting */}
+      <ReportBuilderGrid />
 
       {/* Benefits Grid Section */}
       <BenefitsGrid

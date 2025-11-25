@@ -77,13 +77,13 @@ const AdvancedComplianceTools = () => {
     <section className="w-full py-16 md:py-20 lg:py-24 bg-surface-secondary">
       <div className="container-padding max-w-7xl mx-auto">
         {/* Section Header */}
-        <h2 className="heading-bebas-light text-4xl md:text-5xl lg:text-6xl text-text-primary text-center mb-12 md:mb-16">
+        <h2 className="heading-bebas-light text-4xl md:text-5xl text-center text-text-main-dark mb-12">
           Advanced Compliance Tools
         </h2>
 
         {/* Identity Verification Section */}
         <div className="mb-12 md:mb-16">
-          <h3 className="text-text-primary text-xl md:text-2xl font-semibold mb-6">
+          <h3 className="text-text-main-dark text-xl md:text-2xl font-semibold mb-6">
             Identity Verification
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -99,7 +99,7 @@ const AdvancedComplianceTools = () => {
 
         {/* Transaction Monitoring Section */}
         <div className="mb-12 md:mb-16">
-          <h3 className="text-text-primary text-xl md:text-2xl font-semibold mb-6">
+          <h3 className="text-text-main-dark text-xl md:text-2xl font-semibold mb-6">
             Transaction Monitoring
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -115,7 +115,7 @@ const AdvancedComplianceTools = () => {
 
         {/* Audit & Documentation Section */}
         <div>
-          <h3 className="text-text-primary text-xl md:text-2xl font-semibold mb-6">
+          <h3 className="text-text-main-dark text-xl md:text-2xl font-semibold mb-6">
             Audit & Documentation
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

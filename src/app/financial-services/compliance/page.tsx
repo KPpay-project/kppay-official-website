@@ -9,6 +9,10 @@ import {
   CTABox,
   BenefitsGrid,
   TrustStats,
+  ComplianceReadiness,
+  RegulatoryStandardsAndCerts,
+  RiskManagementGrid,
+  FinancialPlanningGrid,
 } from '@/types';
 import { Shield, FileText, AlertTriangle, CheckCircle } from 'lucide-react';
 
@@ -92,19 +96,19 @@ export default function CompliancePage() {
 
   const benefitsFeatures: BenefitFeature[] = [
     {
-      icon: images.onlinePaymentsIcons.instant,
+      icon: images.Icons.iconIncrease,
       title: 'Save Time',
       description:
         'Automated report generation saves hours of manual work each month',
     },
     {
-      icon: images.onlinePaymentsIcons.enterprise,
+      icon: images.Icons.iconCustomers,
       title: 'Stay Compliant',
       description:
         'Automated compliance reporting keeps you audit-ready at all times',
     },
     {
-      icon: images.onlinePaymentsIcons.global,
+      icon: images.Icons.iconCosts,
       title: 'Make Better Decisions',
       description:
         'Regular insights help you identify trends and opportunities faster',
@@ -156,8 +160,20 @@ export default function CompliancePage() {
         boxOpacity={10}
       />
 
+      {/* Ready to ensure complete compliance */}
+      <ComplianceReadiness />
+
+      {/* Regulatory Standards and Certifications */}
+      <RegulatoryStandardsAndCerts />
+
       {/* Advanced Compliance Tools */}
       <AdvancedComplianceTools />
+
+      {/* Comprehensive Risk Management */}
+      <RiskManagementGrid />
+
+      {/* Financial Planning Tools */}
+      <FinancialPlanningGrid />
 
       {/* Benefits Grid Section */}
       <BenefitsGrid

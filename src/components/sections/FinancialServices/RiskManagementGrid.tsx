@@ -6,7 +6,7 @@ const RiskManagement: React.FC = () => {
     {
       title: 'Financial Crime Prevention',
       subtitle: '24/7 Monitoring',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconScan,
       features: [
         'Sanction Compliance',
         'Multiple Formats',
@@ -17,7 +17,7 @@ const RiskManagement: React.FC = () => {
     {
       title: 'Data Protection',
       subtitle: 'Continuous Monitoring',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconScan,
       features: [
         'Sanction Compliance',
         'Multiple Formats',
@@ -28,7 +28,7 @@ const RiskManagement: React.FC = () => {
     {
       title: 'Operational Risk',
       subtitle: 'Real-time Monitoring',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconScan,
       features: [
         'Sanction Compliance',
         'Multiple Formats',
@@ -39,7 +39,7 @@ const RiskManagement: React.FC = () => {
     {
       title: 'Cyber Security',
       subtitle: '24/7 Monitoring',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconScan,
       features: [
         'Sanction Compliance',
         'Multiple Formats',
@@ -50,9 +50,9 @@ const RiskManagement: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 bg-surface-secondary container-padding">
+    <section className="py-16 container-padding bg-surface-primary">
       <div className="max-w-7xl mx-auto">
-        <h2 className="heading-bebas text-4xl md:text-5xl text-center text-text-main-dark mb-12">
+        <h2 className="heading-bebas-light text-4xl md:text-5xl text-center text-text-main-dark mb-12">
           COMPREHENSIVE RISK MANAGEMENT
         </h2>
 
@@ -60,7 +60,7 @@ const RiskManagement: React.FC = () => {
           {risks.map((risk, index) => (
             <div
               key={index}
-              className="bg-surface-primary rounded-lg p-6 fade-in"
+              className="bg-surface-secondary rounded-lg p-6 flex flex-col h-full"
             >
               {/* Icon */}
               <div className="w-12 h-12 mb-4">
@@ -72,7 +72,7 @@ const RiskManagement: React.FC = () => {
               </div>
 
               {/* Title */}
-              <h3 className="text-text-primary font-bold text-lg mb-1">
+              <h3 className="text-text-primary font-bold text-lg mb-2">
                 {risk.title}
               </h3>
 
@@ -82,11 +82,12 @@ const RiskManagement: React.FC = () => {
               </p>
 
               {/* Feature List */}
-              <div className="bg-brand-primary rounded-lg p-4 space-y-2">
+              <div className="rounded-lg p-4 space-y-2 mt-auto bg-brand-secondary">
                 {risk.features.map((feature, i) => (
                   <div
                     key={i}
-                    className="flex items-center text-text-main-white text-sm"
+                    className="flex items-center text-sm"
+                    style={{ color: '#ffffff' }}
                   >
                     <span className="mr-2">○</span>
                     <span>{feature}</span>

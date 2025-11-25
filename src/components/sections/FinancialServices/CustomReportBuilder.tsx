@@ -77,8 +77,8 @@ const CustomReportBuilder = () => {
     <section className="w-full py-16 md:py-20 lg:py-24 bg-surface-secondary">
       <div className="container-padding max-w-7xl mx-auto">
         {/* Section Header */}
-        <h2 className="heading-bebas-light text-4xl md:text-5xl lg:text-6xl text-text-primary text-center mb-12 md:mb-16">
-          Custom Report Builder
+        <h2 className="heading-bebas-light text-4xl md:text-5xl text-center text-text-main-dark mb-12">
+          CUSTOM REPORT BUILDER
         </h2>
 
         {/* Report Content Section */}

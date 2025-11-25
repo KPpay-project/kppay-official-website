@@ -7,25 +7,25 @@ const IntegrationsGrid: React.FC = () => {
       title: 'Business Intelligence',
       description:
         'Connect with enterprise BI platforms for advanced analytics',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconDown,
       platforms: ['Tableau', 'Power BI', 'Looker', 'Qlik'],
     },
     {
       title: 'Accounting Software',
       description: 'Quickbooks',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconUp,
       platforms: ['Quickbooks', 'Xero', 'NetSuite', 'SAP'],
     },
     {
       title: 'CRM Systems',
       description: 'Combine payment data with customer relationship management',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconUp,
       platforms: ['Salesforce', 'HubSpot', 'Pipedrive', 'Zoho'],
     },
     {
       title: 'E-Commerce Platforms',
       description: 'Unified analytics across your e-commerce operations',
-      icon: images.Icons.ios,
+      icon: images.Icons.iconCustom,
       platforms: ['Shopify', 'WooCommerce', 'Magento', 'BigCommerce'],
     },
   ];
@@ -33,7 +33,7 @@ const IntegrationsGrid: React.FC = () => {
   return (
     <section className="py-16 bg-surface-primary container-padding">
       <div className="max-w-7xl mx-auto">
-        <h2 className="heading-bebas text-4xl md:text-5xl text-center text-text-main-dark mb-12">
+        <h2 className="heading-bebas-light text-4xl md:text-5xl text-center text-text-main-dark mb-12">
           SEAMLESS INTEGRATIONS
         </h2>
 
@@ -41,7 +41,7 @@ const IntegrationsGrid: React.FC = () => {
           {integrations.map((integration, index) => (
             <div
               key={index}
-              className="bg-surface-secondary rounded-lg p-6 fade-in"
+              className="bg-surface-secondary rounded-lg p-6 fade-in flex flex-col h-full"
             >
               {/* Icon */}
               <div className="w-12 h-12 mb-4">
@@ -52,31 +52,27 @@ const IntegrationsGrid: React.FC = () => {
                 />
               </div>
 
-              <div>
-                <div>
-                  {/* Title */}
-                  <h3 className="text-text-primary font-bold text-lg mb-2">
-                    {integration.title}
-                  </h3>
+              {/* Title */}
+              <h3 className="text-text-primary font-bold text-lg mb-2">
+                {integration.title}
+              </h3>
 
-                  {/* Description */}
-                  <p className="text-text-secondary text-sm mb-6">
-                    {integration.description}
-                  </p>
-                </div>
+              {/* Description */}
+              <p className="text-text-secondary text-sm mb-6">
+                {integration.description}
+              </p>
 
-                {/* Platform Pills */}
-                <div className="bg-brand-secondary rounded-lg p-4">
-                  <div className="flex flex-wrap gap-2">
-                    {integration.platforms.map((platform, i) => (
-                      <span
-                        key={i}
-                        className="bg-interactive-primary text-text-main-white text-xs font-medium px-3 py-1 rounded-full"
-                      >
-                        {platform}
-                      </span>
-                    ))}
-                  </div>
+              {/* Platform Pills - pushed to bottom */}
+              <div className="bg-brand-secondary rounded-lg p-4 mt-auto">
+                <div className="flex flex-wrap gap-2">
+                  {integration.platforms.map((platform, i) => (
+                    <span
+                      key={i}
+                      className="bg-interactive-primary text-text-main-white text-xs font-medium px-3 py-1 rounded-full"
+                    >
+                      {platform}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
