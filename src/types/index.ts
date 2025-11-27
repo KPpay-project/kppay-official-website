@@ -41,6 +41,11 @@ export { default as AutomatedReportingSuite } from '@/components/sections/Financ
 export { default as IntegrationsGrid } from '@/components/sections/FinancialServices/IntegrationsGrid';
 export { default as ReportingFeaturesGrid } from '@/components/sections/FinancialServices/ReportingFeaturesGrid';
 export { default as DeliveryMethodsGrid } from '@/components/sections/FinancialServices/DeliveryMethodsGrid';
+export { default as IdentityKYCHeroSection } from '@/components/sections/FinancialServices/IdentityKYCHeroSection';
+export { default as VerificationFeaturesGrid } from '@/components/sections/FinancialServices/VerificationFeaturesGrid';
+
+// solutions mega menu - payment infrastrucutre
+export { default as PaymentGatewayHeroSection } from '@/components/solutions/PaymentInfrastructure/PaymentGateway/PaymentGatewayHeroSection';
 
 // Shared Components
 export { default as FAQSection } from '@/components/sections/shared/FAQSection';

@@ -60,6 +60,9 @@ export const routeLayouts: Record<string, LayoutConfig> = {
   '/financial-services/compliance': {
     header: 'light',
   },
+  '/financial-services/identity-kyc': {
+    header: 'dark',
+  },
 
   // About page
   '/about': {
