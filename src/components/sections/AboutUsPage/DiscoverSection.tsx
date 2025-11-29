@@ -10,7 +10,7 @@ const DiscoverSection = () => {
         {/* Image */}
         <div className="mb-12 relative w-full aspect-video">
           <Image
-            src={images.about.discover}
+            src={images.about.aboutUsImg}
             alt="Team meeting collaboration"
             fill
             className="object-contain rounded-2xl"
