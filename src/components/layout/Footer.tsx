@@ -175,7 +175,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/careers"
+                    href="/about"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Careers
@@ -183,7 +183,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/news"
+                    href="/about"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Newsroom
@@ -214,7 +214,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 <li>
                   <Link
-                    href="/features"
+                    href="/payments"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Global Payments
@@ -222,7 +222,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/features"
+                    href="/payment-infrastructure/virtual-cards"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Virtual Cards
@@ -230,7 +230,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/features"
+                    href="/banking"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Currency Exchange
@@ -238,7 +238,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/features"
+                    href="/banking/business-accounts"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Business Banking
@@ -246,7 +246,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/features"
+                    href="/product"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     See All Products
@@ -261,7 +261,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 <li>
                   <Link
-                    href="/resources-and-documentation"
+                    href="resources-and-documentation"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     API Documentation
@@ -269,7 +269,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/resources-and-documentation"
+                    href="resources-and-documentation"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     SDKs & Libraries
@@ -277,7 +277,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/resources-and-documentation"
+                    href="resources-and-documentation"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Webhooks
@@ -285,7 +285,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/resources-and-documentation"
+                    href="resources-and-documentation"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Developer Community
@@ -302,7 +302,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 <li>
                   <Link
-                    href="/help"
+                    href="/faqs"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Help Center
@@ -310,7 +310,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/news"
+                    href="/about"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Blog
@@ -334,7 +334,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/support"
+                    href="/contact"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Customer Support

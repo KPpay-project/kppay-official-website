@@ -338,11 +338,15 @@ export default function HeroSection() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-start gap-4">
-                  <Button variant="primary" size="lg">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    href="https://dev.d32yml5hzs7qtc.amplifyapp.com/onboarding/create-account"
+                  >
                     Get started for free
                     <ArrowRight className="w-5 h-5" />
                   </Button>
-                  <Button variant="outlined-white" size="lg">
+                  <Button variant="outlined-white" size="lg" href="/about">
                     Learn more
                   </Button>
                 </div>

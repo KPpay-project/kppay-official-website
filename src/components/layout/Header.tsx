@@ -12,13 +12,6 @@ import {
   CreditCard,
   RotateCcw,
   Store,
-  Building2,
-  User,
-  PiggyBank,
-  Coins,
-  BarChart3,
-  FileText,
-  Receipt,
   Shield,
   Zap,
   Link2,
@@ -27,8 +20,41 @@ import {
   Building,
   Users,
   ShieldCheck,
-  Calculator,
   UserCheck,
+  Calendar,
+  Key,
+  Monitor,
+  Wallet,
+  Banknote,
+  Receipt,
+  FileText,
+  BarChart3,
+  TrendingUp,
+  Lock,
+  Globe,
+  Settings,
+  CheckCircle,
+  ArrowRight,
+  Download,
+  Upload,
+  Search,
+  Bell,
+  Package,
+  ShoppingCart,
+  Percent,
+  Database,
+  Server,
+  Cloud,
+  Briefcase,
+  Target,
+  Award,
+  Star,
+  Heart,
+  Eye,
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
 } from 'lucide-react';
 import Image from 'next/image';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
@@ -380,7 +406,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
         </nav>
       </header>
 
-      {/* Product Mega Menu */}
+      {/* Product Mega Menu - Consolidated */}
       {megaMenuOpen && !mobileMenuOpen && (
         <>
           <div
@@ -408,7 +434,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
           >
             <div className="px-12 py-12">
               <div className="relative mb-8">
-                <div className="grid grid-cols-3 gap-12">
+                <div className="grid grid-cols-4 gap-8">
                   <div>
                     <h3 className="text-text-tertiary uppercase text-xs font-semibold tracking-wider mb-2">
                       PAYMENTS
@@ -419,25 +445,33 @@ export default function Header({ variant = 'light' }: HeaderProps) {
                   </div>
                   <div>
                     <h3 className="text-text-tertiary uppercase text-xs font-semibold tracking-wider mb-2">
-                      BANKING
+                      PAYMENT INFRASTRUCTURE
                     </h3>
                     <p className="text-text-secondary text-sm mb-4">
-                      Digital banking and financial services
+                      Complete payment processing solutions
                     </p>
                   </div>
                   <div>
                     <h3 className="text-text-tertiary uppercase text-xs font-semibold tracking-wider mb-2">
-                      FINANCIAL SERVICES
+                      FINANCIAL TOOLS
                     </h3>
                     <p className="text-text-secondary text-sm mb-4">
-                      Advanced financial tools and analytics
+                      Identity verification and connections
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-text-tertiary uppercase text-xs font-semibold tracking-wider mb-2">
+                      DEVELOPER & ENTERPRISE
+                    </h3>
+                    <p className="text-text-secondary text-sm mb-4">
+                      Tools and resources for developers
                     </p>
                   </div>
                 </div>
                 <hr className="absolute bottom-0 left-0 right-0 border-t border-border-secondary" />
               </div>
 
-              <div className="grid grid-cols-3 gap-12">
+              <div className="grid grid-cols-4 gap-8">
                 <div className="space-y-6">
                   <Link
                     href="/payments/online-payments"
@@ -453,7 +487,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
                           Online Payments
                         </h4>
                         <p className="text-sm text-text-secondary">
-                          Accept payments online and in person
+                          Accept payments online
                         </p>
                       </div>
                     </div>
@@ -493,7 +527,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
                           Mobile Payments
                         </h4>
                         <p className="text-sm text-text-secondary">
-                          Accept payments on mobile devices
+                          Accept payments on mobile
                         </p>
                       </div>
                     </div>
@@ -522,80 +556,100 @@ export default function Header({ variant = 'light' }: HeaderProps) {
 
                 <div className="space-y-6">
                   <Link
-                    href="/banking/business-accounts"
+                    href="/payment-infrastructure/payment-gateway"
                     className="block group"
                     onClick={() => setMegaMenuOpen(false)}
                   >
                     <div className="flex items-start gap-3">
                       <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
-                        <Building2 className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                        <Zap className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
                       </div>
                       <div>
                         <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
-                          Business Accounts
+                          Payment Gateway
                         </h4>
                         <p className="text-sm text-text-secondary">
-                          Digital banking and financial services
+                          Fast and secure processing
                         </p>
                       </div>
                     </div>
                   </Link>
 
                   <Link
-                    href="/banking/personal-banking"
+                    href="/payment-infrastructure/subscriptions"
                     className="block group"
                     onClick={() => setMegaMenuOpen(false)}
                   >
                     <div className="flex items-start gap-3">
                       <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
-                        <User className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                        <RotateCcw className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
                       </div>
                       <div>
                         <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
-                          Personal Banking
+                          Subscriptions
                         </h4>
                         <p className="text-sm text-text-secondary">
-                          Modern personal banking solutions
+                          Recurring payment management
                         </p>
                       </div>
                     </div>
                   </Link>
 
                   <Link
-                    href="/banking/savings-investments"
+                    href="/payment-infrastructure/connect-platforms"
                     className="block group"
                     onClick={() => setMegaMenuOpen(false)}
                   >
                     <div className="flex items-start gap-3">
                       <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
-                        <PiggyBank className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                        <Link2 className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
                       </div>
                       <div>
                         <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
-                          Savings & Investments
+                          Connect Platforms
                         </h4>
                         <p className="text-sm text-text-secondary">
-                          Grow your money with high-yield accounts
+                          Multi-party payment orchestration
                         </p>
                       </div>
                     </div>
                   </Link>
 
                   <Link
-                    href="/banking/loans-credit"
+                    href="/payment-infrastructure/virtual-cards"
                     className="block group"
                     onClick={() => setMegaMenuOpen(false)}
                   >
                     <div className="flex items-start gap-3">
                       <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
-                        <Coins className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                        <CreditCard className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
                       </div>
                       <div>
                         <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
-                          Loans & Credit
+                          Virtual Cards
                         </h4>
                         <p className="text-sm text-text-secondary">
-                          Quick access to business and personal credit
+                          Issue virtual cards instantly
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/payment-infrastructure/pos-terminal"
+                    className="block group"
+                    onClick={() => setMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <Store className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          POS Terminal
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Smart point-of-sale solutions
                         </p>
                       </div>
                     </div>
@@ -604,53 +658,13 @@ export default function Header({ variant = 'light' }: HeaderProps) {
 
                 <div className="space-y-6">
                   <Link
-                    href="/financial-services/analytics"
-                    className="block group"
-                    onClick={() => setMegaMenuOpen(false)}
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
-                        <BarChart3 className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
-                          Analytics
-                        </h4>
-                        <p className="text-sm text-text-secondary">
-                          Deep insights into your financial data
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href="/financial-services/reporting"
-                    className="block group"
-                    onClick={() => setMegaMenuOpen(false)}
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
-                        <FileText className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
-                          Reporting
-                        </h4>
-                        <p className="text-sm text-text-secondary">
-                          Comprehensive financial reporting
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
-
-                  <Link
                     href="/financial-services/identity-kyc"
                     className="block group"
                     onClick={() => setMegaMenuOpen(false)}
                   >
                     <div className="flex items-start gap-3">
                       <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
-                        <Receipt className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                        <UserCheck className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
                       </div>
                       <div>
                         <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
@@ -664,7 +678,89 @@ export default function Header({ variant = 'light' }: HeaderProps) {
                   </Link>
 
                   <Link
-                    href="/financial-services/compliance"
+                    href="/financial-services/financial-connections"
+                    className="block group"
+                    onClick={() => setMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <Layers className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Financial Connections
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Connect to bank accounts securely
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+
+                <div className="space-y-6">
+                  <Link
+                    href="/resources-and-documentation"
+                    className="block group"
+                    onClick={() => setMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <Code className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          API Documentation
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Complete API reference and guides
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/developer-enterprise/enterprise-infrastructure"
+                    className="block group"
+                    onClick={() => setMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <Building className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Enterprise Infrastructure
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Scalable enterprise solutions
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/developer-enterprise/partners-program"
+                    className="block group"
+                    onClick={() => setMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <Users className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Partners Program
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Join our partner ecosystem
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/developer-enterprise/trust-security"
                     className="block group"
                     onClick={() => setMegaMenuOpen(false)}
                   >
@@ -674,10 +770,10 @@ export default function Header({ variant = 'light' }: HeaderProps) {
                       </div>
                       <div>
                         <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
-                          Compliance
+                          Trust and Security
                         </h4>
                         <p className="text-sm text-text-secondary">
-                          Stay compliant with financial regulations
+                          Security certifications and compliance
                         </p>
                       </div>
                     </div>
@@ -728,6 +824,13 @@ export default function Header({ variant = 'light' }: HeaderProps) {
                 onClick={closeMobileMenu}
               >
                 Resources
+              </Link>
+              <Link
+                href="/faqs"
+                className="font-medium text-text-primary hover:text-brand-primary transition-colors"
+                onClick={closeMobileMenu}
+              >
+                FAQs
               </Link>
             </div>
             <div className="mt-auto flex flex-col gap-4 px-6">
@@ -791,7 +894,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
                     href: '/payments/online-payments',
                     icon: CreditCard,
                     title: 'Online Payments',
-                    desc: 'Accept payments online and in person',
+                    desc: 'Accept payments online',
                   },
                   {
                     href: '/payments/point-of-sale',
@@ -803,7 +906,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
                     href: '/payments/mobile-payments',
                     icon: Smartphone,
                     title: 'Mobile Payments',
-                    desc: 'Accept payments on mobile devices',
+                    desc: 'Accept payments on mobile',
                   },
                   {
                     href: '/payments/recurring-billing',
@@ -838,36 +941,42 @@ export default function Header({ variant = 'light' }: HeaderProps) {
 
             <div>
               <h3 className="text-text-tertiary uppercase text-xs font-semibold tracking-wider mb-3">
-                BANKING
+                PAYMENT INFRASTRUCTURE
               </h3>
               <p className="text-text-secondary text-sm mb-6">
-                Digital banking and financial services
+                Complete payment processing solutions
               </p>
               <div className="space-y-6">
                 {[
                   {
-                    href: '/banking/business-accounts',
-                    icon: Building2,
-                    title: 'Business Accounts',
-                    desc: 'Digital banking and financial services',
+                    href: '/payment-infrastructure/payment-gateway',
+                    icon: Zap,
+                    title: 'Payment Gateway',
+                    desc: 'Fast and secure processing',
                   },
                   {
-                    href: '/banking/personal-banking',
-                    icon: User,
-                    title: 'Personal Banking',
-                    desc: 'Modern personal banking solutions',
+                    href: '/payment-infrastructure/subscriptions',
+                    icon: Cloud,
+                    title: 'Subscriptions',
+                    desc: 'Recurring payment management',
                   },
                   {
-                    href: '/banking/savings-investments',
-                    icon: PiggyBank,
-                    title: 'Savings & Investments',
-                    desc: 'Grow your money with high-yield accounts',
+                    href: '/payment-infrastructure/connect-platforms',
+                    icon: Link2,
+                    title: 'Connect Platforms',
+                    desc: 'Multi-party payment orchestration',
                   },
                   {
-                    href: '/banking/loans-credit',
-                    icon: Coins,
-                    title: 'Loans & Credit',
-                    desc: 'Quick access to business and personal credit',
+                    href: '/payment-infrastructure/virtual-cards',
+                    icon: Key,
+                    title: 'Virtual Cards',
+                    desc: 'Issue virtual cards instantly',
+                  },
+                  {
+                    href: '/payment-infrastructure/pos-terminal',
+                    icon: MapPin,
+                    title: 'POS Terminal',
+                    desc: 'Smart point-of-sale solutions',
                   },
                 ].map((item) => (
                   <Link
@@ -896,36 +1005,82 @@ export default function Header({ variant = 'light' }: HeaderProps) {
 
             <div>
               <h3 className="text-text-tertiary uppercase text-xs font-semibold tracking-wider mb-3">
-                FINANCIAL SERVICES
+                FINANCIAL TOOLS
               </h3>
               <p className="text-text-secondary text-sm mb-6">
-                Advanced financial tools and analytics
+                Identity verification and connections
               </p>
               <div className="space-y-6">
                 {[
                   {
-                    href: '/financial-services/analytics',
-                    icon: BarChart3,
-                    title: 'Analytics',
-                    desc: 'Deep insights into your financial data',
-                  },
-                  {
-                    href: '/financial-services/reporting',
-                    icon: FileText,
-                    title: 'Reporting',
-                    desc: 'Comprehensive financial reporting',
-                  },
-                  {
-                    href: '/financial-services/identity-kyc',
-                    icon: Receipt,
+                    href: 'financial-services/identity-kyc',
+                    icon: UserCheck,
                     title: 'Identity and KYC',
                     desc: 'Identity verification and compliance',
                   },
                   {
-                    href: '/financial-services/compliance',
+                    href: '/financial-services/financial-connections',
+                    icon: Layers,
+                    title: 'Financial Connections',
+                    desc: 'Connect to bank accounts securely',
+                  },
+                ].map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block group"
+                    onClick={closeMobileMenu}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <item.icon className="w-6 h-6 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary text-lg mb-1">
+                          {item.title}
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-text-tertiary uppercase text-xs font-semibold tracking-wider mb-3">
+                DEVELOPER & ENTERPRISE
+              </h3>
+              <p className="text-text-secondary text-sm mb-6">
+                Tools and resources for developers
+              </p>
+              <div className="space-y-6">
+                {[
+                  {
+                    href: '/resources-and-documentation',
+                    icon: Code,
+                    title: 'API Documentation',
+                    desc: 'Complete API reference and guides',
+                  },
+                  {
+                    href: '/developer-enterprise/enterprise-infrastructure',
+                    icon: Building,
+                    title: 'Enterprise Infrastructure',
+                    desc: 'Scalable enterprise solutions',
+                  },
+                  {
+                    href: '/developer-enterprise/partners-program',
+                    icon: Users,
+                    title: 'Partners Program',
+                    desc: 'Join our partner ecosystem',
+                  },
+                  {
+                    href: '/developer-enterprise/trust-security',
                     icon: Shield,
-                    title: 'Compliance',
-                    desc: 'Stay compliant with financial regulations',
+                    title: 'Trust and Security',
+                    desc: 'Security certifications and compliance',
                   },
                 ].map((item) => (
                   <Link

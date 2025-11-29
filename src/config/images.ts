@@ -174,6 +174,10 @@ export const images = {
     societeGenerale: `${CDN_BASE_URL}/image/upload/v1761540384/societe_fgaobs.webp`,
     flutterwave: `${CDN_BASE_URL}/image/upload/v1761540379/flutterwave_pniu23.webp`,
     banqueAtlantique: `${CDN_BASE_URL}/image/upload/v1761540387/banque_suolnf.webp`,
+    moovAfrica: `${CDN_BASE_URL}/image/upload/v1764414202/moov_africa_r7xbwp.jpg`,
+    FBNBank: `${CDN_BASE_URL}/image/upload/v1764414203/FBNBank_snrmzj.png`,
+    ICICBank: `${CDN_BASE_URL}/image/upload/v1764414203/ICICIBank_risxl6.png`,
+    StanbicBank: `${CDN_BASE_URL}/image/upload/v1764414203/StanbicBank_mrth3n.png`,
   },
 
   // Services icons

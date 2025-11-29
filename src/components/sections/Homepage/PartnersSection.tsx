@@ -19,6 +19,9 @@ const PartnersSection: React.FC = () => {
     { name: 'Société Générale', logo: images.partners.societeGenerale },
     { name: 'Flutterwave', logo: images.partners.flutterwave },
     { name: 'Banque Atlantique', logo: images.partners.banqueAtlantique },
+    { name: 'FBN Bank', logo: images.partners.FBNBank },
+    { name: 'ICIC Bank', logo: images.partners.ICICBank },
+    { name: 'Standbic Bank', logo: images.partners.StanbicBank },
   ];
 
   return (
@@ -39,7 +42,7 @@ const PartnersSection: React.FC = () => {
               key={index}
               className="flex items-center justify-center p-4 rounded-lg hover:shadow-md transition-shadow duration-200 w-24 sm:w-28 lg:w-32"
             >
-              <div className="relative w-full h-8 sm:h-10">
+              <div className="relative w-full h-12 sm:h-14 lg:h-16">
                 <Image
                   src={partner.logo}
                   alt={partner.name}

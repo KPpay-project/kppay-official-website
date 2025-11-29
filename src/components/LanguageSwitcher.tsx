@@ -1,8 +1,14 @@
-// src/components/LanguageSwitcher.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
 import { ChevronDown, Globe } from 'lucide-react';
+
+const languages = [
+  { code: 'en', name: 'English', flag: 'EN', abbr: 'EN' },
+  { code: 'fr', name: 'Français', flag: 'FR', abbr: 'FR' },
+  { code: 'pt', name: 'Português', flag: 'PT', abbr: 'PT' },
+  { code: 'ar', name: 'العربية', flag: 'AR', abbr: 'AR' },
+];
 
 declare global {
   interface Window {
@@ -28,76 +34,104 @@ declare global {
   }
 }
 
-const languages = [
-  { code: 'en', name: 'English', flag: '🇬🇧', abbr: 'EN' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷', abbr: 'FR' },
-  { code: 'pt', name: 'Português', flag: '🇵🇹', abbr: 'PT' },
-  { code: 'ar', name: 'العربية', flag: '🇸🇦', abbr: 'AR' },
-];
-
-// Get initial language from cookie outside component
-function getInitialLanguage(): string {
-  if (typeof window === 'undefined') return 'en';
-
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; googtrans=`);
-  if (parts.length === 2) {
-    const cookie = parts.pop()?.split(';').shift();
-    if (cookie) {
-      const lang = cookie.split('/')[2];
-      if (lang && languages.some((l) => l.code === lang)) {
-        return lang;
-      }
-    }
-  }
-  return 'en';
-}
-
 export default function LanguageSwitcher({
   variant = 'desktop',
 }: {
   variant?: 'desktop' | 'mobile';
 }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState(getInitialLanguage);
+  const [currentLang, setCurrentLang] = useState('en');
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Load Google Translate script
-    if (!document.getElementById('google-translate-script')) {
+    const saved = localStorage.getItem('googtrans') || '/en/en';
+    const lang = saved.split('/')[2] || 'en';
+    setCurrentLang(lang);
+
+    let retryCount = 0;
+    const maxRetries = 3;
+
+    const loadScript = () => {
+      if (document.getElementById('google-translate-script')) {
+        setIsLoaded(true);
+        return;
+      }
+
       const script = document.createElement('script');
       script.id = 'google-translate-script';
       script.src =
         '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
       script.async = true;
-      document.body.appendChild(script);
-    }
 
-    // Initialize Google Translate
-    window.googleTranslateElementInit = () => {
-      new window.google.translate.TranslateElement(
-        {
-          pageLanguage: 'en',
-          includedLanguages: 'en,fr,pt,ar',
-          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-          autoDisplay: false,
-        },
-        'google_translate_element'
-      );
+      script.onerror = () => {
+        if (retryCount < maxRetries) {
+          retryCount++;
+          setTimeout(loadScript, 1000 * retryCount);
+        }
+      };
+
+      script.onload = () => {
+        setIsLoaded(true);
+      };
+
+      document.body.appendChild(script);
     };
+
+    window.googleTranslateElementInit = () => {
+      try {
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: 'en',
+            includedLanguages: 'en,fr,pt,ar',
+            layout:
+              window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false,
+          },
+          'google_translate_element'
+        );
+        setIsLoaded(true);
+      } catch (error) {
+        console.error('Google Translate initialization failed:', error);
+      }
+    };
+
+    loadScript();
+
+    const timer = setTimeout(() => {
+      if (lang !== 'en') {
+        changeLanguage(lang);
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const changeLanguage = (langCode: string) => {
     setCurrentLang(langCode);
     setIsOpen(false);
 
-    // Use setTimeout to defer the side effects
-    setTimeout(() => {
-      // Set cookie for Google Translate
-      document.cookie = `googtrans=/en/${langCode}; path=/`;
+    try {
+      const cookieValue = `/en/${langCode}`;
+      document.cookie = `googtrans=${cookieValue}; path=/; max-age=31536000`;
+      localStorage.setItem('googtrans', cookieValue);
 
-      // Reload page to apply translation
+      const googleCombo = document.querySelector(
+        '.goog-te-combo'
+      ) as HTMLSelectElement;
+      if (googleCombo) {
+        googleCombo.value = langCode;
+        googleCombo.dispatchEvent(new Event('change'));
+      }
+
+      setTimeout(() => {
+        if (document.documentElement.lang !== langCode) {
+          window.location.reload();
+        }
+      }, 500);
+    } catch (error) {
+      console.error('Translation change failed:', error);
       window.location.reload();
-    }, 0);
+    }
   };
 
   const currentLanguage =
@@ -107,10 +141,8 @@ export default function LanguageSwitcher({
 
   return (
     <>
-      {/* Hidden Google Translate Element */}
       <div id="google_translate_element" style={{ display: 'none' }}></div>
 
-      {/* Custom Language Switcher - Add notranslate class to prevent translation */}
       <div className="relative notranslate">
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -128,6 +160,7 @@ export default function LanguageSwitcher({
               : undefined
           }
           aria-label="Change language"
+          disabled={!isLoaded}
         >
           {isMobile ? (
             <span className="text-xs font-semibold text-text-primary">
@@ -137,7 +170,7 @@ export default function LanguageSwitcher({
             <>
               <Globe className="w-4 h-4 text-text-secondary" />
               <span className="text-sm font-medium text-text-primary hidden sm:inline">
-                {currentLanguage.flag} {currentLanguage.name}
+                {currentLanguage.name}
               </span>
               <ChevronDown className="w-4 h-4 text-gray-500" />
             </>
@@ -165,7 +198,6 @@ export default function LanguageSwitcher({
                     currentLang === lang.code ? 'bg-surface-secondary' : ''
                   }`}
                 >
-                  <span className="text-xl">{lang.flag}</span>
                   <span className="text-sm font-medium text-text-primary">
                     {lang.name}
                   </span>
@@ -176,11 +208,11 @@ export default function LanguageSwitcher({
         )}
       </div>
 
-      {/* Hide Google Translate toolbar */}
       <style jsx global>{`
         .goog-te-banner-frame,
         .goog-te-balloon-frame,
-        .goog-tooltip {
+        .goog-tooltip,
+        .goog-te-spinner-pos {
           display: none !important;
         }
 
@@ -190,6 +222,10 @@ export default function LanguageSwitcher({
 
         .skiptranslate {
           display: none !important;
+        }
+
+        body.translated {
+          position: static !important;
         }
       `}</style>
     </>
