@@ -1,8 +1,17 @@
-export default function Subscriptions() {
+import { SubscriptionInvoicingHeroSection } from '@/types';
+
+export const metadata = {
+  title: 'Subscription Management | KPPAY - Automated Recurring Payments',
+  description:
+    'Simplify subscription billing with KPPAY. Automate recurring payments, manage customer subscriptions, and grow predictable revenue across global markets.',
+};
+
+const Subscriptions = () => {
   return (
-    <div className="container mx-auto px-6 py-16">
-      <h1 className="text-4xl font-bold mb-4">Subscriptions</h1>
-      <p className="text-lg text-text-secondary">Content coming soon...</p>
-    </div>
+    <main className="page-transition">
+      <SubscriptionInvoicingHeroSection />
+    </main>
   );
-}
+};
+
+export default Subscriptions;

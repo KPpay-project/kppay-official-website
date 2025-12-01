@@ -64,6 +64,27 @@ export const routeLayouts: Record<string, LayoutConfig> = {
     header: 'dark',
   },
 
+  // Payment Infrastructure routes
+  '/payment-infrastructure/payment-gateway': {
+    header: 'dark',
+  },
+
+  '/payment-infrastructure/subscriptions': {
+    header: 'dark',
+  },
+
+  '/payment-infrastructure/connect-platforms': {
+    header: 'dark',
+  },
+
+  '/payment-infrastructure/virtual-cards': {
+    header: 'dark',
+  },
+
+  '/payment-infrastructure/pos-terminal': {
+    header: 'dark',
+  },
+
   // About page
   '/about': {
     header: 'dark',

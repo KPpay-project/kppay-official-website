@@ -135,7 +135,7 @@ export const images = {
     iconIncrease: `${CDN_BASE_URL}/image/upload/v1764062717/increase_qw2q9s.png`,
     iconCosts: `${CDN_BASE_URL}/image/upload/v1764062717/costs_tl9rgd.png`,
     iconCustomers: `${CDN_BASE_URL}/image/upload/v1764062717/customers_cludm1.png`,
-    iconCards: `${CDN_BASE_URL}/image/upload/v1764163982/card_oa95z7.png`,
+    iconCardHolder: `${CDN_BASE_URL}/image/upload/v1764583008/cardholder_kz7n4m.png`,
   },
 
   // payments/online-payments icons

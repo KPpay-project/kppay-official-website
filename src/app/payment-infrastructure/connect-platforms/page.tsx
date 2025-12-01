@@ -1,8 +1,17 @@
-export default function ConnectPlatforms() {
+import { ConnectPlatformsHeroSection } from '@/types';
+
+export const metadata = {
+  title: 'Connect Platforms | KPPAY - Marketplace Payment Solutions',
+  description:
+    'Power your marketplace or platform with KPPAY Connect. Manage multi-party payments, automate payouts, and scale your connected business effortlessly.',
+};
+
+const ConnectPlatforms = () => {
   return (
-    <div className="container mx-auto px-6 py-16">
-      <h1 className="text-4xl font-bold mb-4">Connect Platforms</h1>
-      <p className="text-lg text-text-secondary">Content coming soon...</p>
-    </div>
+    <main className="page-transition">
+      <ConnectPlatformsHeroSection />
+    </main>
   );
-}
+};
+
+export default ConnectPlatforms;
