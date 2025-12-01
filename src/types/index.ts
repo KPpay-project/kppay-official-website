@@ -46,6 +46,7 @@ export { default as VerificationFeaturesGrid } from '@/components/sections/Finan
 
 // solutions mega menu - payment infrastrucutre
 export { default as PaymentGatewayHeroSection } from '@/components/solutions/PaymentInfrastructure/PaymentGateway/PaymentGatewayHeroSection';
+export { default as PaymentFeaturesSection } from '@/components/solutions/PaymentInfrastructure/PaymentGateway/PaymentFeaturesSection';
 export { default as SubscriptionInvoicingHeroSection } from '@/components/solutions/PaymentInfrastructure/Subscriptions/SubscriptionInvoicingHeroSection';
 export { default as ConnectPlatformsHeroSection } from '@/components/solutions/PaymentInfrastructure/ConnectPlatforms/ConnectPlatformsHeroSection';
 export { default as VirtualCardsHeroSection } from '@/components/solutions/PaymentInfrastructure/VirtualCards/VirtualCardsHeroSection';

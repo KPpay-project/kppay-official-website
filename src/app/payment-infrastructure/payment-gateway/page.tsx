@@ -1,4 +1,4 @@
-import { PaymentGatewayHeroSection } from '@/types';
+import { PaymentFeaturesSection, PaymentGatewayHeroSection } from '@/types';
 
 export const metadata = {
   title: 'Payment Gateway | KPPAY - Secure Global Payment Solutions',
@@ -10,6 +10,7 @@ const PaymentGateway = () => {
   return (
     <main className="page-transition">
       <PaymentGatewayHeroSection />
+      <PaymentFeaturesSection />
     </main>
   );
 };

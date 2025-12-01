@@ -81,7 +81,7 @@ const SecurePaymentsSection: React.FC = () => {
             Benefit from automation, transparent fees, precise payment tracking,
             and multiple payout options that put you in control.
           </p>
-          <Button variant="primary" size="md">
+          <Button variant="primary" size="md" href="/payments/online-payments">
             Learn More
             <ArrowRight className="w-4 h-4" />
           </Button>

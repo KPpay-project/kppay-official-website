@@ -179,6 +179,7 @@ export const images = {
     FBNBank: `${CDN_BASE_URL}/image/upload/v1764414203/FBNBank_snrmzj.png`,
     ICICBank: `${CDN_BASE_URL}/image/upload/v1764414203/ICICIBank_risxl6.png`,
     StanbicBank: `${CDN_BASE_URL}/image/upload/v1764414203/StanbicBank_mrth3n.png`,
+    UBABank: `${CDN_BASE_URL}/image/upload/v1764600609/UBA-28567_uutw8f.jpg`,
   },
 
   // Services icons

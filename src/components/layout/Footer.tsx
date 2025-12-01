@@ -175,7 +175,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/about"
+                    href="/careers"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Careers
@@ -183,7 +183,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/about"
+                    href="/newsroom"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Newsroom
@@ -191,7 +191,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/about"
+                    href="/investor-relations"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Investor Relations
@@ -214,7 +214,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 <li>
                   <Link
-                    href="/payments"
+                    href="/payments/online-payments"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Global Payments
@@ -230,7 +230,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/banking"
+                    href="/financial-services/financial-connections"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Currency Exchange
@@ -238,20 +238,20 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/banking/business-accounts"
+                    href="/payment-infrastructure/connect-platforms"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Business Banking
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link
                     href="/product"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     See All Products
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
 
@@ -261,7 +261,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 <li>
                   <Link
-                    href="resources-and-documentation"
+                    href="/resources-and-documentation"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     API Documentation
@@ -269,7 +269,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="resources-and-documentation"
+                    href="/resources-and-documentation"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     SDKs & Libraries
@@ -277,7 +277,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="resources-and-documentation"
+                    href="/resources-and-documentation"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Webhooks
@@ -285,7 +285,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="resources-and-documentation"
+                    href="/resources-and-documentation"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Developer Community
@@ -310,7 +310,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/about"
+                    href="/blog"
                     className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     Blog

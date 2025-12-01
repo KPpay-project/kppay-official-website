@@ -22,12 +22,13 @@ const PartnersSection: React.FC = () => {
     { name: 'FBN Bank', logo: images.partners.FBNBank },
     { name: 'ICIC Bank', logo: images.partners.ICICBank },
     { name: 'Standbic Bank', logo: images.partners.StanbicBank },
+    { name: 'UBA Bank', logo: images.partners.UBABank },
   ];
 
   return (
     <section className="relative py-12 sm:py-16 lg:py-20 bg-surface-primary">
       {/* Container */}
-      <div className="container-padding max-w-5xl mx-auto">
+      <div className="container-padding max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10 sm:mb-12">
           <h2 className="heading-bebas-light text-2xl sm:text-3xl lg:text-4xl text-text-main-dark">
