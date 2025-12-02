@@ -49,8 +49,9 @@ const PosTerminal = () => {
   return (
     <main className="page-transition">
       <POSTerminalHeroSection />
-      <EverythingYouNeedSection />\
+      <EverythingYouNeedSection />
       <SimplePricingGetStartedSection />
+
       {/* CTA Box Section */}
       <CTABox
         heading="ready to upgrade your pos?"
