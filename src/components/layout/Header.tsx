@@ -691,7 +691,67 @@ export default function Header({ variant = 'light' }: HeaderProps) {
                           Financial Connections
                         </h4>
                         <p className="text-sm text-text-secondary">
-                          Connect to bank accounts securely
+                          Connect to accounts securely
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/financial-services/analytics"
+                    className="block group"
+                    onClick={() => setMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <BarChart3 className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Analytics
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Insights into your financial data
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/financial-services/reporting"
+                    className="block group"
+                    onClick={() => setMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <FileText className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Reporting
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Comprehensive reporting
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/financial-services/compliance"
+                    className="block group"
+                    onClick={() => setMegaMenuOpen(false)}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-surface-secondary rounded-lg flex items-center justify-center group-hover:bg-brand-primary transition-colors shrink-0">
+                        <Shield className="w-5 h-5 text-brand-primary group-hover:text-text-main-white transition-colors" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                          Compliance
+                        </h4>
+                        <p className="text-sm text-text-secondary">
+                          Compliant financial regulations
                         </p>
                       </div>
                     </div>
@@ -1023,6 +1083,24 @@ export default function Header({ variant = 'light' }: HeaderProps) {
                     icon: Layers,
                     title: 'Financial Connections',
                     desc: 'Connect to bank accounts securely',
+                  },
+                  {
+                    href: '/financial-services/analytics',
+                    icon: BarChart3,
+                    title: 'Analytics',
+                    desc: 'Deep insights into your financial data',
+                  },
+                  {
+                    href: '/financial-services/reporting',
+                    icon: FileText,
+                    title: 'Reporting',
+                    desc: 'Comprehensive financial reporting',
+                  },
+                  {
+                    href: '/financial-services/compliance',
+                    icon: Shield,
+                    title: 'Compliance',
+                    desc: 'Stay compliant with financial regulations',
                   },
                 ].map((item) => (
                   <Link

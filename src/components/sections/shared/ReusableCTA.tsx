@@ -30,6 +30,7 @@ interface ReusableCTAProps {
   buttons: ButtonConfig[];
   headingColor?: string;
   backgroundColor?: string;
+  backgroundGradient?: string; // New prop for gradient
 }
 
 const ReusableCTA: React.FC<ReusableCTAProps> = ({
@@ -39,12 +40,21 @@ const ReusableCTA: React.FC<ReusableCTAProps> = ({
   buttons = [],
   headingColor = 'text-text-main-white',
   backgroundColor = 'bg-brand-primary',
+  backgroundGradient,
 }) => {
+  // Determine background style
+  const backgroundStyle = backgroundGradient
+    ? { background: backgroundGradient }
+    : undefined;
+
+  const backgroundClassName = backgroundGradient ? '' : backgroundColor;
+
   return (
     <section className="w-full py-4 md:py-6">
       <div className="max-w-7xl mx-auto">
         <div
-          className={`${backgroundColor} py-8 md:py-12 px-6 md:px-8 lg:px-10 rounded-md`}
+          className={`${backgroundClassName} py-8 md:py-12 px-6 md:px-8 lg:px-10 rounded-md`}
+          style={backgroundStyle}
         >
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 lg:gap-8">
             {/* Left Content */}

@@ -48,9 +48,17 @@ export { default as VerificationFeaturesGrid } from '@/components/sections/Finan
 export { default as PaymentGatewayHeroSection } from '@/components/solutions/PaymentInfrastructure/PaymentGateway/PaymentGatewayHeroSection';
 export { default as PaymentFeaturesSection } from '@/components/solutions/PaymentInfrastructure/PaymentGateway/PaymentFeaturesSection';
 export { default as SubscriptionInvoicingHeroSection } from '@/components/solutions/PaymentInfrastructure/Subscriptions/SubscriptionInvoicingHeroSection';
+export { default as FlexiblePricingSection } from '@/components/solutions/PaymentInfrastructure/Subscriptions/FlexiblePricingSection';
+export { default as FinancialServicesSection } from '@/components/solutions/PaymentInfrastructure/Subscriptions/FinancialServicesSection';
 export { default as ConnectPlatformsHeroSection } from '@/components/solutions/PaymentInfrastructure/ConnectPlatforms/ConnectPlatformsHeroSection';
+export { default as PlatformBusinessSection } from '@/components/solutions/PaymentInfrastructure/ConnectPlatforms/PlatformBusinessSection';
+export { default as PaymentFeaturesSectionConnect } from '@/components/solutions/PaymentInfrastructure/ConnectPlatforms/PaymentFeaturesSectionConnect';
 export { default as VirtualCardsHeroSection } from '@/components/solutions/PaymentInfrastructure/VirtualCards/VirtualCardsHeroSection';
+export { default as CardManagementSection } from '@/components/solutions/PaymentInfrastructure/VirtualCards/CardManagementSection';
+export { default as UseCasesPricingSection } from '@/components/solutions/PaymentInfrastructure/VirtualCards/UseCasesPricingSection';
 export { default as POSTerminalHeroSection } from '@/components/solutions/PaymentInfrastructure/PosTerminal/POSTerminalHeroSection';
+export { default as EverythingYouNeedSection } from '@/components/solutions/PaymentInfrastructure/PosTerminal/EverythingYouNeedSection';
+export { default as SimplePricingGetStartedSection } from '@/components/solutions/PaymentInfrastructure/PosTerminal/SimplePricingGetStartedSection';
 
 // Shared Components
 export { default as FAQSection } from '@/components/sections/shared/FAQSection';

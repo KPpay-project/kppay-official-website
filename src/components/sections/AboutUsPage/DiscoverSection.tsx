@@ -8,17 +8,17 @@ const DiscoverSection = () => {
     <section className="py-16 md:py-24 lg:py-32 bg-surface-secondary">
       <div className="container-padding max-w-7xl mx-auto">
         {/* Image */}
-        <div className="mb-12 relative w-full aspect-video">
+        {/* <div className="mb-12 relative w-full aspect-video">
           <Image
             src={images.about.aboutUsImg}
             alt="Team meeting collaboration"
             fill
             className="object-contain rounded-2xl"
           />
-        </div>
+        </div> */}
 
         {/* Content */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto p-8 lg:p-0">
           <h2 className="heading-bebas text-3xl sm:text-4xl lg:text-5xl text-text-primary mb-8 text-center">
             Discover K-Polygone
           </h2>

@@ -25,7 +25,9 @@ interface CTABoxProps {
   // Styling props
   headingColor?: string;
   ctaBackgroundColor?: string;
+  ctaGradient?: string; // New prop for CTA gradient
   sectionBackgroundColor?: string;
+  sectionGradient?: string; // New prop for section gradient
 
   // Layout props
   paddingY?: string;
@@ -38,12 +40,24 @@ const CTABox: React.FC<CTABoxProps> = ({
   buttons,
   headingColor = 'text-text-inverse-primary',
   ctaBackgroundColor = 'bg-brand-primary',
+  ctaGradient,
   sectionBackgroundColor = 'bg-gray-900',
+  sectionGradient,
   paddingY = 'pb-6 md:pb-8 lg:pb-12',
   maxWidth = 'max-w-7xl',
 }) => {
+  // Determine section background style
+  const sectionStyle = sectionGradient
+    ? { background: sectionGradient }
+    : undefined;
+
+  const sectionClassName = sectionGradient ? '' : sectionBackgroundColor;
+
   return (
-    <section className={`w-full ${sectionBackgroundColor} ${paddingY}`}>
+    <section
+      className={`w-full ${sectionClassName} ${paddingY}`}
+      style={sectionStyle}
+    >
       <div className={`container-padding ${maxWidth} mx-auto`}>
         <ReusableCTA
           heading={heading}
@@ -51,6 +65,7 @@ const CTABox: React.FC<CTABoxProps> = ({
           buttons={buttons}
           headingColor={headingColor}
           backgroundColor={ctaBackgroundColor}
+          backgroundGradient={ctaGradient}
         />
       </div>
     </section>

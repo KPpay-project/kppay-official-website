@@ -1,4 +1,5 @@
-import { ContactForm, ContactInfo, FAQSection, Newsletter } from '@/types';
+import { Button, ContactForm, ContactInfo, Newsletter } from '@/types';
+import { ArrowRight } from 'lucide-react';
 
 export const metadata = {
   title: 'Contact Us | Your Company Name',
@@ -38,11 +39,35 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Frequently Asked Questions */}
-        <FAQSection />
+        {/* CTA Section */}
+        <div className="rounded-lg p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex-1">
+            <h3 className="heading-bebas-light text-lg sm:text-xl text-text-main-dark mb-1">
+              Send money and receive money super fast
+            </h3>
+            <p className="text-sm text-text-secondary">
+              With lots of unique blocks, you can easily build a page without
+              coding. Build your next landing page.
+            </p>
+          </div>
+          <div className="flex gap-3 shrink-0">
+            <Button variant="outlined" size="sm" href="/about">
+              Learn more
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+            <Button
+              variant="primary"
+              size="sm"
+              href="https://dev.d32yml5hzs7qtc.amplifyapp.com/onboarding/create-account"
+            >
+              Sign Up
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        </div>
 
         {/* Newsletter Section */}
-        <section className="container-padding py-16 md:py-24 bg-surface-primary">
+        <section className="container-padding py-16 md:py-24">
           <div className="max-w-7xl mx-auto">
             <Newsletter />
           </div>

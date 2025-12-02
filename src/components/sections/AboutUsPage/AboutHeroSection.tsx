@@ -9,7 +9,7 @@ const AboutHeroSection = () => {
         {/* Background Gradient */}
         <div className="absolute inset-0 z-0">
           <Image
-            src={images.hero.gradient}
+            src={images.about.bgImage}
             alt=""
             fill
             className="object-cover"
@@ -18,7 +18,7 @@ const AboutHeroSection = () => {
         </div>
 
         {/* Dark overlay for better text contrast */}
-        <div className="absolute inset-0 bg-black/20 z-[1]"></div>
+        <div className="absolute inset-0 bg-black/60 z-[1]"></div>
 
         {/* Content Layer */}
         <div className="relative z-10 container-padding pt-24 sm:pt-0 h-full flex items-center justify-center">

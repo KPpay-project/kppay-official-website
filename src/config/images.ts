@@ -95,9 +95,10 @@ export const images = {
 
   // about section images
   about: {
+    bgImage: `${CDN_BASE_URL}/image/upload/v1764684260/abimg_zq3zsf.png`,
     discover: `${CDN_BASE_URL}/image/upload/v1761614255/discover_vli4sy.webp`,
     aboutUsImg: `${CDN_BASE_URL}/image/upload/v1764458997/about_ez31zs.jpg`,
-    hiring: `${CDN_BASE_URL}/image/upload/v1761614255/hiring_nv8i0o.webp`,
+    hiring: `${CDN_BASE_URL}/image/upload/v1764681673/aboutHiring_tawwha.png`,
   },
 
   // Testimonials images
