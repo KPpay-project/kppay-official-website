@@ -445,7 +445,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
                   </div>
                   <div>
                     <h3 className="text-text-tertiary uppercase text-xs font-semibold tracking-wider mb-2">
-                      PAYMENT INFRASTRUCTURE
+                      FINANCIAL SERVICES
                     </h3>
                     <p className="text-text-secondary text-sm mb-4">
                       Complete payment processing solutions
@@ -1001,7 +1001,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
 
             <div>
               <h3 className="text-text-tertiary uppercase text-xs font-semibold tracking-wider mb-3">
-                PAYMENT INFRASTRUCTURE
+                FINANCIAL SERVICES
               </h3>
               <p className="text-text-secondary text-sm mb-6">
                 Complete payment processing solutions
