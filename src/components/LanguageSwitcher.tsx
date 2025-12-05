@@ -37,7 +37,8 @@ export default function LanguageSwitcher({
   const [isOpen, setIsOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState(() => {
     if (typeof window !== 'undefined') {
-      return localStorage.getItem('preferredLanguage') || 'en';
+      const saved = localStorage.getItem('preferredLanguage');
+      return saved || 'en';
     }
     return 'en';
   });
@@ -45,11 +46,33 @@ export default function LanguageSwitcher({
 
   const triggerTranslation = useCallback((langCode: string) => {
     try {
-      // Set cookie without reload
-      const cookieValue = langCode === 'en' ? '' : `/en/${langCode}`;
+      if (langCode === 'en') {
+        // Clear all translation cookies
+        document.cookie = 'googtrans=; path=/; max-age=0';
+        document.cookie =
+          'googtrans=/en/en; path=/; max-age=31536000; SameSite=Lax';
+
+        // Reset to English
+        const select = document.querySelector(
+          '.goog-te-combo'
+        ) as HTMLSelectElement;
+        if (select) {
+          select.value = '';
+          select.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+
+        // Force page reload for English to clear translation
+        setTimeout(() => {
+          window.location.reload();
+        }, 100);
+        return;
+      }
+
+      // Set cookie for other languages
+      const cookieValue = `/en/${langCode}`;
       document.cookie = `googtrans=${cookieValue}; path=/; max-age=31536000; SameSite=Lax`;
 
-      // Trigger Google Translate's internal mechanism
+      // Trigger Google Translate
       const select = document.querySelector(
         '.goog-te-combo'
       ) as HTMLSelectElement;
@@ -96,7 +119,7 @@ export default function LanguageSwitcher({
       initGoogleTranslate();
     }
 
-    // Apply saved language silently after a delay
+    // Apply saved language after initialization
     if (currentLang !== 'en') {
       const timer = setTimeout(() => {
         triggerTranslation(currentLang);
@@ -116,7 +139,7 @@ export default function LanguageSwitcher({
       setIsOpen(false);
       localStorage.setItem('preferredLanguage', langCode);
 
-      // Trigger translation WITHOUT reload
+      // Trigger translation
       triggerTranslation(langCode);
     },
     [isInitialized, triggerTranslation]
@@ -233,13 +256,11 @@ export default function LanguageSwitcher({
       </div>
 
       <style jsx global>{`
-        /* CRITICAL: Prevent ALL visual flashing */
         body {
           top: 0 !important;
           position: static !important;
         }
 
-        /* Hide ALL Google Translate UI elements */
         .goog-te-banner-frame,
         .goog-te-balloon-frame,
         .goog-tooltip,
@@ -251,23 +272,14 @@ export default function LanguageSwitcher({
           opacity: 0 !important;
         }
 
-        /* Prevent iframe from causing flashes */
         iframe.goog-te-menu-frame {
           display: none !important;
         }
 
-        /* Ensure smooth page transitions */
-        html,
-        body {
-          transition: none !important;
-        }
-
-        /* Prevent layout shifts */
         body.translated {
           position: static !important;
         }
 
-        /* Remove any white backgrounds during translation */
         body::before {
           display: none !important;
         }
