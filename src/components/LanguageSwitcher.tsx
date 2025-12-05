@@ -174,14 +174,23 @@ export default function LanguageSwitcher({
 
       <div className="relative notranslate">
         <button
-          onClick={() => setIsOpen(!isOpen)}
-          className={`flex items-center gap-2 rounded-lg transition-all duration-200 ${
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setIsOpen(!isOpen);
+          }}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setIsOpen(!isOpen);
+          }}
+          className={`flex items-center gap-2 rounded-lg transition-all duration-200 touch-manipulation ${
             isMobile
-              ? 'px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 shadow-sm'
+              ? 'px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 active:border-gray-400 shadow-sm'
               : 'px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-md'
-          }`}
+          } ${!isInitialized ? 'opacity-50 cursor-pointer' : 'cursor-pointer'}`}
           aria-label="Change language"
-          disabled={!isInitialized}
+          type="button"
         >
           {isMobile ? (
             <>
@@ -224,16 +233,27 @@ export default function LanguageSwitcher({
             <div
               className="fixed inset-0 z-40"
               onClick={() => setIsOpen(false)}
+              onTouchEnd={() => setIsOpen(false)}
             />
             <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden z-50">
               {languages.map((lang) => (
                 <button
                   key={lang.code}
-                  onClick={() => changeLanguage(lang.code)}
-                  className={`w-full text-left px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors flex items-center gap-3 ${
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    changeLanguage(lang.code);
+                  }}
+                  onTouchEnd={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    changeLanguage(lang.code);
+                  }}
+                  type="button"
+                  className={`w-full text-left px-4 py-3 active:bg-gray-100 dark:active:bg-gray-600 transition-colors flex items-center gap-3 touch-manipulation ${
                     currentLang === lang.code
                       ? 'bg-blue-50 dark:bg-blue-900/20 border-l-2 border-blue-500'
-                      : ''
+                      : 'hover:bg-gray-50 dark:hover:bg-gray-700'
                   }`}
                 >
                   <img
