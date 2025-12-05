@@ -43,64 +43,34 @@ export default function LanguageSwitcher({
     return 'en';
   });
   const [isInitialized, setIsInitialized] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const triggerTranslation = useCallback((langCode: string) => {
-    try {
-      if (langCode === 'en') {
-        // CRITICAL: Clear cookies for ALL possible domains
-        const domain = window.location.hostname;
+  const setCookieAndReload = useCallback((langCode: string) => {
+    // Show transition overlay
+    setIsTransitioning(true);
 
-        // Clear cookies for current domain
-        document.cookie = 'googtrans=; path=/; max-age=0';
-        document.cookie = `googtrans=; path=/; domain=${domain}; max-age=0`;
-        document.cookie = `googtrans=; path=/; domain=.${domain}; max-age=0`;
+    const domain = window.location.hostname;
+    const cookieValue = langCode === 'en' ? '/en/en' : `/en/${langCode}`;
 
-        // Clear any subdomain cookies
-        const parts = domain.split('.');
-        if (parts.length > 1) {
-          const rootDomain = parts.slice(-2).join('.');
-          document.cookie = `googtrans=; path=/; domain=.${rootDomain}; max-age=0`;
-        }
+    // Set cookie for all possible domain variations
+    const cookieString = `googtrans=${cookieValue}; path=/; max-age=31536000; SameSite=Lax`;
+    document.cookie = cookieString;
+    document.cookie = `googtrans=${cookieValue}; path=/; domain=${domain}; max-age=31536000; SameSite=Lax`;
+    document.cookie = `googtrans=${cookieValue}; path=/; domain=.${domain}; max-age=31536000; SameSite=Lax`;
 
-        // Set explicit English cookie BEFORE reload
-        document.cookie =
-          'googtrans=/en/en; path=/; max-age=31536000; SameSite=Lax';
-        document.cookie = `googtrans=/en/en; path=/; domain=${domain}; max-age=31536000; SameSite=Lax`;
-
-        // Reset localStorage
-        localStorage.setItem('preferredLanguage', 'en');
-
-        // Reset Google Translate element
-        const select = document.querySelector(
-          '.goog-te-combo'
-        ) as HTMLSelectElement;
-        if (select) {
-          select.value = '';
-          select.dispatchEvent(new Event('change', { bubbles: true }));
-        }
-
-        // Force reload after clearing everything
-        setTimeout(() => {
-          window.location.reload();
-        }, 100);
-        return;
-      }
-
-      // Set cookie for other languages
-      const cookieValue = `/en/${langCode}`;
-      document.cookie = `googtrans=${cookieValue}; path=/; max-age=31536000; SameSite=Lax`;
-
-      // Trigger Google Translate
-      const select = document.querySelector(
-        '.goog-te-combo'
-      ) as HTMLSelectElement;
-      if (select) {
-        select.value = langCode;
-        select.dispatchEvent(new Event('change', { bubbles: true }));
-      }
-    } catch (error) {
-      console.error('Translation error:', error);
+    const parts = domain.split('.');
+    if (parts.length > 1) {
+      const rootDomain = parts.slice(-2).join('.');
+      document.cookie = `googtrans=${cookieValue}; path=/; domain=.${rootDomain}; max-age=31536000; SameSite=Lax`;
     }
+
+    // Store in localStorage
+    localStorage.setItem('preferredLanguage', langCode);
+
+    // Small delay for smooth transition, then reload
+    setTimeout(() => {
+      window.location.reload();
+    }, 150);
   }, []);
 
   useEffect(() => {
@@ -136,32 +106,13 @@ export default function LanguageSwitcher({
     } else {
       initGoogleTranslate();
     }
+  }, []);
 
-    // Apply saved language after initialization
-    if (currentLang !== 'en') {
-      const timer = setTimeout(() => {
-        triggerTranslation(currentLang);
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [triggerTranslation, currentLang]);
-
-  const changeLanguage = useCallback(
-    (langCode: string) => {
-      if (!isInitialized) {
-        console.log('Please wait for translator to initialize');
-        return;
-      }
-
-      setCurrentLang(langCode);
-      setIsOpen(false);
-      localStorage.setItem('preferredLanguage', langCode);
-
-      // Trigger translation
-      triggerTranslation(langCode);
-    },
-    [isInitialized, triggerTranslation]
-  );
+  const changeLanguage = (langCode: string) => {
+    setCurrentLang(langCode);
+    setIsOpen(false);
+    setCookieAndReload(langCode);
+  };
 
   const currentLanguage =
     languages.find((lang) => lang.code === currentLang) || languages[0];
@@ -172,23 +123,39 @@ export default function LanguageSwitcher({
     <>
       <div id="google_translate_element" style={{ display: 'none' }} />
 
+      {/* Smooth transition overlay */}
+      {isTransitioning && (
+        <div
+          className="fixed inset-0 z-[9999] bg-white dark:bg-gray-900 transition-opacity duration-300"
+          style={{
+            opacity: 1,
+            pointerEvents: 'all',
+          }}
+        >
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="flex flex-col items-center gap-4">
+              <div className="w-12 h-12 border-4 border-brand-primary border-t-transparent rounded-full animate-spin"></div>
+              <p className="text-text-secondary text-sm font-medium">
+                Switching language...
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="relative notranslate">
         <button
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            setIsOpen(!isOpen);
-          }}
-          onTouchEnd={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            setIsOpen(!isOpen);
-          }}
+          onClick={() => setIsOpen(!isOpen)}
+          disabled={isTransitioning}
           className={`flex items-center gap-2 rounded-lg transition-all duration-200 touch-manipulation ${
             isMobile
               ? 'px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 active:border-gray-400 shadow-sm'
               : 'px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-md'
-          } ${!isInitialized ? 'opacity-50 cursor-pointer' : 'cursor-pointer'}`}
+          } ${
+            !isInitialized || isTransitioning
+              ? 'opacity-50 cursor-pointer'
+              : 'cursor-pointer'
+          }`}
           aria-label="Change language"
           type="button"
         >
@@ -228,27 +195,17 @@ export default function LanguageSwitcher({
           )}
         </button>
 
-        {isOpen && (
+        {isOpen && !isTransitioning && (
           <>
             <div
               className="fixed inset-0 z-40"
               onClick={() => setIsOpen(false)}
-              onTouchEnd={() => setIsOpen(false)}
             />
             <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden z-50">
               {languages.map((lang) => (
                 <button
                   key={lang.code}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    changeLanguage(lang.code);
-                  }}
-                  onTouchEnd={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    changeLanguage(lang.code);
-                  }}
+                  onClick={() => changeLanguage(lang.code)}
                   type="button"
                   className={`w-full text-left px-4 py-3 active:bg-gray-100 dark:active:bg-gray-600 transition-colors flex items-center gap-3 touch-manipulation ${
                     currentLang === lang.code
@@ -320,6 +277,17 @@ export default function LanguageSwitcher({
 
         body::before {
           display: none !important;
+        }
+
+        /* Smooth page transitions */
+        html {
+          background-color: white;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          html {
+            background-color: #111827;
+          }
         }
       `}</style>
     </>
