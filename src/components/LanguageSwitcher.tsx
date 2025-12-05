@@ -46,7 +46,6 @@ export default function LanguageSwitcher({
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const setCookieAndReload = useCallback((langCode: string) => {
-    // Show transition overlay
     setIsTransitioning(true);
 
     const domain = window.location.hostname;
@@ -67,10 +66,10 @@ export default function LanguageSwitcher({
     // Store in localStorage
     localStorage.setItem('preferredLanguage', langCode);
 
-    // Small delay for smooth transition, then reload
+    // Wait for overlay to show, then reload
     setTimeout(() => {
       window.location.reload();
-    }, 150);
+    }, 200);
   }, []);
 
   useEffect(() => {
@@ -123,18 +122,19 @@ export default function LanguageSwitcher({
     <>
       <div id="google_translate_element" style={{ display: 'none' }} />
 
-      {/* Smooth transition overlay */}
+      {/* Transition overlay - ONLY shows during language switch */}
       {isTransitioning && (
         <div
-          className="fixed inset-0 z-[9999] bg-white dark:bg-gray-900 transition-opacity duration-300"
+          className="fixed inset-0 z-[9999]"
           style={{
-            opacity: 1,
+            backgroundColor: 'rgba(249, 250, 251, 0.98)',
+            animation: 'fadeIn 0.15s ease-out forwards',
             pointerEvents: 'all',
           }}
         >
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex flex-col items-center gap-4">
-              <div className="w-12 h-12 border-4 border-brand-primary border-t-transparent rounded-full animate-spin"></div>
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-10 h-10 border-3 border-brand-primary border-t-transparent rounded-full animate-spin"></div>
               <p className="text-text-secondary text-sm font-medium">
                 Switching language...
               </p>
@@ -251,6 +251,15 @@ export default function LanguageSwitcher({
       </div>
 
       <style jsx global>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
         body {
           top: 0 !important;
           position: static !important;
@@ -277,17 +286,6 @@ export default function LanguageSwitcher({
 
         body::before {
           display: none !important;
-        }
-
-        /* Smooth page transitions */
-        html {
-          background-color: white;
-        }
-
-        @media (prefers-color-scheme: dark) {
-          html {
-            background-color: #111827;
-          }
         }
       `}</style>
     </>
