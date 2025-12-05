@@ -439,7 +439,7 @@ export default function RootLayout({
         <div className="min-h-screen flex flex-col">
           <Header variant={layoutConfig.header} />
           <main className="flex-1 pt-24">{children}</main>
-          <Footer />
+          <Footer variant={layoutConfig.footer} />
           <ScrollToTop />
         </div>
       </body>

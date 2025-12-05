@@ -72,7 +72,7 @@ const WhyChooseEnterprise = () => {
         buttons={[
           {
             text: 'Schedule a Demo',
-            href: '/contact',
+            href: "/contact",
             variant: 'outlined-white',
             size: 'md',
             showArrow: true,
@@ -80,7 +80,7 @@ const WhyChooseEnterprise = () => {
           },
           {
             text: 'Request Custom Quote',
-            href: '/contact',
+            href: "/contact",
             variant: 'outlined-white',
             size: 'md',
             showArrow: true,

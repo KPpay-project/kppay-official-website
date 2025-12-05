@@ -1,4 +1,5 @@
 'use client';
+import { ROUTES } from '@/types';
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -338,15 +339,15 @@ export default function HeroSection() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-start gap-4">
-                  <Button
-                    variant="primary"
-                    size="lg"
-                    href="https://dev.d32yml5hzs7qtc.amplifyapp.com/onboarding/create-account"
-                  >
+                  <Button variant="primary" size="lg" href={ROUTES.SIGNUP}>
                     Get started for free
                     <ArrowRight className="w-5 h-5" />
                   </Button>
-                  <Button variant="outlined-white" size="lg" href="/about">
+                  <Button
+                    variant="outlined-white"
+                    size="lg"
+                    href={ROUTES.ABOUT}
+                  >
                     Learn more
                   </Button>
                 </div>
@@ -377,15 +378,15 @@ export default function HeroSection() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <Button
-                    variant="primary"
-                    size="lg"
-                    href="https://dev.d32yml5hzs7qtc.amplifyapp.com/onboarding/create-account"
-                  >
+                  <Button variant="primary" size="lg" href={ROUTES.SIGNUP}>
                     Get started for free
                     <ArrowRight className="w-5 h-5" />
                   </Button>
-                  <Button variant="outlined-white" size="lg" href="/about">
+                  <Button
+                    variant="outlined-white"
+                    size="lg"
+                    href={ROUTES.ABOUT}
+                  >
                     Learn more
                   </Button>
                 </div>

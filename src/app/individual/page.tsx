@@ -31,7 +31,7 @@ const IndividualPricingPage = () => {
         buttons={[
           {
             text: 'Schedule a Demo',
-            href: '/contact',
+            href: "/contact",
             variant: 'outlined-white',
             size: 'md',
             showArrow: true,
@@ -39,7 +39,7 @@ const IndividualPricingPage = () => {
           },
           {
             text: 'Request Custom Quote',
-            href: '/contact',
+            href: "/contact",
             variant: 'outlined-white',
             size: 'md',
             showArrow: true,

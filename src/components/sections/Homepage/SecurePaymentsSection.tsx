@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import { Button, images } from '@/types';
+import { Button, images, ROUTES } from '@/types';
 
 interface FeatureCardProps {
   icon: string;
@@ -81,7 +81,7 @@ const SecurePaymentsSection: React.FC = () => {
             Benefit from automation, transparent fees, precise payment tracking,
             and multiple payout options that put you in control.
           </p>
-          <Button variant="primary" size="md" href="/payments/online-payments">
+          <Button variant="primary" size="md" href={ROUTES.PAYMENTS_ONLINE}>
             Learn More
             <ArrowRight className="w-4 h-4" />
           </Button>

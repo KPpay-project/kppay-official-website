@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { ROUTES } from '@/types';
 
 interface CountryCode {
   code: string;
@@ -566,7 +567,7 @@ export default function ContactForm() {
           >
             You agree to our friendly{' '}
             <Link
-              href="/legal/privacy"
+              href={ROUTES.LEGAL_PRIVACY}
               className="text-interactive-primary hover:text-interactive-primary-hover underline"
             >
               privacy policy

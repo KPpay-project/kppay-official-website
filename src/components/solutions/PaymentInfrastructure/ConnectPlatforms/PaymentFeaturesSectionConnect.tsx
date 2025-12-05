@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { ROUTES } from '@/types';
 
 const PaymentFeaturesSectionConnect: React.FC = () => {
   const steps = [
@@ -128,7 +129,7 @@ const PaymentFeaturesSectionConnect: React.FC = () => {
             <p className="text-text-secondary mb-4 md:mb-6 text-sm md:text-base">
               Choose the integration that fits your timeline and technical needs
             </p>
-            <Link href="/enterprise">
+            <Link href={ROUTES.ENTERPRISE}>
               <button className="flex items-center border-2 border-text-main-dark rounded-full px-5 md:px-6 py-2.5 md:py-3 hover:bg-surface-secondary transition-colors">
                 <span className="text-text-primary font-medium mr-2 text-sm md:text-base">
                   Pay With Mobile Money

@@ -1,3 +1,4 @@
+import { ROUTES } from '@/config/constants';
 import React from 'react';
 import { Button, images } from '@/types';
 import Image from 'next/image';
@@ -44,7 +45,7 @@ const IdentityKYCHeroSection = () => {
                 <Button
                   variant="outlined-white"
                   size="md"
-                  href="#api-documentation"
+                  href={ROUTES.RESOURCES}
                 >
                   API Documentation
                 </Button>

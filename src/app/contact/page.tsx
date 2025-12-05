@@ -1,3 +1,4 @@
+import { ROUTES } from '@/types';
 import { Button, ContactForm, ContactInfo, Newsletter } from '@/types';
 import { ArrowRight } from 'lucide-react';
 
@@ -51,15 +52,11 @@ export default function ContactPage() {
             </p>
           </div>
           <div className="flex gap-3 shrink-0">
-            <Button variant="outlined" size="sm" href="/about">
+            <Button variant="outlined" size="sm" href={ROUTES.ABOUT}>
               Learn more
               <ArrowRight className="w-4 h-4" />
             </Button>
-            <Button
-              variant="primary"
-              size="sm"
-              href="https://dev.d32yml5hzs7qtc.amplifyapp.com/onboarding/create-account"
-            >
+            <Button variant="primary" size="sm" href={ROUTES.SIGNUP}>
               Sign Up
               <ArrowRight className="w-4 h-4" />
             </Button>

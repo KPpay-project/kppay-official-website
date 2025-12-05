@@ -83,11 +83,11 @@ const VerificationFeaturesGrid: React.FC = () => {
 
               {/* Feature List with Gradient Background */}
               <div
-                className="rounded-lg bg-brand-secondary p-4 space-y-2 mt-auto"
-                // style={{
-                //   background:
-                //     'linear-gradient(135deg, #3D3D3D 0%, #A50E23 100%)',
-                // }}
+                className="rounded-lg p-4 space-y-2 mt-auto"
+                style={{
+                  background:
+                    'linear-gradient(135deg, #153794 0%, #A50E23 100%)',
+                }}
               >
                 {feature.items.map((item, i) => (
                   <div

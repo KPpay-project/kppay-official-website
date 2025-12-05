@@ -1,4 +1,5 @@
 'use client';
+import { ROUTES } from '@/config/constants';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -13,7 +14,11 @@ import {
 import Image from 'next/image';
 import { images } from '@/types';
 
-export default function Footer() {
+interface FooterProps {
+  variant?: 'light' | 'dark';
+}
+
+export default function Footer({ variant = 'dark' }: FooterProps) {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
@@ -27,6 +32,8 @@ export default function Footer() {
     day: '2-digit',
     year: 'numeric',
   });
+
+  const isLight = variant === 'light';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,7 +73,11 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-brand-secondary text-white py-12 md:py-16">
+    <footer
+      className={`py-12 md:py-16 ${
+        isLight ? 'bg-white' : 'bg-brand-secondary'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
@@ -74,7 +85,11 @@ export default function Footer() {
           <div className="lg:col-span-3 text-center lg:text-left">
             {/* Logo */}
             <Link href="/" className="inline-block mb-6">
-              <div className="bg-white/60 rounded-sm p-4 relative w-[120px] h-[35px] mx-auto lg:mx-0">
+              <div
+                className={`rounded-sm p-4 relative w-[120px] h-[35px] mx-auto lg:mx-0 ${
+                  isLight ? 'bg-gray-100' : 'bg-white/60'
+                }`}
+              >
                 <Image
                   src={images.logos.primary}
                   alt="KP Pay Logo"
@@ -86,7 +101,13 @@ export default function Footer() {
 
             {/* Newsletter Section */}
             <div className="mb-6">
-              <h3 className="font-semibold text-white mb-3">Stay Updated</h3>
+              <h3
+                className={`font-semibold mb-3 ${
+                  isLight ? 'text-gray-900' : 'text-white'
+                }`}
+              >
+                Stay Updated
+              </h3>
               <form onSubmit={handleSubmit} className="space-y-3">
                 <input
                   type="email"
@@ -94,7 +115,11 @@ export default function Footer() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
-                  className="w-full px-4 py-2.5 bg-white text-gray-900 placeholder:text-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm"
+                  className={`w-full px-4 py-2.5 rounded-lg focus:outline-none focus:ring-2 transition-all text-sm ${
+                    isLight
+                      ? 'bg-gray-100 text-gray-900 placeholder:text-gray-500 focus:ring-blue-500'
+                      : 'bg-white text-gray-900 placeholder:text-gray-500 focus:ring-blue-400'
+                  }`}
                 />
                 <button
                   type="submit"
@@ -109,7 +134,11 @@ export default function Footer() {
                   <div
                     className={`p-2 rounded-lg text-xs ${
                       submitStatus.type === 'success'
-                        ? 'bg-green-500/20 text-green-300'
+                        ? isLight
+                          ? 'bg-green-100 text-green-700'
+                          : 'bg-green-500/20 text-green-300'
+                        : isLight
+                        ? 'bg-red-100 text-red-700'
                         : 'bg-red-500/20 text-red-300'
                     }`}
                   >
@@ -163,44 +192,70 @@ export default function Footer() {
           <div className="lg:col-span-9 grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
             {/* Company Column */}
             <div>
-              <h3 className="font-semibold text-white mb-4">Company</h3>
+              <h3
+                className={`font-semibold mb-4 ${
+                  isLight ? 'text-gray-900' : 'text-white'
+                }`}
+              >
+                Company
+              </h3>
               <ul className="space-y-2.5">
                 <li>
                   <Link
-                    href="/about"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.ABOUT}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     About Us
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/careers"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.CAREERS}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     Careers
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/newsroom"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.NEWSROOM}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     Newsroom
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/investor-relations"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.INVESTOR_RELATIONS}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     Investor Relations
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/contact"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.CONTACT}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     Contact Us
                   </Link>
@@ -210,83 +265,119 @@ export default function Footer() {
 
             {/* Products Column */}
             <div>
-              <h3 className="font-semibold text-white mb-4">Products</h3>
+              <h3
+                className={`font-semibold mb-4 ${
+                  isLight ? 'text-gray-900' : 'text-white'
+                }`}
+              >
+                Products
+              </h3>
               <ul className="space-y-2.5">
                 <li>
                   <Link
-                    href="/payments/online-payments"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.PAYMENTS_ONLINE}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     Global Payments
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/payment-infrastructure/virtual-cards"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.PAYMENT_INFRA_VIRTUAL_CARDS}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     Virtual Cards
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/financial-services/financial-connections"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.FINANCIAL_CONNECTIONS}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     Currency Exchange
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/payment-infrastructure/connect-platforms"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.PAYMENT_INFRA_CONNECT}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     Business Banking
                   </Link>
                 </li>
-                {/* <li>
-                  <Link
-                    href="/product"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
-                  >
-                    See All Products
-                  </Link>
-                </li> */}
               </ul>
             </div>
 
             {/* Developers Column */}
             <div>
-              <h3 className="font-semibold text-white mb-4">Developers</h3>
+              <h3
+                className={`font-semibold mb-4 ${
+                  isLight ? 'text-gray-900' : 'text-white'
+                }`}
+              >
+                Developers
+              </h3>
               <ul className="space-y-2.5">
                 <li>
                   <Link
-                    href="/resources-and-documentation"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.RESOURCES}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     API Documentation
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/resources-and-documentation"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.RESOURCES}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     SDKs & Libraries
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/resources-and-documentation"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.RESOURCES}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     Webhooks
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/resources-and-documentation"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.RESOURCES}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     Developer Community
                   </Link>
@@ -296,46 +387,70 @@ export default function Footer() {
 
             {/* Resources & Support Column */}
             <div>
-              <h3 className="font-semibold text-white mb-4">
+              <h3
+                className={`font-semibold mb-4 ${
+                  isLight ? 'text-gray-900' : 'text-white'
+                }`}
+              >
                 Resources & Support
               </h3>
               <ul className="space-y-2.5">
                 <li>
                   <Link
-                    href="/faqs"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.FAQS}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     Help Center
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/blog"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.BLOG}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     Blog
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/resources-and-documentation"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.RESOURCES}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     Case Studies
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/resources-and-documentation"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.RESOURCES}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     Guides
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/contact"
-                    className="text-white/80 hover:text-white transition-colors text-sm"
+                    href={ROUTES.CONTACT}
+                    className={`transition-colors text-sm ${
+                      isLight
+                        ? 'text-gray-600 hover:text-gray-900'
+                        : 'text-white/80 hover:text-white'
+                    }`}
                   >
                     Customer Support
                   </Link>
@@ -348,53 +463,87 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="pt-8">
           {/* Legal Links - Horizontal with borders */}
-          <div className="border-t border-b border-white/20 py-6">
-            <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 text-xs md:text-sm text-white/90">
+          <div
+            className={`border-t border-b py-6 ${
+              isLight ? 'border-gray-200' : 'border-white/20'
+            }`}
+          >
+            <div
+              className={`flex flex-wrap items-center justify-center gap-3 md:gap-4 text-xs md:text-sm ${
+                isLight ? 'text-gray-700' : 'text-white/90'
+              }`}
+            >
               <Link
-                href="/legal/terms"
-                className="hover:text-white transition-colors"
+                href={ROUTES.LEGAL_TERMS}
+                className={`transition-colors ${
+                  isLight ? 'hover:text-gray-900' : 'hover:text-white'
+                }`}
               >
                 Terms and Condition
               </Link>
-              <span className="text-white/40">|</span>
+              <span className={isLight ? 'text-gray-400' : 'text-white/40'}>
+                |
+              </span>
               <Link
-                href="/legal/privacy"
-                className="hover:text-white transition-colors"
+                href={ROUTES.LEGAL_PRIVACY}
+                className={`transition-colors ${
+                  isLight ? 'hover:text-gray-900' : 'hover:text-white'
+                }`}
               >
                 Privacy Policy
               </Link>
-              <span className="text-white/40">|</span>
+              <span className={isLight ? 'text-gray-400' : 'text-white/40'}>
+                |
+              </span>
               <Link
-                href="/legal/cookie-policy"
-                className="hover:text-white transition-colors"
+                href={ROUTES.LEGAL_COOKIE_POLICY}
+                className={`transition-colors ${
+                  isLight ? 'hover:text-gray-900' : 'hover:text-white'
+                }`}
               >
                 Cookie Policy
               </Link>
-              <span className="text-white/40">|</span>
+              <span className={isLight ? 'text-gray-400' : 'text-white/40'}>
+                |
+              </span>
               <Link
-                href="/legal/intellectual-property"
-                className="hover:text-white transition-colors"
+                href={ROUTES.LEGAL_INTELLECTUAL_PROPERTY}
+                className={`transition-colors ${
+                  isLight ? 'hover:text-gray-900' : 'hover:text-white'
+                }`}
               >
                 Intellectual Property Policy
               </Link>
-              <span className="text-white/40">|</span>
+              <span className={isLight ? 'text-gray-400' : 'text-white/40'}>
+                |
+              </span>
               <Link
-                href="/legal/aml"
-                className="hover:text-white transition-colors"
+                href={ROUTES.LEGAL_AML}
+                className={`transition-colors ${
+                  isLight ? 'hover:text-gray-900' : 'hover:text-white'
+                }`}
               >
                 Anti-Money Laundry Policy
               </Link>
-              <span className="text-white/40">|</span>
+              <span className={isLight ? 'text-gray-400' : 'text-white/40'}>
+                |
+              </span>
               <Link
-                href="/legal/anti-corruption"
-                className="hover:text-white transition-colors"
+                href={ROUTES.LEGAL_ANTI_CORRUPTION}
+                className={`transition-colors ${
+                  isLight ? 'hover:text-gray-900' : 'hover:text-white'
+                }`}
               >
                 Anti-Corruption Policy
               </Link>
-              <span className="text-white/40">|</span>
+              <span className={isLight ? 'text-gray-400' : 'text-white/40'}>
+                |
+              </span>
               <Link
-                href="/legal/gift-policy"
-                className="hover:text-white transition-colors"
+                href={ROUTES.LEGAL_GIFT_POLICY}
+                className={`transition-colors ${
+                  isLight ? 'hover:text-gray-900' : 'hover:text-white'
+                }`}
               >
                 Gift Policy
               </Link>
@@ -402,7 +551,11 @@ export default function Footer() {
           </div>
 
           {/* Copyright & Last Updated - Outside border */}
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-white/70 pt-6">
+          <div
+            className={`flex flex-col sm:flex-row justify-between items-center gap-4 text-sm pt-6 ${
+              isLight ? 'text-gray-600' : 'text-white/70'
+            }`}
+          >
             <p>© {currentYear} KP Pay. All rights reserved.</p>
             <p>Last updated: {currentDate}</p>
           </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { ROUTES } from '@/types';
 
 const UseCasesPricingSection: React.FC = () => {
   const useCases = [
@@ -89,7 +90,7 @@ const UseCasesPricingSection: React.FC = () => {
                   </div>
 
                   {/* Learn More Button */}
-                  <Link href="/enterprise" className="w-full sm:w-auto">
+                  <Link href={ROUTES.ENTERPRISE} className="w-full sm:w-auto">
                     <button className="w-full sm:w-auto flex items-center justify-center gap-2 border-2 border-text-main-dark rounded-full px-6 py-3 hover:bg-surface-secondary transition-colors whitespace-nowrap">
                       <span className="text-text-primary font-medium text-sm md:text-base">
                         Learn More

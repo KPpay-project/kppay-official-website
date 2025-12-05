@@ -1,4 +1,4 @@
-import { images } from '@/types';
+import { images, ROUTES } from '@/types';
 import React from 'react';
 import Link from 'next/link';
 
@@ -93,7 +93,7 @@ const PlatformBusinessSection: React.FC = () => {
                 </div>
 
                 {/* Learn More Button */}
-                <Link href="/enterprise">
+                <Link href={ROUTES.ENTERPRISE}>
                   <button className="cursor-pointer w-full border-2 border-white text-white rounded-full px-5 md:px-6 py-2.5 md:py-3 hover:bg-white hover:text-brand-secondary transition-colors font-medium text-sm md:text-base">
                     Learn More
                   </button>

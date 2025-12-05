@@ -1,108 +1,139 @@
 // src/config/layout.config.ts
 export type HeaderVariant = 'light' | 'dark';
-// export type FooterVariant = 'footer';
+export type FooterVariant = 'light' | 'dark';
 
 export interface LayoutConfig {
   header: HeaderVariant;
-  // footer: FooterVariant;
+  footer: FooterVariant;
 }
 
-// Default configuration - Footer2 for all pages except homepage
+// Default configuration
 const defaultLayout: LayoutConfig = {
   header: 'light',
-  // footer: 'footer2',
+  footer: 'dark',
 };
 
 export const routeLayouts: Record<string, LayoutConfig> = {
-  // Homepage - ONLY page with Footer1
+  // Homepage - dark header, dark footer
   '/': {
     header: 'dark',
+    footer: 'dark',
   },
 
-  // Payment routes
+  // Payment routes - light header, dark footer
   '/payments/online': {
     header: 'light',
+    footer: 'dark',
   },
   '/payments/point-of-sale': {
     header: 'light',
+    footer: 'dark',
   },
   '/payments/mobile-payments': {
     header: 'light',
+    footer: 'dark',
   },
   '/payments/recurring-billing': {
     header: 'light',
+    footer: 'dark',
   },
 
-  // Banking routes - using dark header
+  // Banking routes - light header, dark footer
   '/banking/business-accounts': {
     header: 'light',
+    footer: 'dark',
   },
   '/banking/personal-banking': {
     header: 'light',
+    footer: 'dark',
   },
   '/banking/savings-investments': {
     header: 'light',
+    footer: 'dark',
   },
   '/banking/loans-credit': {
     header: 'light',
+    footer: 'dark',
   },
 
-  // Financial services routes - using dark header
+  // Financial services routes - light header, dark footer
   '/financial-services/analytics': {
     header: 'light',
+    footer: 'dark',
   },
   '/financial-services/reporting': {
     header: 'light',
+    footer: 'dark',
   },
   '/financial-services/tax-services': {
     header: 'light',
+    footer: 'dark',
   },
   '/financial-services/compliance': {
     header: 'light',
+    footer: 'dark',
   },
   '/financial-services/identity-kyc': {
     header: 'dark',
+    footer: 'dark',
+  },
+  '/financial-services/financial-connections': {
+    header: 'dark',
+    footer: 'dark',
   },
 
-  // Payment Infrastructure routes
+  // Payment Infrastructure routes - dark header, dark footer
   '/payment-infrastructure/payment-gateway': {
     header: 'dark',
+    footer: 'dark',
   },
-
   '/payment-infrastructure/subscriptions': {
     header: 'dark',
+    footer: 'dark',
   },
-
   '/payment-infrastructure/connect-platforms': {
     header: 'dark',
+    footer: 'dark',
   },
-
   '/payment-infrastructure/virtual-cards': {
     header: 'dark',
+    footer: 'dark',
   },
-
   '/payment-infrastructure/pos-terminal': {
     header: 'dark',
+    footer: 'dark',
   },
 
-  // About page
+  // Developer and enterprise routes - dark header, LIGHT footer
+  '/developer-enterprise/enterprise-infrastructure': {
+    header: 'dark',
+    footer: 'light',
+  },
+  '/developer-enterprise/partners-program': {
+    header: 'dark',
+    footer: 'light',
+  },
+  '/developer-enterprise/trust-security': {
+    header: 'dark',
+    footer: 'light',
+  },
+
+  // Other pages - dark header, dark footer
   '/about': {
     header: 'dark',
+    footer: 'dark',
   },
-
-  // Pricing page
   '/individual': {
     header: 'dark',
+    footer: 'dark',
   },
-
-  // Enterprise page
   '/enterprise': {
     header: 'dark',
+    footer: 'dark',
   },
-
-  // Resources page
   '/resources-and-documentation': {
     header: 'dark',
+    footer: 'dark',
   },
 };
 
@@ -127,6 +158,6 @@ export function getLayoutConfig(pathname: string): LayoutConfig {
     }
   }
 
-  // Default fallback - Footer2 for all other pages
+  // Default fallback
   return defaultLayout;
 }

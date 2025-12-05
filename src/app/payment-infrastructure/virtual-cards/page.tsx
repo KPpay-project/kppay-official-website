@@ -38,7 +38,7 @@ const ctaButtons: CTAButton[] = [
   },
   {
     text: 'Contact Sales',
-    href: '/contact',
+    href: "/contact",
     variant: 'outlined-white',
     size: 'md',
     showArrow: true,

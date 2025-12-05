@@ -14,6 +14,9 @@ export { default as ContactForm } from '@/components/ContactDB/ContactForm';
 export { default as ContactInfo } from '@/components/ContactDB/ContactInfo';
 export { default as Newsletter } from '@/components/ContactDB/Newsletter';
 
+// ROUTES
+export { ROUTES } from '@/config/constants';
+
 // Section Components
 export { default as HeroSection } from '@/components/sections/Homepage/HeroSection';
 export { default as GlobalReachSection } from '@/components/sections/Homepage/GlobalReachSection';
@@ -42,6 +45,8 @@ export { default as IntegrationsGrid } from '@/components/sections/FinancialServ
 export { default as ReportingFeaturesGrid } from '@/components/sections/FinancialServices/ReportingFeaturesGrid';
 export { default as DeliveryMethodsGrid } from '@/components/sections/FinancialServices/DeliveryMethodsGrid';
 export { default as IdentityKYCHeroSection } from '@/components/sections/FinancialServices/IdentityKYCHeroSection';
+export { default as ComplianceAndSecurity } from '@/components/solutions/FinancialServices/IdentityAndKycComps/ComplianceAndSecurity';
+export { default as FinancialConnectionsHeroSection } from '@/components/sections/FinancialServices/FinancialConnectionsHeroSection';
 export { default as VerificationFeaturesGrid } from '@/components/sections/FinancialServices/VerificationFeaturesGrid';
 
 // solutions mega menu - payment infrastrucutre
@@ -59,6 +64,11 @@ export { default as UseCasesPricingSection } from '@/components/solutions/Paymen
 export { default as POSTerminalHeroSection } from '@/components/solutions/PaymentInfrastructure/PosTerminal/POSTerminalHeroSection';
 export { default as EverythingYouNeedSection } from '@/components/solutions/PaymentInfrastructure/PosTerminal/EverythingYouNeedSection';
 export { default as SimplePricingGetStartedSection } from '@/components/solutions/PaymentInfrastructure/PosTerminal/SimplePricingGetStartedSection';
+
+//  More Developer and Enterprise
+export { default as FinancialInfrastructureHeroSection } from '@/components/solutions/DeveloperAndEnterprise/EnterpriseInfrastructure/FinancialInfrastructureHeroSection';
+export { default as PartnersHeroSection } from '@/components/solutions/DeveloperAndEnterprise/PartnersProgram/PartnersHeroSection';
+export { default as TrustSecurityHeroSection } from '@/components/solutions/DeveloperAndEnterprise/TrustAndSecurity/TrustSecurityHeroSection';
 
 // Shared Components
 export { default as FAQSection } from '@/components/sections/shared/FAQSection';

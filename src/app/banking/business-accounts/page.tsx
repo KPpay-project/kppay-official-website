@@ -10,6 +10,7 @@ import {
   CTABox,
   CorporateBankingSuite,
   BankingExperience,
+  ROUTES,
 } from '@/types';
 import { Globe, Receipt, CreditCard, Link } from 'lucide-react';
 
@@ -154,7 +155,7 @@ export default function BusinessAccountsPage() {
         primaryButtonText="Open Business Account"
         primaryButtonHref="/signup"
         secondaryButtonText="Schedule Consultation"
-        secondaryButtonHref="/contact"
+        secondaryButtonHref={ROUTES.CONTACT}
       />
 
       <ServiceFeatures

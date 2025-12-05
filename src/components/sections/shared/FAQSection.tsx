@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button } from '@/types';
+import { Button, ROUTES } from '@/types';
 import { ArrowRight } from 'lucide-react';
 
 interface FAQItem {
@@ -195,7 +195,7 @@ const FAQSection: React.FC = () => {
             </p>
           </div>
           <div className="flex gap-3 shrink-0">
-            <Button variant="outlined" size="sm" href="/about">
+            <Button variant="outlined" size="sm" href={ROUTES.ABOUT}>
               Learn more
               <ArrowRight className="w-4 h-4" />
             </Button>

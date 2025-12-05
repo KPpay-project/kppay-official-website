@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { ROUTES } from '@/types';
 
 export default function Newsletter() {
   const [email, setEmail] = useState('');
@@ -92,7 +93,7 @@ export default function Newsletter() {
         <p className="text-sm text-text-secondary">
           We care about your data in our{' '}
           <Link
-            href="/legal/privacy"
+            href={ROUTES.LEGAL_PRIVACY}
             className="text-interactive-primary hover:text-interactive-primary-hover underline transition-colors"
           >
             privacy policy
