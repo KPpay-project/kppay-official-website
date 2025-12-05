@@ -47,12 +47,30 @@ export default function LanguageSwitcher({
   const triggerTranslation = useCallback((langCode: string) => {
     try {
       if (langCode === 'en') {
-        // Clear all translation cookies
+        // CRITICAL: Clear cookies for ALL possible domains
+        const domain = window.location.hostname;
+
+        // Clear cookies for current domain
         document.cookie = 'googtrans=; path=/; max-age=0';
+        document.cookie = `googtrans=; path=/; domain=${domain}; max-age=0`;
+        document.cookie = `googtrans=; path=/; domain=.${domain}; max-age=0`;
+
+        // Clear any subdomain cookies
+        const parts = domain.split('.');
+        if (parts.length > 1) {
+          const rootDomain = parts.slice(-2).join('.');
+          document.cookie = `googtrans=; path=/; domain=.${rootDomain}; max-age=0`;
+        }
+
+        // Set explicit English cookie BEFORE reload
         document.cookie =
           'googtrans=/en/en; path=/; max-age=31536000; SameSite=Lax';
+        document.cookie = `googtrans=/en/en; path=/; domain=${domain}; max-age=31536000; SameSite=Lax`;
 
-        // Reset to English
+        // Reset localStorage
+        localStorage.setItem('preferredLanguage', 'en');
+
+        // Reset Google Translate element
         const select = document.querySelector(
           '.goog-te-combo'
         ) as HTMLSelectElement;
@@ -61,7 +79,7 @@ export default function LanguageSwitcher({
           select.dispatchEvent(new Event('change', { bubbles: true }));
         }
 
-        // Force page reload for English to clear translation
+        // Force reload after clearing everything
         setTimeout(() => {
           window.location.reload();
         }, 100);
