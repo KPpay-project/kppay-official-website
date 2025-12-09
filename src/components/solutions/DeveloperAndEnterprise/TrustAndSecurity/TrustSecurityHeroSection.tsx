@@ -5,7 +5,7 @@ const TrustSecurityHeroSection = () => {
   return (
     <section className="relative -mt-24 overflow-hidden">
       {/* Background Gradient - CSS gradient */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#013d25] to-[#017448]"></div>
+      <div className="absolute inset-0 z-0 bg-gradient-green"></div>
 
       {/* Dark overlay for better text contrast */}
       <div className="absolute inset-0 bg-black/20 z-[1]"></div>

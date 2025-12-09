@@ -1,4 +1,10 @@
-import { CTABox, FinancialInfrastructureHeroSection, ROUTES } from '@/types';
+import {
+  CTABox,
+  FinancialInfrastructureHeroSection,
+  EnterpriseSolutionsSection,
+  WhyChooseKPPaySection,
+  ROUTES,
+} from '@/types';
 
 export const metadata = {
   title: 'Enterprise Infrastructure | KPPAY - Scalable Financial Solutions',
@@ -42,13 +48,20 @@ const ctaButtons: CTAButton[] = [
 const EnterpriseInfrastructure = () => {
   return (
     <main className="page-transition">
+      {/* Hero section component */}
       <FinancialInfrastructureHeroSection />
+
+      {/* Enterprise Solutions Section */}
+      <EnterpriseSolutionsSection />
+
+      {/* Why Choose KP Pay Section */}
+      <WhyChooseKPPaySection />
 
       {/* CTA Box Section */}
       <CTABox
         heading="ready to scale your business?"
         headingColor="text-text-main-white"
-        description="Let’s discuss how our enterprise solutions can transform your financial operations"
+        description="Let's discuss how our enterprise solutions can transform your financial operations"
         buttons={ctaButtons}
         sectionBackgroundColor="bg-gray/900"
         ctaGradient="linear-gradient(135deg, #013d25 0%, #017448 100%)"

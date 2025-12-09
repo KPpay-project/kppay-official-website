@@ -1,4 +1,13 @@
-import { CTABox, FinancialConnectionsHeroSection, ROUTES } from '@/types';
+import {
+  CTABox,
+  FinancialConnectionsHeroSection,
+  FinancialConnectionsGrid,
+  ComplianceAndSecuritySection,
+  HowItWorksSection,
+  BankGradeSecuritySection,
+  PopularUseCasesSection,
+  ROUTES,
+} from '@/types';
 
 export const metadata = {
   title: 'Financial Connections | KPPAY - Connect Bank Accounts Seamlessly',
@@ -44,6 +53,11 @@ const FinancialConnections = () => {
   return (
     <main className="page-transition">
       <FinancialConnectionsHeroSection />
+      <FinancialConnectionsGrid />
+      <ComplianceAndSecuritySection />
+      <HowItWorksSection />
+      <BankGradeSecuritySection />
+      <PopularUseCasesSection />
 
       {/* CTA Box Section */}
       <CTABox

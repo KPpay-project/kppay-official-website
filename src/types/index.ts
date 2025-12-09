@@ -47,6 +47,11 @@ export { default as DeliveryMethodsGrid } from '@/components/sections/FinancialS
 export { default as IdentityKYCHeroSection } from '@/components/sections/FinancialServices/IdentityKYCHeroSection';
 export { default as ComplianceAndSecurity } from '@/components/solutions/FinancialServices/IdentityAndKycComps/ComplianceAndSecurity';
 export { default as FinancialConnectionsHeroSection } from '@/components/sections/FinancialServices/FinancialConnectionsHeroSection';
+export { default as FinancialConnectionsGrid } from '@/components/solutions/FinancialServices/FinancialConnectionsComps/FinancialConnectionsGrid';
+export { default as ComplianceAndSecuritySection } from '@/components/solutions/FinancialServices/FinancialConnectionsComps/ComplianceAndSecuritySection';
+export { default as HowItWorksSection } from '@/components/solutions/FinancialServices/FinancialConnectionsComps/HowItWorksSection';
+export { default as BankGradeSecuritySection } from '@/components/solutions/FinancialServices/FinancialConnectionsComps/BankGradeSecuritySection';
+export { default as PopularUseCasesSection } from '@/components/solutions/FinancialServices/FinancialConnectionsComps/PopularUseCasesSection';
 export { default as VerificationFeaturesGrid } from '@/components/sections/FinancialServices/VerificationFeaturesGrid';
 
 // solutions mega menu - payment infrastrucutre
@@ -67,8 +72,19 @@ export { default as SimplePricingGetStartedSection } from '@/components/solution
 
 //  More Developer and Enterprise
 export { default as FinancialInfrastructureHeroSection } from '@/components/solutions/DeveloperAndEnterprise/EnterpriseInfrastructure/FinancialInfrastructureHeroSection';
+export { default as EnterpriseSolutionsSection } from '@/components/solutions/DeveloperAndEnterprise/EnterpriseInfrastructure/EnterpriseSolutionsSection';
+export { default as WhyChooseKPPaySection } from '@/components/solutions/DeveloperAndEnterprise/EnterpriseInfrastructure/WhyChooseKPPaySection';
 export { default as PartnersHeroSection } from '@/components/solutions/DeveloperAndEnterprise/PartnersProgram/PartnersHeroSection';
+export { default as PartnersCategoriesSection } from '@/components/solutions/DeveloperAndEnterprise/PartnersProgram/PartnersCategoriesSection';
+export { default as PartnershipOpportunitiesSection } from '@/components/solutions/DeveloperAndEnterprise/PartnersProgram/PartnershipOpportunitiesSection';
+export { default as WhyPartnerSection } from '@/components/solutions/DeveloperAndEnterprise/PartnersProgram/WhyPartnerSection';
+export { default as PartnerSuccessStoriesSection } from '@/components/solutions/DeveloperAndEnterprise/PartnersProgram/PartnerSuccessStoriesSection';
+export { default as PartnerGetStartedSection } from '@/components/solutions/DeveloperAndEnterprise/PartnersProgram/PartnerGetStartedSection';
 export { default as TrustSecurityHeroSection } from '@/components/solutions/DeveloperAndEnterprise/TrustAndSecurity/TrustSecurityHeroSection';
+export { default as SecurityFeaturesSection } from '@/components/solutions/DeveloperAndEnterprise/TrustAndSecurity/SecurityFeaturesSection';
+export { default as SecurityCertificationsSection } from '@/components/solutions/DeveloperAndEnterprise/TrustAndSecurity/SecurityCertificationsSection';
+export { default as ComprehensiveSecuritySection } from '@/components/solutions/DeveloperAndEnterprise/TrustAndSecurity/ComprehensiveSecuritySection';
+export { default as SecurityContactSection } from '@/components/solutions/DeveloperAndEnterprise/TrustAndSecurity/SecurityContactSection';
 
 // Shared Components
 export { default as FAQSection } from '@/components/sections/shared/FAQSection';

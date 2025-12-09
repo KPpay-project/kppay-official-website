@@ -99,6 +99,9 @@
   /* Feature Section Gradient */
   --color-gradient-feature: linear-gradient(135deg, #a50e23 0%, #3f050d 100%);
 
+  /* Green Gradient - Enterprise/Growth sections */
+  --color-gradient-green: linear-gradient(to bottom right, #013d25, #017448);
+
   /* Heading Styles - Bebas Neue with tight spacing */
   --heading-word-spacing: 0.05em;
   --heading-letter-spacing: 0.02em;
@@ -128,6 +131,11 @@
   word-spacing: var(--heading-word-spacing);
   /* letter-spacing: var(--heading-letter-spacing); */
   text-transform: uppercase;
+}
+
+/* Green Gradient Background */
+.bg-gradient-green {
+  background-image: var(--color-gradient-green);
 }
 
 .container-padding {

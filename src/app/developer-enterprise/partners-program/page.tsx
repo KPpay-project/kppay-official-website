@@ -1,4 +1,13 @@
-import { CTABox, PartnersHeroSection, ROUTES } from '@/types';
+import {
+  CTABox,
+  PartnersHeroSection,
+  PartnersCategoriesSection,
+  PartnershipOpportunitiesSection,
+  WhyPartnerSection,
+  PartnerSuccessStoriesSection,
+  PartnerGetStartedSection,
+  ROUTES,
+} from '@/types';
 
 export const metadata = {
   title: 'Partners Program | KPPAY - Grow Together',
@@ -44,6 +53,21 @@ const PartnersProgram = () => {
   return (
     <main className="page-transition">
       <PartnersHeroSection />
+
+      {/* Partners Categories Section */}
+      <PartnersCategoriesSection />
+
+      {/* Partnership Opportunities Section */}
+      <PartnershipOpportunitiesSection />
+
+      {/* Why Partner Section */}
+      <WhyPartnerSection />
+
+      {/* Partner Success Stories Section */}
+      <PartnerSuccessStoriesSection />
+
+      {/* Get Started Section */}
+      <PartnerGetStartedSection />
 
       {/* CTA Box Section */}
       <CTABox

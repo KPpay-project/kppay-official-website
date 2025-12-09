@@ -41,14 +41,14 @@ const PartnersSection: React.FC = () => {
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="flex items-center justify-center p-4 rounded-lg hover:shadow-md transition-shadow duration-200 w-24 sm:w-28 lg:w-32"
+              className="flex items-center justify-center p-4 rounded-lg transition-all duration-300 w-24 sm:w-28 lg:w-32 group"
             >
               <div className="relative w-full h-12 sm:h-14 lg:h-16">
                 <Image
                   src={partner.logo}
                   alt={partner.name}
                   fill
-                  className="object-contain"
+                  className="object-contain mix-blend-multiply opacity-70 group-hover:opacity-100 group-hover:scale-110 group-hover:brightness-110 transition-all duration-300"
                 />
               </div>
             </div>

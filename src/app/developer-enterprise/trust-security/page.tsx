@@ -1,4 +1,12 @@
-import { CTABox, ROUTES, TrustSecurityHeroSection } from '@/types';
+import {
+  CTABox,
+  ROUTES,
+  TrustSecurityHeroSection,
+  SecurityFeaturesSection,
+  SecurityCertificationsSection,
+  ComprehensiveSecuritySection,
+  SecurityContactSection,
+} from '@/types';
 
 export const metadata = {
   title: 'Trust & Security Centre | KPPAY - Bank-Level Security',
@@ -44,6 +52,18 @@ const TrustSecurity = () => {
   return (
     <main className="page-transition">
       <TrustSecurityHeroSection />
+
+      {/* Security Features Section */}
+      <SecurityFeaturesSection />
+
+      {/* Security Certifications Section */}
+      <SecurityCertificationsSection />
+
+      {/* Comprehensive Security Measures Section */}
+      <ComprehensiveSecuritySection />
+
+      {/* Security Contact Section */}
+      <SecurityContactSection />
 
       {/* CTA Box Section */}
       <CTABox
