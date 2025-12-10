@@ -35,7 +35,7 @@ export default function GlobalReachSection() {
         <div className="relative w-full max-w-[1100px] mx-auto mb-4 md:mb-8">
           <div className="relative w-full aspect-[16/9]">
             <Image
-              src={images.homepage.map}
+              src={images.homepage.kppayMap}
               alt="Global reach map showing countries where customers send money"
               fill
               className="object-contain"
