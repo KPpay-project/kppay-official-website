@@ -44,14 +44,6 @@ const DiscoverSection = () => {
                 technology, compliance and banking infrastructure guarantee the
                 speed, flexibility and complete security of your transactions.
               </p>
-              <p className="text-text-secondary text-base leading-relaxed">
-                K-POLYGONE, the company behind KPPay, is a leader in digital
-                transformation and public service reform. With a solid
-                foundation in innovation and technology, it is committed to
-                helping governments and businesses harness the power of digital
-                solutions to optimize revenue mobilization and improve
-                governance.
-              </p>
             </div>
 
             {/* Right Column */}
