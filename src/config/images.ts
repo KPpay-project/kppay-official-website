@@ -25,7 +25,7 @@ export const images = {
   // homepage section images
   homepage: {
     map: `${CDN_BASE_URL}/image/upload/v1763030206/map_rv3vqs.webp`,
-    kppayMap: `${CDN_BASE_URL}/image/upload/v1765362936/kppayMap_yiyycs.png`,
+    kppayMap: `${CDN_BASE_URL}/image/upload/v1765365639/kppayMap_qdrale.png`,
     setup1: `${CDN_BASE_URL}/image/upload/v1761391731/image1_ohjudc.png`,
     setup2: `${CDN_BASE_URL}/image/upload/v1761391731/image2_dgiwhx.png`,
     setup3: `${CDN_BASE_URL}/image/upload/v1761391730/image3_mpgqkb.png`,
