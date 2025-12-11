@@ -427,18 +427,6 @@ export default function ContactForm() {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">
-        {submitStatus.type && (
-          <div
-            className={`p-4 rounded-lg ${
-              submitStatus.type === 'success'
-                ? 'bg-success-light text-success'
-                : 'bg-error-light text-error'
-            }`}
-          >
-            {submitStatus.message}
-          </div>
-        )}
-
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label
@@ -583,6 +571,18 @@ export default function ContactForm() {
         >
           {isSubmitting ? 'Sending...' : 'Send message'}
         </button>
+
+        {submitStatus.type && (
+          <div
+            className={`p-4 rounded-lg text-center ${
+              submitStatus.type === 'success'
+                ? 'bg-success-light text-success'
+                : 'bg-error-light text-error'
+            }`}
+          >
+            {submitStatus.message}
+          </div>
+        )}
       </form>
     </div>
   );

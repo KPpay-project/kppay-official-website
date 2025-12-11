@@ -54,6 +54,10 @@ export async function POST(request: Request) {
     };
 
     console.log('Sending request to Mailchimp...');
+    console.log('API Server:', MAILCHIMP_API_SERVER);
+    console.log('Audience ID:', MAILCHIMP_AUDIENCE_ID);
+    console.log('API Key (first 10 chars):', getApiKey(MAILCHIMP_API_KEY).substring(0, 10) + '...');
+    console.log('Request URL:', `https://${MAILCHIMP_API_SERVER}.api.mailchimp.com/3.0/lists/${MAILCHIMP_AUDIENCE_ID}/members`);
 
     const response = await fetch(
       `https://${MAILCHIMP_API_SERVER}.api.mailchimp.com/3.0/lists/${MAILCHIMP_AUDIENCE_ID}/members`,
@@ -69,6 +73,7 @@ export async function POST(request: Request) {
 
     const responseData = await response.json();
     console.log('Mailchimp response status:', response.status);
+    console.log('Mailchimp response data:', JSON.stringify(responseData, null, 2));
 
     if (response.ok) {
       console.log('Successfully subscribed:', email);
@@ -84,7 +89,29 @@ export async function POST(request: Request) {
       if (responseData.title === 'Member Exists') {
         console.log('Email already subscribed:', email);
         return NextResponse.json(
-          { error: 'This email is already subscribed' },
+          { error: 'This email is already subscribed to our newsletter' },
+          { status: 400 }
+        );
+      }
+
+      if (responseData.title === 'Forgotten Email Not Subscribed') {
+        console.log('Email was previously unsubscribed:', email);
+        return NextResponse.json(
+          {
+            error:
+              'This email was previously unsubscribed. Please use a different email or contact support to reactivate.',
+          },
+          { status: 400 }
+        );
+      }
+
+      if (
+        responseData.title === 'Invalid Resource' &&
+        responseData.detail?.includes('looks fake or invalid')
+      ) {
+        console.log('Mailchimp rejected email as fake:', email);
+        return NextResponse.json(
+          { error: 'Please enter a valid email address' },
           { status: 400 }
         );
       }
