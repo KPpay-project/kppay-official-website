@@ -22,7 +22,8 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(git checkout:*)",
-      "Bash(git merge testing -m \"$(cat <<''EOF''\nMerge testing: Implement contact form and newsletter email integrations\n\n- Fix Mailchimp newsletter integration with proper API key parsing\n- Implement Supabase contact form storage with email notifications\n- Add Resend email service for team notifications and customer auto-replies\n- Update email sender to use verified kppay.fr domain\n- Move contact form success message to display below submit button\n- Add comprehensive error handling for both newsletter and contact forms\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n)\")"
+      "Bash(git merge testing -m \"$(cat <<''EOF''\nMerge testing: Implement contact form and newsletter email integrations\n\n- Fix Mailchimp newsletter integration with proper API key parsing\n- Implement Supabase contact form storage with email notifications\n- Add Resend email service for team notifications and customer auto-replies\n- Update email sender to use verified kppay.fr domain\n- Move contact form success message to display below submit button\n- Add comprehensive error handling for both newsletter and contact forms\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(dir:*)"
     ],
     "deny": [],
     "ask": []
