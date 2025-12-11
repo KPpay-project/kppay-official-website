@@ -6,13 +6,13 @@ import { MapPin } from 'lucide-react';
 
 // Country data with accurate geographic positions (based on standard world map projection)
 const countries = [
-  // High Senders - North America
+  // Senders & Receivers - North America
   {
     id: 'canada',
     name: 'Canada',
     flagPath: '/assets/images/flags/canada.png',
     position: { top: '22%', left: '17%' }, // Northern Canada (adjusted for visibility)
-    category: 'High Senders',
+    category: 'Senders & Receivers',
     continent: 'North America',
     width: 47250,
     height: 47250,
@@ -22,7 +22,7 @@ const countries = [
     name: 'United States',
     flagPath: '/assets/images/flags/United State of America.png',
     position: { top: '33%', left: '18%' }, // Central US
-    category: 'High Senders',
+    category: 'Senders & Receivers',
     continent: 'North America',
     width: 2528,
     height: 2528,
@@ -40,13 +40,13 @@ const countries = [
     height: 2990,
   },
 
-  // High Senders - Europe
+  // Senders & Receivers - Europe
   {
     id: 'uk',
     name: 'United Kingdom',
     flagPath: '/assets/images/flags/United Kingdom.png',
     position: { top: '24%', left: '48.5%' }, // UK position
-    category: 'High Senders',
+    category: 'Senders & Receivers',
     continent: 'Europe',
     width: 2301,
     height: 2301,
