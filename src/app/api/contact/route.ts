@@ -2,19 +2,19 @@ import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { Resend } from 'resend';
 
-// Environment variables
-const SUPABASE_URL = process.env.SUPABASE_URL || '';
-const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_PUBLIC_KEY || '';
-const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
-const NOTIFICATION_EMAILS =
-  process.env.CONTACT_NOTIFICATION_EMAILS?.split(',') || [];
-
-// Initialize clients
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-const resend = new Resend(RESEND_API_KEY);
-
 export async function POST(request: Request) {
   try {
+    // Initialize environment variables and clients inside the function
+    // This prevents build-time initialization errors when env vars aren't available
+    const SUPABASE_URL = process.env.SUPABASE_URL || '';
+    const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_PUBLIC_KEY || '';
+    const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
+    const NOTIFICATION_EMAILS =
+      process.env.CONTACT_NOTIFICATION_EMAILS?.split(',') || [];
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const resend = new Resend(RESEND_API_KEY);
+
     // Parse request body
     const body = await request.json();
     console.log('📨 Received contact form submission');

@@ -1,9 +1,5 @@
 import { NextResponse } from 'next/server';
 
-const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY || '';
-const MAILCHIMP_AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID || '';
-const MAILCHIMP_API_SERVER = process.env.MAILCHIMP_API_SERVER || '';
-
 // Extract API key without server suffix (format: key-server or just key)
 const getApiKey = (apiKey: string): string => {
   return apiKey.split('-')[0];
@@ -11,6 +7,12 @@ const getApiKey = (apiKey: string): string => {
 
 export async function POST(request: Request) {
   try {
+    // Initialize environment variables inside the function
+    // This prevents build-time initialization errors when env vars aren't available
+    const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY || '';
+    const MAILCHIMP_AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID || '';
+    const MAILCHIMP_API_SERVER = process.env.MAILCHIMP_API_SERVER || '';
+
     // Parse request body
     const body = await request.json();
     console.log('Received newsletter subscription request');
