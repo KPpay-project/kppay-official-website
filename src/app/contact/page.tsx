@@ -3,7 +3,7 @@ import { Button, ContactForm, ContactInfo, Newsletter } from '@/types';
 import { ArrowRight } from 'lucide-react';
 
 export const metadata = {
-  title: 'Contact Us | Your Company Name',
+  title: 'Contact Us | KPPAY',
   description: "Get in touch with our team. We're here to help.",
 };
 
