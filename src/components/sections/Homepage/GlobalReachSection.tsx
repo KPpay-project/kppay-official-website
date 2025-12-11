@@ -10,7 +10,7 @@ const countries = [
   {
     id: 'canada',
     name: 'Canada',
-    flagPath: '/assets/images/flags/canada.png',
+    flagPath: '/assets/images/flags/canada.png', // lowercase 'c'
     position: { top: '15%', left: '18%' },
     category: 'High Senders',
     continent: 'North America',
@@ -378,13 +378,10 @@ export default function GlobalReachSection() {
                     >
                       {/* Flag Image */}
                       <div className="relative w-5 h-5 md:w-6 md:h-6 rounded-full overflow-hidden border border-white/40">
-                        <Image
+                        <img
                           src={country.flagPath}
                           alt={`${country.name} flag`}
-                          width={country.width}
-                          height={country.height}
                           className="object-cover w-full h-full"
-                          unoptimized
                         />
                       </div>
 
