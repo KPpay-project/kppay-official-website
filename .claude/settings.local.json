@@ -27,7 +27,8 @@
       "Bash(for:*)",
       "Bash(do echo \"$f\")",
       "Bash(done)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(git merge:*)"
     ],
     "deny": [],
     "ask": []

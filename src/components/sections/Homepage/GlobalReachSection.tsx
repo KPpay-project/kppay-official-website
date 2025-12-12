@@ -11,7 +11,7 @@ const countries = [
     id: 'canada',
     name: 'Canada',
     flagCode: 'ca',
-    position: { top: '25%', left: '14%' }, // Northern North America
+    position: { top: '25%', left: '18%' }, // Northern North America (moved right)
     category: 'Senders & Receivers',
     continent: 'North America',
   },
@@ -19,7 +19,7 @@ const countries = [
     id: 'usa',
     name: 'United States',
     flagCode: 'us',
-    position: { top: '35%', left: '13%' }, // Central North America
+    position: { top: '35%', left: '17%' }, // Central North America (moved right)
     category: 'Senders & Receivers',
     continent: 'North America',
   },
@@ -153,7 +153,7 @@ const countries = [
     id: 'car',
     name: 'Central African Republic',
     flagCode: 'cf',
-    position: { top: '51%', left: '54.5%' }, // Central Africa
+    position: { top: '52.5%', left: '53%' }, // Central Africa, north of DRC
     category: 'Senders & Receivers',
     continent: 'Central Africa',
   },
@@ -161,7 +161,7 @@ const countries = [
     id: 'drc',
     name: 'DR Congo',
     flagCode: 'cd',
-    position: { top: '56%', left: '54%' }, // Central Africa, south of CAR
+    position: { top: '59%', left: '53.5%' }, // Central Africa, left of Tanzania at similar latitude
     category: 'Senders & Receivers',
     continent: 'Central Africa',
   },
