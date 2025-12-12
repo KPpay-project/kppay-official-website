@@ -4,248 +4,202 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
 
-// Country data with accurate geographic positions (based on standard world map projection)
+// Country data with accurate geographic positions based on dotted world map
 const countries = [
   // Senders & Receivers - North America
   {
     id: 'canada',
     name: 'Canada',
-    flagPath: '/assets/images/flags/canada.png',
-    position: { top: '22%', left: '17%' }, // Northern Canada (adjusted for visibility)
+    flagCode: 'ca',
+    position: { top: '25%', left: '14%' }, // Northern North America
     category: 'Senders & Receivers',
     continent: 'North America',
-    width: 47250,
-    height: 47250,
   },
   {
     id: 'usa',
     name: 'United States',
-    flagPath: '/assets/images/flags/United State of America.png',
-    position: { top: '33%', left: '18%' }, // Central US
+    flagCode: 'us',
+    position: { top: '35%', left: '13%' }, // Central North America
     category: 'Senders & Receivers',
     continent: 'North America',
-    width: 2528,
-    height: 2528,
   },
 
   // High Senders - South America
   {
     id: 'brazil',
     name: 'Brazil',
-    flagPath: '/assets/images/flags/Brazil.png',
-    position: { top: '64%', left: '28%' }, // Central Brazil
+    flagCode: 'br',
+    position: { top: '62%', left: '26%' }, // Eastern South America
     category: 'High Senders',
     continent: 'South America',
-    width: 2990,
-    height: 2990,
   },
 
   // Senders & Receivers - Europe
   {
     id: 'uk',
     name: 'United Kingdom',
-    flagPath: '/assets/images/flags/United Kingdom.png',
-    position: { top: '24%', left: '48.5%' }, // UK position
+    flagCode: 'gb',
+    position: { top: '28%', left: '46.5%' }, // Northwest Europe
     category: 'Senders & Receivers',
     continent: 'Europe',
-    width: 2301,
-    height: 2301,
+  },
+  {
+    id: 'france',
+    name: 'France',
+    flagCode: 'fr',
+    position: { top: '31%', left: '47.5%' }, // Western Europe
+    category: 'Senders & Receivers',
+    continent: 'Europe',
+  },
+  {
+    id: 'belgium',
+    name: 'Belgium',
+    flagCode: 'be',
+    position: { top: '29%', left: '48.8%' }, // Between UK and Germany
+    category: 'Senders & Receivers',
+    continent: 'Europe',
+  },
+  {
+    id: 'germany',
+    name: 'Germany',
+    flagCode: 'de',
+    position: { top: '29.5%', left: '50.5%' }, // Central Europe
+    category: 'Senders & Receivers',
+    continent: 'Europe',
   },
   {
     id: 'russia',
     name: 'Russia',
-    flagPath: '/assets/images/flags/Russia.png',
-    position: { top: '28%', left: '65%' }, // Central Russia
+    flagCode: 'ru',
+    position: { top: '25%', left: '67%' }, // Northern Eurasia
     category: 'High Senders',
     continent: 'Europe/Asia',
-    width: 2782,
-    height: 2782,
   },
 
-  // High Senders - Asia
-  {
-    id: 'china',
-    name: 'China',
-    flagPath: '/assets/images/flags/China.png',
-    position: { top: '35%', left: '73%' }, // Eastern China
-    category: 'High Senders',
-    continent: 'Asia',
-    width: 3955,
-    height: 3955,
-  },
-  {
-    id: 'japan',
-    name: 'Japan',
-    flagPath: '/assets/images/flags/Japan.png',
-    position: { top: '34%', left: '82%' }, // Japan islands
-    category: 'High Senders',
-    continent: 'Asia',
-    width: 3679,
-    height: 3679,
-  },
+  // High Senders - Middle East & Asia
   {
     id: 'dubai',
     name: 'Dubai (UAE)',
-    flagPath: '/assets/images/flags/Dubai.png',
-    position: { top: '38%', left: '60%' }, // UAE/Dubai
+    flagCode: 'ae',
+    position: { top: '39%', left: '57%' }, // Arabian Peninsula
     category: 'High Senders',
     continent: 'Middle East',
-    width: 47956,
-    height: 47956,
   },
   {
     id: 'india',
     name: 'India',
-    flagPath: '/assets/images/flags/india.png',
-    position: { top: '41%', left: '67%' }, // Central India
+    flagCode: 'in',
+    position: { top: '40%', left: '70%' }, // South Asia
     category: 'High Senders',
     continent: 'South Asia',
-    width: 49347,
-    height: 49347,
+  },
+  {
+    id: 'china',
+    name: 'China',
+    flagCode: 'cn',
+    position: { top: '35%', left: '76%' }, // East Asia
+    category: 'High Senders',
+    continent: 'Asia',
+  },
+  {
+    id: 'japan',
+    name: 'Japan',
+    flagCode: 'jp',
+    position: { top: '36%', left: '85%' }, // Far East
+    category: 'High Senders',
+    continent: 'Asia',
   },
 
   // High Senders - Oceania
   {
     id: 'australia',
     name: 'Australia',
-    flagPath: '/assets/images/flags/Australia.png',
-    position: { top: '72%', left: '81%' }, // Eastern Australia
+    flagCode: 'au',
+    position: { top: '68%', left: '82%' }, // Southern Oceania
     category: 'High Senders',
     continent: 'Oceania',
-    width: 4248,
-    height: 4248,
   },
 
   // High Receivers - West Africa
   {
     id: 'togo',
     name: 'Togo',
-    flagPath: '/assets/images/flags/Togo.png',
-    position: { top: '49%', left: '49%' }, // Togo coast (adjusted)
+    flagCode: 'tg',
+    position: { top: '51%', left: '47%' }, // West African coast
     category: 'High Receivers',
     continent: 'West Africa',
-    width: 2012,
-    height: 2012,
   },
 
-  // Senders and Receivers - West Africa
+  // Senders & Receivers - West Africa
   {
     id: 'nigeria',
     name: 'Nigeria',
-    flagPath: '/assets/images/flags/Nigeria.png',
-    position: { top: '50.5%', left: '52%' }, // Nigeria (east of Togo, more spacing)
+    flagCode: 'ng',
+    position: { top: '51.5%', left: '49.5%' }, // West Africa, east of Togo
     category: 'Senders & Receivers',
     continent: 'West Africa',
-    width: 1540,
-    height: 1540,
   },
 
-  // Senders and Receivers - East Africa
-  {
-    id: 'kenya',
-    name: 'Kenya',
-    flagPath: '/assets/images/flags/Kenya.png',
-    position: { top: '53%', left: '58.5%' }, // Kenya (adjusted)
-    category: 'Senders & Receivers',
-    continent: 'East Africa',
-    width: 2418,
-    height: 2418,
-  },
-  {
-    id: 'tanzania',
-    name: 'Tanzania',
-    flagPath: '/assets/images/flags/Tanzania.png',
-    position: { top: '59%', left: '59%' }, // Tanzania (south of Kenya, more spacing)
-    category: 'Senders & Receivers',
-    continent: 'East Africa',
-    width: 1914,
-    height: 1914,
-  },
-
-  // Senders and Receivers - Central Africa
+  // Senders & Receivers - Central Africa
   {
     id: 'cameroon',
     name: 'Cameroon',
-    flagPath: '/assets/images/flags/Cameroon.png',
-    position: { top: '51%', left: '54.5%' }, // Cameroon (adjusted)
+    flagCode: 'cm',
+    position: { top: '52%', left: '51.5%' }, // Central Africa
     category: 'Senders & Receivers',
     continent: 'Central Africa',
-    width: 2054,
-    height: 2054,
   },
   {
     id: 'car',
     name: 'Central African Republic',
-    flagPath: '/assets/images/flags/car.png',
-    position: { top: '51%', left: '57.5%' }, // CAR (east of Cameroon, more spacing)
+    flagCode: 'cf',
+    position: { top: '51%', left: '54.5%' }, // Central Africa
     category: 'Senders & Receivers',
     continent: 'Central Africa',
-    width: 55388,
-    height: 55388,
   },
   {
     id: 'drc',
     name: 'DR Congo',
-    flagPath: '/assets/images/flags/drc.png',
-    position: { top: '57%', left: '56.5%' }, // DRC (south of CAR, adjusted)
+    flagCode: 'cd',
+    position: { top: '56%', left: '54%' }, // Central Africa, south of CAR
     category: 'Senders & Receivers',
     continent: 'Central Africa',
-    width: 59675,
-    height: 59675,
   },
 
-  // Senders and Receivers - Southern Africa
+  // Senders & Receivers - East Africa
+  {
+    id: 'kenya',
+    name: 'Kenya',
+    flagCode: 'ke',
+    position: { top: '54%', left: '57%' }, // East Africa
+    category: 'Senders & Receivers',
+    continent: 'East Africa',
+  },
+  {
+    id: 'tanzania',
+    name: 'Tanzania',
+    flagCode: 'tz',
+    position: { top: '59%', left: '57%' }, // East Africa, south of Kenya
+    category: 'Senders & Receivers',
+    continent: 'East Africa',
+  },
+
+  // Senders & Receivers - Southern Africa
   {
     id: 'zambia',
     name: 'Zambia',
-    flagPath: '/assets/images/flags/zambia.png',
-    position: { top: '65%', left: '55.5%' }, // Zambia
+    flagCode: 'zm',
+    position: { top: '63%', left: '54.5%' }, // Southern Africa
     category: 'Senders & Receivers',
     continent: 'Southern Africa',
-    width: 47454,
-    height: 47454,
   },
   {
     id: 'south-africa',
     name: 'South Africa',
-    flagPath: '/assets/images/flags/South Africa.png',
-    position: { top: '73%', left: '55%' }, // South Africa
+    flagCode: 'za',
+    position: { top: '69%', left: '54%' }, // Southern tip of Africa
     category: 'Senders & Receivers',
     continent: 'Southern Africa',
-    width: 2990,
-    height: 2990,
-  },
-
-  // Senders and Receivers - Europe (clustered, separated for visibility)
-  {
-    id: 'france',
-    name: 'France',
-    flagPath: '/assets/images/flags/France.png',
-    position: { top: '28%', left: '49%' }, // France (adjusted for more space)
-    category: 'Senders & Receivers',
-    continent: 'Europe',
-    width: 1526,
-    height: 1526,
-  },
-  {
-    id: 'belgium',
-    name: 'Belgium',
-    flagPath: '/assets/images/flags/Belgium.png',
-    position: { top: '24%', left: '51%' }, // Belgium (north of France, more spacing)
-    category: 'Senders & Receivers',
-    continent: 'Europe',
-    width: 1471,
-    height: 1471,
-  },
-  {
-    id: 'germany',
-    name: 'Germany',
-    flagPath: '/assets/images/flags/germany.png',
-    position: { top: '26%', left: '53%' }, // Germany (east of Belgium, more spacing)
-    category: 'Senders & Receivers',
-    continent: 'Europe',
-    width: 42333,
-    height: 42333,
   },
 ];
 
@@ -375,19 +329,20 @@ export default function GlobalReachSection() {
                     onMouseEnter={() => setHoveredCountry(country.id)}
                     onMouseLeave={() => setHoveredCountry(null)}
                   >
-                    {/* Flag Container - No Background */}
+                    {/* Flag Container */}
                     <div
-                      className="relative flex items-center justify-center w-4 h-4 md:w-5 md:h-5 rounded-full transition-all duration-500 ease-out"
+                      className="relative flex items-center justify-center transition-all duration-500 ease-out"
                       style={{
-                        transform: isHovered ? 'scale(1.4)' : 'scale(1)',
+                        transform: isHovered ? 'scale(1.3)' : 'scale(1)',
                         filter: isHovered ? 'drop-shadow(0 4px 12px rgba(0,0,0,0.25))' : 'none',
                       }}
                     >
-                      {/* Flag Image */}
+                      {/* Flag Image from CDN */}
                       <img
-                        src={country.flagPath}
+                        src={`https://flagcdn.com/w20/${country.flagCode}.png`}
+                        srcSet={`https://flagcdn.com/w40/${country.flagCode}.png 2x`}
                         alt={`${country.name} flag`}
-                        className="w-full h-full rounded-full object-cover"
+                        className="w-3 h-2 md:w-3.5 md:h-2.5 object-cover rounded-[1px] shadow-sm"
                         loading="eager"
                       />
                     </div>

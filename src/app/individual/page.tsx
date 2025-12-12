@@ -7,7 +7,7 @@ import {
 import { Phone, Users, ShieldCheck } from 'lucide-react';
 
 export const metadata = {
-  title: 'Individual Pricing | KPPay - Banking Made Simple',
+  title: 'Individual Pricing | KPPay - Payments Made Simple',
   description:
     'Experience modern banking designed for your personal financial needs. Affordable pricing plans with instant payments, smart savings, and more. Available in 50 countries.',
 };
@@ -31,7 +31,7 @@ const IndividualPricingPage = () => {
         buttons={[
           {
             text: 'Schedule a Demo',
-            href: "/contact",
+            href: '/contact',
             variant: 'outlined-white',
             size: 'md',
             showArrow: true,
@@ -39,7 +39,7 @@ const IndividualPricingPage = () => {
           },
           {
             text: 'Request Custom Quote',
-            href: "/contact",
+            href: '/contact',
             variant: 'outlined-white',
             size: 'md',
             showArrow: true,
