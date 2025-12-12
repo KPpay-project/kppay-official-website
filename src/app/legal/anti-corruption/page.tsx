@@ -371,7 +371,7 @@ export default function AntiCorruptionPolicy() {
                         Any suspicion of corruption should be reported via the
                         dedicated email{' '}
                         <span className="text-brand-primary font-semibold">
-                          alert.compliance@kppay.co
+                          contact@kppay.fr
                         </span>
                         . The anonymity and confidentiality of the
                         whistleblower's identity are guaranteed.

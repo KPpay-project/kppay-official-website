@@ -339,10 +339,10 @@ export default function GlobalReachSection() {
                     >
                       {/* Flag Image from CDN */}
                       <img
-                        src={`https://flagcdn.com/w20/${country.flagCode}.png`}
-                        srcSet={`https://flagcdn.com/w40/${country.flagCode}.png 2x`}
+                        src={`https://flagcdn.com/w80/${country.flagCode}.png`}
+                        srcSet={`https://flagcdn.com/w160/${country.flagCode}.png 2x`}
                         alt={`${country.name} flag`}
-                        className="w-3 h-2 md:w-3.5 md:h-2.5 object-cover rounded-[1px] shadow-sm"
+                        className="w-3 h-3 md:w-5 md:h-5 object-cover rounded-full shadow-sm"
                         loading="eager"
                       />
                     </div>

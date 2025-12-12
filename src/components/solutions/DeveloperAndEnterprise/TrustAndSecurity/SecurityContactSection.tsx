@@ -15,7 +15,7 @@ const SecurityContactSection: React.FC = () => {
               {/* Email */}
               <div>
                 <h3 className="text-black font-bold text-lg mb-2">Email</h3>
-                <p className="text-gray-600">security@kppay.com</p>
+                <p className="text-gray-600">contact@kppay.fr</p>
               </div>
 
               {/* Emergency Hotline */}

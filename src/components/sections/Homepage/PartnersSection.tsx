@@ -4,25 +4,30 @@ import { images } from '@/types';
 
 const PartnersSection: React.FC = () => {
   const partners = [
-    { name: 'Ecobank', logo: images.partners.ecobank },
-    { name: 'Desjardins', logo: images.partners.desjardins },
+    // Mobile Networks First
+    { name: 'MTN', logo: images.partners.mtn },
     { name: 'Airtel', logo: images.partners.airtel },
+    { name: 'Orange', logo: images.partners.orange },
+    { name: 'Vodacom', logo: images.partners.vodacom },
     { name: 'Safaricom', logo: images.partners.safaricom },
+
+    // Banks
+    { name: 'Ecobank', logo: images.partners.ecobank },
+    { name: 'Bank of Africa', logo: images.partners.bankOfAfrica },
+    { name: 'Société Générale', logo: images.partners.societeGenerale },
+    { name: 'UBA Bank', logo: images.partners.UBABank },
+    { name: 'Standbic Bank', logo: images.partners.StanbicBank },
+    { name: 'FBN Bank', logo: images.partners.FBNBank },
     { name: 'NSIA', logo: images.partners.nsia },
     { name: 'BSIC', logo: images.partners.bsic },
-    { name: 'MTN', logo: images.partners.mtn },
-    { name: 'Vodacom', logo: images.partners.vodacom },
     { name: 'CIC', logo: images.partners.cic },
-    { name: 'Bank of Africa', logo: images.partners.bankOfAfrica },
-    { name: 'Orange', logo: images.partners.orange },
     { name: 'BIIC', logo: images.partners.biic },
-    { name: 'Société Générale', logo: images.partners.societeGenerale },
-    { name: 'Flutterwave', logo: images.partners.flutterwave },
     { name: 'Banque Atlantique', logo: images.partners.banqueAtlantique },
-    { name: 'FBN Bank', logo: images.partners.FBNBank },
     { name: 'ICIC Bank', logo: images.partners.ICICBank },
-    { name: 'Standbic Bank', logo: images.partners.StanbicBank },
-    { name: 'UBA Bank', logo: images.partners.UBABank },
+    { name: 'Desjardins', logo: images.partners.desjardins },
+
+    // Payment Providers
+    { name: 'Flutterwave', logo: images.partners.flutterwave },
   ];
 
   return (
