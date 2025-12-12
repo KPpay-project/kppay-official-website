@@ -32,12 +32,12 @@ const IndividualPricingHero = () => {
         <div className="relative z-10 container-padding pt-32 sm:pt-0 h-full flex items-center justify-center">
           <div className="text-center max-w-4xl">
             <h1 className="hero-heading">
-              Banking Made Simple
+              Payment Made Simple
               <br />
               For Individuals
             </h1>
             <p className="hero-description">
-              Experience modern banking designed for your personal financial
+              Experience modern payment designed for your personal financial
               needs. From instant payments to smart savings, we have got you
               covered.
             </p>

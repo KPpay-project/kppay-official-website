@@ -30,10 +30,10 @@ export default function ContactInfo() {
             Our friendly team is here to help.
           </p>
           <a
-            href="mailto:hi@tegpay.com"
+            href="mailto:contact@kppay.fr"
             className="text-interactive-primary hover:text-interactive-primary-hover font-medium transition-colors"
           >
-            hi@kppay.com
+            contact@kppay.fr
           </a>
         </div>
 
@@ -50,14 +50,14 @@ export default function ContactInfo() {
           </p>
           <address className="not-italic">
             <a
-              href="https://maps.google.com/?q=100+Smith+Street+Collingwood+VIC+3066+AU"
+              href="https://maps.google.com/?q=72+Rue+Faubourg+Saint+Honoré+75008+Paris+France"
               target="_blank"
               rel="noopener noreferrer"
               className="text-interactive-primary hover:text-interactive-primary-hover font-medium transition-colors"
             >
-              100 Smith Street
+              72 Rue Faubourg Saint Honoré
               <br />
-              Collingwood VIC 3066 AU
+              75008 Paris - France
             </a>
           </address>
         </div>

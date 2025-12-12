@@ -4,232 +4,202 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
 
-// Country data with actual flag images and positions
+// Country data with accurate geographic positions based on dotted world map
 const countries = [
-  // High Senders
+  // Senders & Receivers - North America
   {
     id: 'canada',
     name: 'Canada',
-    flagPath: '/assets/images/flags/canada.png', // lowercase 'c'
-    position: { top: '15%', left: '18%' },
-    category: 'High Senders',
+    flagCode: 'ca',
+    position: { top: '25%', left: '14%' }, // Northern North America
+    category: 'Senders & Receivers',
     continent: 'North America',
-    width: 47250,
-    height: 47250,
   },
   {
     id: 'usa',
     name: 'United States',
-    flagPath: '/assets/images/flags/United State of America.png',
-    position: { top: '28%', left: '17%' },
-    category: 'High Senders',
+    flagCode: 'us',
+    position: { top: '35%', left: '13%' }, // Central North America
+    category: 'Senders & Receivers',
     continent: 'North America',
-    width: 2528,
-    height: 2528,
   },
+
+  // High Senders - South America
   {
     id: 'brazil',
     name: 'Brazil',
-    flagPath: '/assets/images/flags/Brazil.png',
-    position: { top: '65%', left: '27%' },
+    flagCode: 'br',
+    position: { top: '62%', left: '26%' }, // Eastern South America
     category: 'High Senders',
     continent: 'South America',
-    width: 2990,
-    height: 2990,
   },
+
+  // Senders & Receivers - Europe
   {
     id: 'uk',
     name: 'United Kingdom',
-    flagPath: '/assets/images/flags/United Kingdom.png',
-    position: { top: '18%', left: '49.5%' },
-    category: 'High Senders',
+    flagCode: 'gb',
+    position: { top: '28%', left: '46.5%' }, // Northwest Europe
+    category: 'Senders & Receivers',
     continent: 'Europe',
-    width: 2301,
-    height: 2301,
-  },
-  {
-    id: 'russia',
-    name: 'Russia',
-    flagPath: '/assets/images/flags/Russia.png',
-    position: { top: '16%', left: '67%' },
-    category: 'High Senders',
-    continent: 'Europe/Asia',
-    width: 2782,
-    height: 2782,
-  },
-  {
-    id: 'china',
-    name: 'China',
-    flagPath: '/assets/images/flags/China.png',
-    position: { top: '31%', left: '72%' },
-    category: 'High Senders',
-    continent: 'Asia',
-    width: 3955,
-    height: 3955,
-  },
-  {
-    id: 'japan',
-    name: 'Japan',
-    flagPath: '/assets/images/flags/Japan.png',
-    position: { top: '29%', left: '84%' },
-    category: 'High Senders',
-    continent: 'Asia',
-    width: 3679,
-    height: 3679,
-  },
-  {
-    id: 'australia',
-    name: 'Australia',
-    flagPath: '/assets/images/flags/Australia.png',
-    position: { top: '77%', left: '84%' },
-    category: 'High Senders',
-    continent: 'Oceania',
-    width: 4248,
-    height: 4248,
-  },
-  {
-    id: 'dubai',
-    name: 'Dubai (UAE)',
-    flagPath: '/assets/images/flags/Dubai.png',
-    position: { top: '36%', left: '62%' },
-    category: 'High Senders',
-    continent: 'Middle East',
-    width: 47956,
-    height: 47956,
-  },
-  {
-    id: 'india',
-    name: 'India',
-    flagPath: '/assets/images/flags/india.png',
-    position: { top: '37%', left: '69%' },
-    category: 'High Senders',
-    continent: 'South Asia',
-    width: 49347,
-    height: 49347,
-  },
-
-  // High Receivers
-  {
-    id: 'togo',
-    name: 'Togo',
-    flagPath: '/assets/images/flags/Togo.png',
-    position: { top: '51%', left: '48.2%' },
-    category: 'High Receivers',
-    continent: 'West Africa',
-    width: 2012,
-    height: 2012,
-  },
-
-  // Senders and Receivers
-  {
-    id: 'nigeria',
-    name: 'Nigeria',
-    flagPath: '/assets/images/flags/Nigeria.png',
-    position: { top: '52.5%', left: '49.8%' },
-    category: 'Senders & Receivers',
-    continent: 'West Africa',
-    width: 1540,
-    height: 1540,
-  },
-  {
-    id: 'kenya',
-    name: 'Kenya',
-    flagPath: '/assets/images/flags/Kenya.png',
-    position: { top: '58%', left: '59.5%' },
-    category: 'Senders & Receivers',
-    continent: 'East Africa',
-    width: 2418,
-    height: 2418,
-  },
-  {
-    id: 'tanzania',
-    name: 'Tanzania',
-    flagPath: '/assets/images/flags/Tanzania.png',
-    position: { top: '63.5%', left: '60.5%' },
-    category: 'Senders & Receivers',
-    continent: 'East Africa',
-    width: 1914,
-    height: 1914,
-  },
-  {
-    id: 'south-africa',
-    name: 'South Africa',
-    flagPath: '/assets/images/flags/South Africa.png',
-    position: { top: '76%', left: '54.5%' },
-    category: 'Senders & Receivers',
-    continent: 'Southern Africa',
-    width: 2990,
-    height: 2990,
   },
   {
     id: 'france',
     name: 'France',
-    flagPath: '/assets/images/flags/France.png',
-    position: { top: '22.5%', left: '50.2%' },
+    flagCode: 'fr',
+    position: { top: '31%', left: '47.5%' }, // Western Europe
     category: 'Senders & Receivers',
     continent: 'Europe',
-    width: 1526,
-    height: 1526,
   },
   {
     id: 'belgium',
     name: 'Belgium',
-    flagPath: '/assets/images/flags/Belgium.png',
-    position: { top: '20.5%', left: '51%' },
+    flagCode: 'be',
+    position: { top: '29%', left: '48.8%' }, // Between UK and Germany
     category: 'Senders & Receivers',
     continent: 'Europe',
-    width: 1471,
-    height: 1471,
   },
   {
     id: 'germany',
     name: 'Germany',
-    flagPath: '/assets/images/flags/germany.png',
-    position: { top: '19.5%', left: '52.2%' },
+    flagCode: 'de',
+    position: { top: '29.5%', left: '50.5%' }, // Central Europe
     category: 'Senders & Receivers',
     continent: 'Europe',
-    width: 42333,
-    height: 42333,
   },
+  {
+    id: 'russia',
+    name: 'Russia',
+    flagCode: 'ru',
+    position: { top: '25%', left: '67%' }, // Northern Eurasia
+    category: 'High Senders',
+    continent: 'Europe/Asia',
+  },
+
+  // High Senders - Middle East & Asia
+  {
+    id: 'dubai',
+    name: 'Dubai (UAE)',
+    flagCode: 'ae',
+    position: { top: '39%', left: '57%' }, // Arabian Peninsula
+    category: 'High Senders',
+    continent: 'Middle East',
+  },
+  {
+    id: 'india',
+    name: 'India',
+    flagCode: 'in',
+    position: { top: '40%', left: '70%' }, // South Asia
+    category: 'High Senders',
+    continent: 'South Asia',
+  },
+  {
+    id: 'china',
+    name: 'China',
+    flagCode: 'cn',
+    position: { top: '35%', left: '76%' }, // East Asia
+    category: 'High Senders',
+    continent: 'Asia',
+  },
+  {
+    id: 'japan',
+    name: 'Japan',
+    flagCode: 'jp',
+    position: { top: '36%', left: '85%' }, // Far East
+    category: 'High Senders',
+    continent: 'Asia',
+  },
+
+  // High Senders - Oceania
+  {
+    id: 'australia',
+    name: 'Australia',
+    flagCode: 'au',
+    position: { top: '68%', left: '82%' }, // Southern Oceania
+    category: 'High Senders',
+    continent: 'Oceania',
+  },
+
+  // High Receivers - West Africa
+  {
+    id: 'togo',
+    name: 'Togo',
+    flagCode: 'tg',
+    position: { top: '51%', left: '47%' }, // West African coast
+    category: 'High Receivers',
+    continent: 'West Africa',
+  },
+
+  // Senders & Receivers - West Africa
+  {
+    id: 'nigeria',
+    name: 'Nigeria',
+    flagCode: 'ng',
+    position: { top: '51.5%', left: '49.5%' }, // West Africa, east of Togo
+    category: 'Senders & Receivers',
+    continent: 'West Africa',
+  },
+
+  // Senders & Receivers - Central Africa
   {
     id: 'cameroon',
     name: 'Cameroon',
-    flagPath: '/assets/images/flags/Cameroon.png',
-    position: { top: '54%', left: '52.5%' },
+    flagCode: 'cm',
+    position: { top: '52%', left: '51.5%' }, // Central Africa
     category: 'Senders & Receivers',
     continent: 'Central Africa',
-    width: 2054,
-    height: 2054,
-  },
-  {
-    id: 'zambia',
-    name: 'Zambia',
-    flagPath: '/assets/images/flags/zambia.png',
-    position: { top: '70%', left: '56%' },
-    category: 'Senders & Receivers',
-    continent: 'Southern Africa',
-    width: 47454,
-    height: 47454,
-  },
-  {
-    id: 'drc',
-    name: 'DR Congo',
-    flagPath: '/assets/images/flags/drc.png',
-    position: { top: '61%', left: '54.5%' },
-    category: 'Senders & Receivers',
-    continent: 'Central Africa',
-    width: 59675,
-    height: 59675,
   },
   {
     id: 'car',
     name: 'Central African Republic',
-    flagPath: '/assets/images/flags/car.png',
-    position: { top: '55.5%', left: '57%' },
+    flagCode: 'cf',
+    position: { top: '51%', left: '54.5%' }, // Central Africa
     category: 'Senders & Receivers',
     continent: 'Central Africa',
-    width: 55388,
-    height: 55388,
+  },
+  {
+    id: 'drc',
+    name: 'DR Congo',
+    flagCode: 'cd',
+    position: { top: '56%', left: '54%' }, // Central Africa, south of CAR
+    category: 'Senders & Receivers',
+    continent: 'Central Africa',
+  },
+
+  // Senders & Receivers - East Africa
+  {
+    id: 'kenya',
+    name: 'Kenya',
+    flagCode: 'ke',
+    position: { top: '54%', left: '57%' }, // East Africa
+    category: 'Senders & Receivers',
+    continent: 'East Africa',
+  },
+  {
+    id: 'tanzania',
+    name: 'Tanzania',
+    flagCode: 'tz',
+    position: { top: '59%', left: '57%' }, // East Africa, south of Kenya
+    category: 'Senders & Receivers',
+    continent: 'East Africa',
+  },
+
+  // Senders & Receivers - Southern Africa
+  {
+    id: 'zambia',
+    name: 'Zambia',
+    flagCode: 'zm',
+    position: { top: '63%', left: '54.5%' }, // Southern Africa
+    category: 'Senders & Receivers',
+    continent: 'Southern Africa',
+  },
+  {
+    id: 'south-africa',
+    name: 'South Africa',
+    flagCode: 'za',
+    position: { top: '69%', left: '54%' }, // Southern tip of Africa
+    category: 'Senders & Receivers',
+    continent: 'Southern Africa',
   },
 ];
 
@@ -295,22 +265,22 @@ export default function GlobalReachSection() {
         {/* Interactive Map */}
         <div className="relative w-full max-w-[1100px] mx-auto mb-6 md:mb-10">
           {/* Legend */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-6">
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded-full bg-[#A52A2A]"></div>
-              <span className="text-xs md:text-sm text-text-secondary">
+          <div className="flex flex-row justify-center gap-3 md:gap-6 mb-6 flex-nowrap">
+            <div className="flex items-center gap-1.5 md:gap-2">
+              <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-[#A52A2A]"></div>
+              <span className="text-[10px] md:text-sm text-text-secondary whitespace-nowrap">
                 High Senders
               </span>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded-full bg-[#4169E1]"></div>
-              <span className="text-xs md:text-sm text-text-secondary">
+            <div className="flex items-center gap-1.5 md:gap-2">
+              <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-[#4169E1]"></div>
+              <span className="text-[10px] md:text-sm text-text-secondary whitespace-nowrap">
                 High Receivers
               </span>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded-full bg-[#2E8B57]"></div>
-              <span className="text-xs md:text-sm text-text-secondary">
+            <div className="flex items-center gap-1.5 md:gap-2">
+              <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-[#2E8B57]"></div>
+              <span className="text-[10px] md:text-sm text-text-secondary whitespace-nowrap">
                 Senders & Receivers
               </span>
             </div>
@@ -359,61 +329,36 @@ export default function GlobalReachSection() {
                     onMouseEnter={() => setHoveredCountry(country.id)}
                     onMouseLeave={() => setHoveredCountry(null)}
                   >
-                    {/* 3D Flag Circle Container */}
+                    {/* Flag Container */}
                     <div
-                      className="relative flex items-center justify-center w-7 h-7 md:w-9 md:h-9 rounded-full transition-all duration-700 ease-out"
+                      className="relative flex items-center justify-center transition-all duration-500 ease-out"
                       style={{
-                        backgroundColor: categoryColor,
-                        transform: isHovered
-                          ? 'scale(1.25) translateY(-3px)'
-                          : 'scale(1)',
-                        boxShadow: isHovered
-                          ? `0 10px 25px ${categoryColor}50, 0 0 30px ${categoryColor}30, inset 0 -3px 8px rgba(0,0,0,0.15)`
-                          : '0 4px 12px rgba(0, 0, 0, 0.12), inset 0 -2px 4px rgba(0,0,0,0.08)',
-                        animation: isHovered
-                          ? 'none'
-                          : 'float 4s ease-in-out infinite',
-                        animationDelay: `${Math.random() * 2}s`,
+                        transform: isHovered ? 'scale(1.3)' : 'scale(1)',
+                        filter: isHovered ? 'drop-shadow(0 4px 12px rgba(0,0,0,0.25))' : 'none',
                       }}
                     >
-                      {/* Flag Image */}
-                      <div className="relative w-5 h-5 md:w-6 md:h-6 rounded-full overflow-hidden border border-white/40">
-                        <img
-                          src={country.flagPath}
-                          alt={`${country.name} flag`}
-                          className="object-cover w-full h-full"
-                        />
-                      </div>
-
-                      {/* Rotating Ring Effect */}
-                      <div
-                        className="absolute inset-0 rounded-full border border-white/30"
-                        style={{
-                          animation: 'rotate 10s linear infinite',
-                          borderStyle: 'dashed',
-                        }}
+                      {/* Flag Image from CDN */}
+                      <img
+                        src={`https://flagcdn.com/w80/${country.flagCode}.png`}
+                        srcSet={`https://flagcdn.com/w160/${country.flagCode}.png 2x`}
+                        alt={`${country.name} flag`}
+                        className="w-3 h-3 md:w-5 md:h-5 object-cover rounded-full shadow-sm"
+                        loading="eager"
                       />
                     </div>
 
-                    {/* Pulse Animation Rings */}
-                    {!isHovered && (
-                      <>
-                        <div
-                          className="absolute inset-0 rounded-full animate-ping opacity-30"
-                          style={{
-                            backgroundColor: categoryColor,
-                            animationDuration: '4s',
-                          }}
-                        />
-                        <div
-                          className="absolute inset-0 rounded-full animate-pulse"
-                          style={{
-                            backgroundColor: categoryColor,
-                            opacity: 0.15,
-                            animationDuration: '3s',
-                          }}
-                        />
-                      </>
+                    {/* Glow Effect - Only on Hover */}
+                    {isHovered && (
+                      <div
+                        className="absolute inset-0 rounded-full animate-pulse"
+                        style={{
+                          backgroundColor: categoryColor,
+                          opacity: 0.4,
+                          animationDuration: '1.5s',
+                          filter: 'blur(8px)',
+                          transform: 'scale(1.5)',
+                        }}
+                      />
                     )}
 
                     {/* Hover Tooltip with Smart Positioning */}
