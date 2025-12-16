@@ -13,6 +13,7 @@ import {
   RegulatoryStandardsAndCerts,
   RiskManagementGrid,
   FinancialPlanningGrid,
+  ROUTES,
 } from '@/types';
 import { Shield, FileText, AlertTriangle, CheckCircle } from 'lucide-react';
 
@@ -118,7 +119,7 @@ export default function CompliancePage() {
   const ctaButtons = [
     {
       text: 'Start Compliance Program',
-      href: '/get-started',
+      href: ROUTES.SIGNUP,
       variant: 'outlined-white' as const,
       size: 'md' as const,
       showArrow: true,
@@ -126,7 +127,7 @@ export default function CompliancePage() {
     },
     {
       text: 'Compliance Consultation',
-      href: '/contact-expert',
+      href: ROUTES.CONTACT,
       variant: 'outlined-white' as const,
       size: 'md' as const,
       showArrow: true,
@@ -141,9 +142,9 @@ export default function CompliancePage() {
         imageSrc={images.services.compliance}
         imageAlt="Compliance and Risk Management"
         primaryButtonText="Compliance Assessment"
-        primaryButtonHref="/assessment"
+        primaryButtonHref={ROUTES.CONTACT}
         secondaryButtonText="View Compliance Demo"
-        secondaryButtonHref="/demo/compliance"
+        secondaryButtonHref={ROUTES.CONTACT}
       />
 
       <ServiceFeatures

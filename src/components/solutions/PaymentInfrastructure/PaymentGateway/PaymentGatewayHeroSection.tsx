@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@/types';
+import { Button, ROUTES } from '@/types';
 
 const PaymentGatewayHeroSection = () => {
   return (
@@ -28,10 +28,10 @@ const PaymentGatewayHeroSection = () => {
               across Africa.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="md" href="#start-accepting">
+              <Button variant="secondary" size="md" href={ROUTES.SIGNUP}>
                 Start Accepting Payments
               </Button>
-              <Button variant="outlined-white" size="md" href="#documentation">
+              <Button variant="outlined-white" size="md" href={ROUTES.RESOURCES}>
                 View Documentation
               </Button>
             </div>

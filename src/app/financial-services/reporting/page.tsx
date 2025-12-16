@@ -12,6 +12,7 @@ import {
   ReportingFeaturesGrid,
   DeliveryMethodsGrid,
   ReportBuilderGrid,
+  ROUTES,
 } from '@/types';
 import { FileText, BarChart, Users, Shield } from 'lucide-react';
 
@@ -117,7 +118,7 @@ export default function ReportingPage() {
   const ctaButtons = [
     {
       text: 'Start Reporting Today',
-      href: '/get-started',
+      href: ROUTES.SIGNUP,
       variant: 'outlined-white' as const,
       size: 'md' as const,
       showArrow: true,
@@ -125,7 +126,7 @@ export default function ReportingPage() {
     },
     {
       text: 'Request Custom Demo',
-      href: '/contact-expert',
+      href: ROUTES.CONTACT,
       variant: 'outlined-white' as const,
       size: 'md' as const,
       showArrow: true,
@@ -140,9 +141,9 @@ export default function ReportingPage() {
         imageSrc={images.services.businessAccounts}
         imageAlt="Reporting and Documentation"
         primaryButtonText="Setup Reporting"
-        primaryButtonHref="/signup"
+        primaryButtonHref={ROUTES.SIGNUP}
         secondaryButtonText="View Report Samples"
-        secondaryButtonHref="/samples"
+        secondaryButtonHref={ROUTES.RESOURCES}
       />
 
       <ServiceFeatures

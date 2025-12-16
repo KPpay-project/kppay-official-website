@@ -3,6 +3,7 @@ import {
   IndividualPricingHero,
   ModernBankingFeatures,
   ReusableCTA,
+  ROUTES,
 } from '@/types';
 import { Phone, Users, ShieldCheck } from 'lucide-react';
 
@@ -31,7 +32,7 @@ const IndividualPricingPage = () => {
         buttons={[
           {
             text: 'Schedule a Demo',
-            href: '/contact',
+            href: ROUTES.CONTACT,
             variant: 'outlined-white',
             size: 'md',
             showArrow: true,
@@ -39,7 +40,7 @@ const IndividualPricingPage = () => {
           },
           {
             text: 'Request Custom Quote',
-            href: '/contact',
+            href: ROUTES.CONTACT,
             variant: 'outlined-white',
             size: 'md',
             showArrow: true,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, images } from '@/types';
+import { Button, images, ROUTES } from '@/types';
 import Image from 'next/image';
 
 const ResourcesHeroSection = () => {
@@ -30,10 +30,10 @@ const ResourcesHeroSection = () => {
               From API docs to best practices
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="primary" size="lg" href="#documentation">
+              <Button variant="primary" size="lg" href={ROUTES.DEV_API_DOCS}>
                 API Documentation
               </Button>
-              <Button variant="outlined-white" size="lg" href="#support">
+              <Button variant="outlined-white" size="lg" href={ROUTES.CONTACT}>
                 Get Support
               </Button>
             </div>

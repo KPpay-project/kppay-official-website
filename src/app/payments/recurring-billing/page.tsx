@@ -13,6 +13,7 @@ import {
   SubscriptionPricing,
   BenefitsGrid,
   CTABox,
+  ROUTES,
 } from '@/types';
 import { RefreshCw, Target, Users, TrendingUp } from 'lucide-react';
 
@@ -143,7 +144,7 @@ export default function SubscriptionsPage() {
   const ctaButtons = [
     {
       text: 'Get Started Today',
-      href: '/get-started',
+      href: ROUTES.SIGNUP,
       variant: 'outlined-white' as const,
       size: 'md' as const,
       showArrow: true,
@@ -151,7 +152,7 @@ export default function SubscriptionsPage() {
     },
     {
       text: 'Talk to an Expert',
-      href: '/contact-expert',
+      href: ROUTES.CONTACT,
       variant: 'outlined-white' as const,
       size: 'md' as const,
       showArrow: true,
@@ -166,9 +167,9 @@ export default function SubscriptionsPage() {
         imageSrc={images.services.subscriptions}
         imageAlt="Recurring Billing & Subscriptions"
         primaryButtonText="Start Billing"
-        primaryButtonHref="/signup"
+        primaryButtonHref={ROUTES.SIGNUP}
         secondaryButtonText="View Demo"
-        secondaryButtonHref="/demo"
+        secondaryButtonHref={ROUTES.CONTACT}
       />
 
       <ServiceFeatures

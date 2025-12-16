@@ -1,4 +1,4 @@
-import { Button, images } from '@/types';
+import { Button, images, ROUTES } from '@/types';
 import Image from 'next/image';
 
 const AboutHeroSection = () => {
@@ -32,10 +32,10 @@ const AboutHeroSection = () => {
               We&apos;re a dedicated team, for your wildest data dreams.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="primary" size="lg" href="#get-started">
+              <Button variant="primary" size="lg" href={ROUTES.SIGNUP}>
                 Get started
               </Button>
-              <Button variant="outlined-white" size="lg" href="#contact">
+              <Button variant="outlined-white" size="lg" href={ROUTES.CONTACT}>
                 Chat to sales
               </Button>
             </div>

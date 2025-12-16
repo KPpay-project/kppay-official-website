@@ -31,7 +31,7 @@ interface CTAButton {
 const ctaButtons: CTAButton[] = [
   {
     text: 'Schedule a Demo',
-    href: ROUTES.SIGNUP,
+    href: ROUTES.CONTACT,
     variant: 'outlined-white',
     size: 'md',
     showArrow: true,

@@ -38,7 +38,7 @@ const IdentityKYCHeroSection = () => {
                 <Button
                   variant="secondary"
                   size="md"
-                  href="#start-verification"
+                  href={ROUTES.SIGNUP}
                 >
                   Start Verification
                 </Button>

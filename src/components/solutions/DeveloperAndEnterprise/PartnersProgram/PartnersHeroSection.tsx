@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@/types';
+import { Button, ROUTES } from '@/types';
 
 const PartnersHeroSection = () => {
   return (
@@ -23,10 +23,10 @@ const PartnersHeroSection = () => {
                 support across Africa.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="secondary" size="md" href="#become-partner">
+                <Button variant="secondary" size="md" href={ROUTES.CONTACT}>
                   Become a Partner
                 </Button>
-                <Button variant="outlined-white" size="md" href="#register">
+                <Button variant="outlined-white" size="md" href={ROUTES.SIGNUP}>
                   Register Here
                 </Button>
               </div>

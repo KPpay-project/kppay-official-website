@@ -1,8 +1,18 @@
-export default function ApiDocumentation() {
+import { ResourcesHeroSection, FeaturedResources } from '@/types';
+
+export const metadata = {
+  title: 'Resources and Documentation | KP Pay - Developer Resources',
+  description:
+    'Everything you need to build, integrate and scale with KP Pay. Access comprehensive API documentation, tutorials, guides, and developer support.',
+};
+
+const ApiDocumentation = () => {
   return (
-    <div className="container mx-auto px-6 py-16">
-      <h1 className="text-4xl font-bold mb-4">API Documentation</h1>
-      <p className="text-lg text-text-secondary">Content coming soon...</p>
-    </div>
+    <main className="page-transition">
+      <ResourcesHeroSection />
+      <FeaturedResources />
+    </main>
   );
-}
+};
+
+export default ApiDocumentation;

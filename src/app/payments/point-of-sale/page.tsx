@@ -10,6 +10,7 @@ import {
   BenefitsGrid,
   CTABox,
   TrustStats,
+  ROUTES,
 } from '@/types';
 import {
   CreditCard,
@@ -86,7 +87,7 @@ export default function PointOfSalePage() {
         'Multi-location support',
       ],
       ctaText: 'Learn More',
-      ctaHref: '/solutions/retail',
+      ctaHref: ROUTES.CONTACT,
     },
     {
       id: 'restaurants-cafes',
@@ -103,7 +104,7 @@ export default function PointOfSalePage() {
         'Order integration',
       ],
       ctaText: 'Learn More',
-      ctaHref: '/solutions/restaurants',
+      ctaHref: ROUTES.CONTACT,
     },
     {
       id: 'service-businesses',
@@ -119,7 +120,7 @@ export default function PointOfSalePage() {
         'Payment scheduling',
       ],
       ctaText: 'Learn More',
-      ctaHref: '/solutions/services',
+      ctaHref: ROUTES.CONTACT,
     },
   ];
 
@@ -138,7 +139,7 @@ export default function PointOfSalePage() {
         'Multi-location support',
       ],
       ctaText: 'Learn More',
-      ctaHref: '/hardware/mobile-reader',
+      ctaHref: ROUTES.CONTACT,
     },
     {
       id: 'countertop-terminal',
@@ -154,7 +155,7 @@ export default function PointOfSalePage() {
         'Order integration',
       ],
       ctaText: 'Learn More',
-      ctaHref: '/hardware/countertop',
+      ctaHref: ROUTES.CONTACT,
     },
     {
       id: 'all-in-one-pos',
@@ -170,7 +171,7 @@ export default function PointOfSalePage() {
         'Payment scheduling',
       ],
       ctaText: 'Learn More',
-      ctaHref: '/hardware/all-in-one',
+      ctaHref: ROUTES.CONTACT,
     },
   ];
 
@@ -219,7 +220,7 @@ export default function PointOfSalePage() {
   const ctaButtons: CTAButton[] = [
     {
       text: 'Start Integration Now',
-      href: '/integration',
+      href: ROUTES.RESOURCES,
       variant: 'outlined-white',
       size: 'md',
       showArrow: true,
@@ -227,7 +228,7 @@ export default function PointOfSalePage() {
     },
     {
       text: 'Contact Sales',
-      href: '/sales',
+      href: ROUTES.CONTACT,
       variant: 'outlined-white',
       size: 'md',
       showArrow: true,
@@ -261,9 +262,9 @@ export default function PointOfSalePage() {
         imageSrc={images.services.pointOfSale}
         imageAlt="Point of Sale Solutions"
         primaryButtonText="Get POS System"
-        primaryButtonHref="/signup"
+        primaryButtonHref={ROUTES.SIGNUP}
         secondaryButtonText="Request Demo"
-        secondaryButtonHref="/demo"
+        secondaryButtonHref={ROUTES.CONTACT}
         imageSize="sm"
       />
 

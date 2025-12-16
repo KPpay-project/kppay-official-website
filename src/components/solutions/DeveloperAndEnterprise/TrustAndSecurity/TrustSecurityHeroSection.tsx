@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@/types';
+import { Button, ROUTES } from '@/types';
 
 const TrustSecurityHeroSection = () => {
   return (
@@ -23,13 +23,13 @@ const TrustSecurityHeroSection = () => {
                 support across Africa.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="secondary" size="md" href="#security-overview">
+                <Button variant="secondary" size="md" href={ROUTES.DEV_TRUST_SECURITY}>
                   Security Overview
                 </Button>
                 <Button
                   variant="outlined-white"
                   size="md"
-                  href="#compliance-reports"
+                  href={ROUTES.RESOURCES}
                 >
                   Compliance Reports
                 </Button>

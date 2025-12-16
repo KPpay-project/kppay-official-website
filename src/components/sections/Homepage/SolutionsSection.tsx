@@ -71,7 +71,6 @@ const SolutionsSection: React.FC = () => {
           'Our comprehensive services cater to businesses of all sizes, whether online or in-store. We offer a secure payment gateway with advanced encryption, fraud detection, and seamless integration capabilities for your business.',
         image: images.solutions.payment,
         icon: <Shield className="w-6 h-6" />,
-        link: '/services/payment-gateway',
       },
       {
         title: 'Digital Wallet',
@@ -79,7 +78,6 @@ const SolutionsSection: React.FC = () => {
           "KPpay's digital wallet offers a secure and convenient way to manage your finances. Store payment information, make purchases, transfer funds with ease, and enjoy contactless payments all from your mobile device.",
         image: images.solutions.wallet,
         icon: <Wallet className="w-6 h-6" />,
-        link: '/services/digital-wallet',
       },
       {
         title: 'Online Bill Payments',
@@ -87,7 +85,6 @@ const SolutionsSection: React.FC = () => {
           "KPpay's online bill payment service simplifies the payment process for your customers. Businesses can easily integrate this service, allowing customers to pay utility bills, subscriptions, and more directly.",
         image: images.solutions.billPayment,
         icon: <FileText className="w-6 h-6" />,
-        link: '/services/bill-payments',
       },
       {
         title: 'E-Commerce Solutions',
@@ -95,7 +92,6 @@ const SolutionsSection: React.FC = () => {
           "KPpay's e-commerce solutions empower businesses to effortlessly trade goods and services online. With our platform, businesses can expand their reach, manage inventory, and provide seamless checkout experiences.",
         image: images.solutions.ecommerce,
         icon: <ShoppingCart className="w-6 h-6" />,
-        link: '/services/ecommerce',
       },
       {
         title: 'Mobile Wallet & Recharge',
@@ -103,7 +99,6 @@ const SolutionsSection: React.FC = () => {
           "KPpay's mobile wallet offers more than just payments. Users can send and receive money, pay bills, shop online or at stores, recharge mobile airtime, and even access instant digital loans with competitive rates.",
         image: images.solutions.mobileRecharge,
         icon: <Smartphone className="w-6 h-6" />,
-        link: '/services/mobile-recharge',
       },
       {
         title: 'Instant Setup',
@@ -111,7 +106,6 @@ const SolutionsSection: React.FC = () => {
           'KPpay offers a hassle-free instant setup, allowing merchants to start accepting payments immediately. No complicated paperwork, no long waiting periods. Expand your business with ease and flexibility today.',
         image: images.solutions.instantSetup,
         icon: <Zap className="w-6 h-6" />,
-        link: '/services/instant-setup',
       },
     ],
     industries: [
@@ -121,7 +115,6 @@ const SolutionsSection: React.FC = () => {
           'Transform your retail operations with KPpay. Accept payments in-store and online, manage inventory, track sales analytics, and provide customers with flexible payment options including installments and digital wallets.',
         image: images.solutions.retail,
         icon: <Store className="w-6 h-6" />,
-        link: '/industries/retail',
       },
       {
         title: 'Hospitality & Travel',
@@ -129,7 +122,6 @@ const SolutionsSection: React.FC = () => {
           'Elevate guest experiences with seamless payment solutions for hotels, restaurants, and travel services. Process bookings, manage reservations, and accept international payments with multi-currency support.',
         image: images.solutions.hospitality,
         icon: <Building2 className="w-6 h-6" />,
-        link: '/industries/hospitality',
       },
       {
         title: 'Healthcare & Wellness',
@@ -137,7 +129,6 @@ const SolutionsSection: React.FC = () => {
           'Streamline healthcare payments with HIPAA-compliant solutions. Enable patients to pay bills online, schedule appointments, manage insurance claims, and access flexible payment plans for medical services.',
         image: images.solutions.healthcare,
         icon: <Heart className="w-6 h-6" />,
-        link: '/industries/healthcare',
       },
       {
         title: 'Education',
@@ -145,7 +136,6 @@ const SolutionsSection: React.FC = () => {
           'Simplify fee collection for schools, universities, and online learning platforms. Accept tuition payments, process scholarship distributions, and provide parents with convenient payment options and transparent billing.',
         image: images.solutions.education,
         icon: <GraduationCap className="w-6 h-6" />,
-        link: '/industries/education',
       },
       {
         title: 'Professional Services',
@@ -153,7 +143,6 @@ const SolutionsSection: React.FC = () => {
           'Power your consulting, legal, or agency business with professional payment solutions. Send invoices, accept retainers, set up recurring billing, and manage client payments efficiently.',
         image: images.solutions.professional,
         icon: <Users className="w-6 h-6" />,
-        link: '/industries/professional',
       },
       {
         title: 'Utilities & Telecom',
@@ -161,7 +150,6 @@ const SolutionsSection: React.FC = () => {
           'Enable customers to pay utility bills, mobile recharges, and subscription services effortlessly. Automate billing cycles, send payment reminders, and reduce collection times with our reliable infrastructure.',
         image: images.solutions.utilities,
         icon: <Plug2 className="w-6 h-6" />,
-        link: '/industries/utilities',
       },
     ],
     integration: [
@@ -171,7 +159,6 @@ const SolutionsSection: React.FC = () => {
           'Integrate KPpay into your applications with our robust REST APIs. Access comprehensive documentation, code samples, and SDKs for multiple programming languages. Build custom payment flows that match your business needs.',
         image: images.solutions.api,
         icon: <Code className="w-6 h-6" />,
-        link: '/integration/api',
       },
       {
         title: 'E-Commerce Plugins',
@@ -179,7 +166,6 @@ const SolutionsSection: React.FC = () => {
           'Ready-made plugins for popular e-commerce platforms including WooCommerce, Shopify, Magento, and PrestaShop. Install in minutes and start accepting payments with zero coding required.',
         image: images.solutions.plugins,
         icon: <Plug2 className="w-6 h-6" />,
-        link: '/integration/plugins',
       },
       {
         title: 'Custom Integration',
@@ -187,7 +173,6 @@ const SolutionsSection: React.FC = () => {
           'Need something unique? Our technical team works with you to build custom integrations tailored to your specific requirements. From legacy systems to modern platforms, we make it work seamlessly.',
         image: images.solutions.customization,
         icon: <Database className="w-6 h-6" />,
-        link: '/integration/custom',
       },
       {
         title: 'Mobile SDKs',
@@ -195,7 +180,6 @@ const SolutionsSection: React.FC = () => {
           'Native SDKs for iOS and Android allow you to embed payment functionality directly into your mobile apps. Provide users with smooth, in-app payment experiences with just a few lines of code.',
         image: images.solutions.mobileSdk,
         icon: <Smartphone className="w-6 h-6" />,
-        link: '/integration/mobile-sdk',
       },
       {
         title: 'Webhooks & Notifications',
@@ -203,7 +187,6 @@ const SolutionsSection: React.FC = () => {
           'Stay informed with real-time webhooks for payment events. Automate workflows, sync data with your systems, and provide instant confirmations to your customers with reliable event notifications.',
         image: images.solutions.webhooks,
         icon: <Zap className="w-6 h-6" />,
-        link: '/integration/webhooks',
       },
       {
         title: 'Testing Sandbox',
@@ -211,7 +194,6 @@ const SolutionsSection: React.FC = () => {
           'Test your integration thoroughly in our sandbox environment before going live. Access test credentials, simulate transactions, and ensure everything works perfectly without risking real money.',
         image: images.solutions.sandbox,
         icon: <Shield className="w-6 h-6" />,
-        link: '/integration/sandbox',
       },
     ],
     support: [
@@ -221,7 +203,6 @@ const SolutionsSection: React.FC = () => {
           'Our dedicated support team is available round the clock to assist you. Reach us via phone, email, or live chat. Get quick responses to your questions and expert guidance whenever you need it.',
         image: images.solutions.support247,
         icon: <Headphones className="w-6 h-6" />,
-        link: '/support/contact',
       },
       {
         title: 'Developer Documentation',
@@ -229,7 +210,6 @@ const SolutionsSection: React.FC = () => {
           'Comprehensive technical documentation with detailed guides, API references, code examples, and best practices. Everything you need to integrate and optimize KPpay for your business.',
         image: images.solutions.documentation,
         icon: <BookOpen className="w-6 h-6" />,
-        link: '/support/docs',
       },
       {
         title: 'Training & Onboarding',
@@ -237,7 +217,6 @@ const SolutionsSection: React.FC = () => {
           'Get your team up to speed quickly with personalized training sessions. We offer webinars, video tutorials, and hands-on workshops to ensure you maximize the value of our platform.',
         image: images.solutions.training,
         icon: <GraduationCap className="w-6 h-6" />,
-        link: '/support/training',
       },
       {
         title: 'Community Forum',
@@ -245,7 +224,6 @@ const SolutionsSection: React.FC = () => {
           'Join our vibrant community of merchants and developers. Share experiences, get answers from peers, discover integration tips, and stay updated with the latest features and best practices.',
         image: images.solutions.community,
         icon: <Users className="w-6 h-6" />,
-        link: '/support/community',
       },
       {
         title: 'Security & Compliance',
@@ -253,7 +231,6 @@ const SolutionsSection: React.FC = () => {
           'Learn about our security measures, compliance certifications, and data protection policies. Access resources on PCI DSS compliance, fraud prevention, and keeping your transactions secure.',
         image: images.solutions.security,
         icon: <Shield className="w-6 h-6" />,
-        link: '/support/security',
       },
       {
         title: 'Business Resources',
@@ -261,7 +238,6 @@ const SolutionsSection: React.FC = () => {
           'Download guides, whitepapers, and case studies to help grow your business. Access industry insights, payment trends, and strategies to optimize your payment operations and increase conversions.',
         image: images.solutions.resources,
         icon: <FileText className="w-6 h-6" />,
-        link: '/support/resources',
       },
     ],
   };

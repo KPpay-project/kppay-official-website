@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@/types';
+import { Button, ROUTES } from '@/types';
 
 const SubscriptionInvoicingHeroSection = () => {
   return (
@@ -28,10 +28,10 @@ const SubscriptionInvoicingHeroSection = () => {
               across Africa.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="md" href="#create-subscription">
+              <Button variant="secondary" size="md" href={ROUTES.SIGNUP}>
                 Create a Subscription
               </Button>
-              <Button variant="outlined-white" size="md" href="#view-demo">
+              <Button variant="outlined-white" size="md" href={ROUTES.CONTACT}>
                 View Demo
               </Button>
             </div>

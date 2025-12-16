@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Button, images } from '@/types';
+import { Button, images, ROUTES } from '@/types';
 import Image from 'next/image';
 
 const HiringSection = () => {
@@ -17,10 +17,10 @@ const HiringSection = () => {
               people and foster a culture that empowers you to do you best work.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="outlined" size="md" href="#principles">
+              <Button variant="outlined" size="md" href={ROUTES.ABOUT}>
                 Read our principles
               </Button>
-              <Button variant="primary" size="md" href="#careers">
+              <Button variant="primary" size="md" href={ROUTES.CAREERS}>
                 We're hiring!
               </Button>
             </div>

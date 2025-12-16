@@ -1,3 +1,4 @@
+import { Button, ROUTES } from '@/types';
 import React from 'react';
 
 const SecurityContactSection: React.FC = () => {
@@ -48,9 +49,14 @@ const SecurityContactSection: React.FC = () => {
             and foster a culture that empowers you to do you best work.
           </p>
 
-          <button className="px-8 py-3 rounded-full border-2 border-black text-black font-semibold hover:bg-black hover:text-white transition-all duration-300">
+          <Button
+            variant="outlined"
+            size="lg"
+            href={ROUTES.CONTACT}
+            className="px-8 py-3 rounded-full border-2 border-black text-black font-semibold hover:bg-black hover:text-white transition-all duration-300"
+          >
             Report Vulnerability
-          </button>
+          </Button>
         </div>
       </div>
     </section>

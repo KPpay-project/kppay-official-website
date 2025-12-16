@@ -1,5 +1,5 @@
 // config/servicesData.tsx
-import { images, type ServicePageData } from '@/types';
+import { images, type ServicePageData, ROUTES } from '@/types';
 import {
   Smartphone,
   CreditCard,
@@ -25,9 +25,9 @@ export const servicesData: Record<string, ServicePageData> = {
       imageSrc: images.services.pointOfSale,
       imageAlt: 'Point of Sale Terminal',
       primaryButtonText: 'Get POS System',
-      primaryButtonHref: '/signup',
+      primaryButtonHref: ROUTES.SIGNUP,
       secondaryButtonText: 'Request Demo',
-      secondaryButtonHref: '/demo',
+      secondaryButtonHref: ROUTES.CONTACT,
     },
     features: {
       title: 'Everything You Need in One System',
@@ -95,9 +95,9 @@ export const servicesData: Record<string, ServicePageData> = {
       imageSrc: images.services.mobilePayments,
       imageAlt: 'Mobile Payment Solution',
       primaryButtonText: 'Download SDK',
-      primaryButtonHref: '/signup',
+      primaryButtonHref: ROUTES.SIGNUP,
       secondaryButtonText: 'Integration Guide',
-      secondaryButtonHref: '/docs',
+      secondaryButtonHref: ROUTES.RESOURCES,
     },
     features: {
       title: 'Mobile-First Payment Features',
@@ -157,9 +157,9 @@ export const servicesData: Record<string, ServicePageData> = {
       imageSrc: images.services.subscriptions,
       imageAlt: 'Subscription Management',
       primaryButtonText: 'Start Billing',
-      primaryButtonHref: '/signup',
+      primaryButtonHref: ROUTES.SIGNUP,
       secondaryButtonText: 'View Demo',
-      secondaryButtonHref: '/demo',
+      secondaryButtonHref: ROUTES.CONTACT,
     },
     features: {
       title: 'Everything for Subscription Success',
@@ -224,9 +224,9 @@ export const servicesData: Record<string, ServicePageData> = {
       imageSrc: images.services.onlinePayment,
       imageAlt: 'Personal Banking',
       primaryButtonText: 'Open Personal Account',
-      primaryButtonHref: '/signup',
+      primaryButtonHref: ROUTES.SIGNUP,
       secondaryButtonText: 'Explore Features',
-      secondaryButtonHref: '/features',
+      secondaryButtonHref: ROUTES.HOME,
     },
     features: {
       title: 'Banking That Works for You',
@@ -291,9 +291,9 @@ export const servicesData: Record<string, ServicePageData> = {
       imageSrc: images.services.savings,
       imageAlt: 'Savings and Investment',
       primaryButtonText: 'Start Saving',
-      primaryButtonHref: '/signup',
+      primaryButtonHref: ROUTES.SIGNUP,
       secondaryButtonText: 'Savings Calculator',
-      secondaryButtonHref: '/calculator',
+      secondaryButtonHref: ROUTES.RESOURCES,
     },
     features: {
       title: 'Savings & Investment Products',

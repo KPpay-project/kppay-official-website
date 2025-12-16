@@ -105,6 +105,10 @@ export const routeLayouts: Record<string, LayoutConfig> = {
   },
 
   // Developer and enterprise routes - dark header, LIGHT footer
+  '/developer-enterprise/api-documentation': {
+    header: 'dark',
+    footer: 'dark',
+  },
   '/developer-enterprise/enterprise-infrastructure': {
     header: 'dark',
     footer: 'light',

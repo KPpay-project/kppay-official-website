@@ -226,7 +226,7 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 </li>
                 <li>
                   <Link
-                    href={ROUTES.NEWSROOM}
+                    href={ROUTES.BLOG}
                     className={`transition-colors text-sm ${
                       isLight
                         ? 'text-gray-600 hover:text-gray-900'
@@ -238,7 +238,7 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 </li>
                 <li>
                   <Link
-                    href={ROUTES.INVESTOR_RELATIONS}
+                    href={ROUTES.ENTERPRISE}
                     className={`transition-colors text-sm ${
                       isLight
                         ? 'text-gray-600 hover:text-gray-900'
@@ -318,7 +318,7 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                         : 'text-white/80 hover:text-white'
                     }`}
                   >
-                    Business Banking
+                    Business Payment
                   </Link>
                 </li>
               </ul>

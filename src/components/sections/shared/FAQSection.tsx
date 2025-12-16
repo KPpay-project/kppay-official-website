@@ -199,7 +199,7 @@ const FAQSection: React.FC = () => {
               Learn more
               <ArrowRight className="w-4 h-4" />
             </Button>
-            <Button variant="primary" size="sm" href="/signup">
+            <Button variant="primary" size="sm" href={ROUTES.SIGNUP}>
               Sign Up
               <ArrowRight className="w-4 h-4" />
             </Button>

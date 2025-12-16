@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, images } from '@/types';
+import { Button, images, ROUTES } from '@/types';
 import Image from 'next/image';
 
 const VirtualCardsHeroSection = () => {
@@ -27,13 +27,13 @@ const VirtualCardsHeroSection = () => {
               across Africa.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <Button variant="secondary" size="md" href="#start-issuing">
+              <Button variant="secondary" size="md" href={ROUTES.SIGNUP}>
                 Start Issuing Cards
               </Button>
               <Button
                 variant="outlined-white"
                 size="md"
-                href="#api-documentation"
+                href={ROUTES.RESOURCES}
               >
                 API Documentation
               </Button>

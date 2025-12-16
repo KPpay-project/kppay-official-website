@@ -1073,7 +1073,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
               <div className="space-y-6">
                 {[
                   {
-                    href: 'financial-services/identity-kyc',
+                    href: '/financial-services/identity-kyc',
                     icon: UserCheck,
                     title: 'Identity and KYC',
                     desc: 'Identity verification and compliance',

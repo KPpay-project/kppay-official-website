@@ -9,6 +9,7 @@ import {
   images,
   type ServiceFeature,
   type IntegrationOption,
+  ROUTES,
 } from '@/types';
 import {
   CreditCard,
@@ -107,7 +108,7 @@ export default function OnlinePaymentsPage() {
         'Multi-Language Support',
       ],
       ctaText: 'Learn More',
-      ctaHref: '/integrations/hosted-checkout',
+      ctaHref: ROUTES.RESOURCES,
     },
     {
       id: 'payment-elements',
@@ -123,7 +124,7 @@ export default function OnlinePaymentsPage() {
         'Multi-Language Support',
       ],
       ctaText: 'Learn More',
-      ctaHref: '/integrations/payment-elements',
+      ctaHref: ROUTES.RESOURCES,
     },
     {
       id: 'payment-apis',
@@ -139,7 +140,7 @@ export default function OnlinePaymentsPage() {
         'Multi-Language Support',
       ],
       ctaText: 'Learn More',
-      ctaHref: '/integrations/payment-apis',
+      ctaHref: ROUTES.RESOURCES,
     },
   ];
 
@@ -165,7 +166,7 @@ export default function OnlinePaymentsPage() {
   const ctaButtons: CTAButton[] = [
     {
       text: 'Start Integration Now',
-      href: '/integration',
+      href: ROUTES.RESOURCES,
       variant: 'outlined-white',
       size: 'md',
       showArrow: true,
@@ -173,7 +174,7 @@ export default function OnlinePaymentsPage() {
     },
     {
       text: 'Contact Sales',
-      href: '/sales',
+      href: ROUTES.CONTACT,
       variant: 'outlined-white',
       size: 'md',
       showArrow: true,
@@ -188,9 +189,9 @@ export default function OnlinePaymentsPage() {
         imageSrc={images.services.onlinePayment}
         imageAlt="Online Payments"
         primaryButtonText="Start in Sales"
-        primaryButtonHref="/signup"
+        primaryButtonHref={ROUTES.SIGNUP}
         secondaryButtonText="Get started"
-        secondaryButtonHref="/demo"
+        secondaryButtonHref={ROUTES.CONTACT}
       />
 
       <ServiceFeatures

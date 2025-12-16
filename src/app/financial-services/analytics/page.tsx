@@ -11,6 +11,7 @@ import {
   BenefitsGrid,
   TrustStats,
   IntegrationsGrid,
+  ROUTES,
 } from '@/types';
 import { BarChart3, TrendingUp, Users, Target } from 'lucide-react';
 import AutomatedReporting from '@/components/sections/FinancialServices/AutomatedReportingSuite';
@@ -115,7 +116,7 @@ export default function AnalyticsPage() {
   const ctaButtons = [
     {
       text: 'Get Started Today',
-      href: '/get-started',
+      href: ROUTES.SIGNUP,
       variant: 'outlined-white' as const,
       size: 'md' as const,
       showArrow: true,
@@ -123,7 +124,7 @@ export default function AnalyticsPage() {
     },
     {
       text: 'Schedule Consultation',
-      href: '/contact-expert',
+      href: ROUTES.CONTACT,
       variant: 'outlined-white' as const,
       size: 'md' as const,
       showArrow: true,
@@ -138,9 +139,9 @@ export default function AnalyticsPage() {
         imageSrc={images.services.analytics}
         imageAlt="Analytics Dashboard"
         primaryButtonText="Start Analytics"
-        primaryButtonHref="/signup"
+        primaryButtonHref={ROUTES.SIGNUP}
         secondaryButtonText="View Demo"
-        secondaryButtonHref="/demo"
+        secondaryButtonHref={ROUTES.CONTACT}
       />
 
       <ServiceFeatures

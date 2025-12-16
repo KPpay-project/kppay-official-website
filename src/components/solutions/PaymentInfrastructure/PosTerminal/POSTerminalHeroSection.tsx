@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@/types';
+import { Button, ROUTES } from '@/types';
 
 const POSTerminalHeroSection = () => {
   return (
@@ -24,13 +24,13 @@ const POSTerminalHeroSection = () => {
               across Africa.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="md" href="#get-pos-terminal">
+              <Button variant="secondary" size="md" href={ROUTES.CONTACT}>
                 Get POS Terminal
               </Button>
               <Button
                 variant="outlined-white"
                 size="md"
-                href="#integration-guide"
+                href={ROUTES.RESOURCES}
               >
                 Integration Guide
               </Button>

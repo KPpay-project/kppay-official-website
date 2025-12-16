@@ -13,6 +13,7 @@ import {
   QuickIntegrationSteps,
   TrustStats,
   CTABox,
+  ROUTES,
 } from '@/types';
 import {
   Smartphone,
@@ -175,7 +176,7 @@ export default function MobilePaymentsPage() {
         'iOS 12+ Compatibility',
       ],
       ctaText: 'Download iOS SDK',
-      ctaHref: '/sdk/ios',
+      ctaHref: ROUTES.RESOURCES,
     },
     {
       id: 'android-sdk',
@@ -190,7 +191,7 @@ export default function MobilePaymentsPage() {
         'Android 6+ Support',
       ],
       ctaText: 'Download Android SDK',
-      ctaHref: '/sdk/android',
+      ctaHref: ROUTES.RESOURCES,
     },
   ];
 
@@ -216,7 +217,7 @@ export default function MobilePaymentsPage() {
   const ctaButtons = [
     {
       text: 'Get Started Now',
-      href: '/get-started',
+      href: ROUTES.SIGNUP,
       variant: 'outlined-white' as const,
       size: 'md' as const,
       showArrow: true,
@@ -224,7 +225,7 @@ export default function MobilePaymentsPage() {
     },
     {
       text: 'View Documentation',
-      href: '/documentation',
+      href: ROUTES.RESOURCES,
       variant: 'outlined-white' as const,
       size: 'md' as const,
       showArrow: true,
@@ -239,9 +240,9 @@ export default function MobilePaymentsPage() {
         imageSrc={images.services.mobilePayments}
         imageAlt="Mobile Payments"
         primaryButtonText="Download SDK"
-        primaryButtonHref="/signup"
+        primaryButtonHref={ROUTES.SIGNUP}
         secondaryButtonText="Integration Guide"
-        secondaryButtonHref="/docs"
+        secondaryButtonHref={ROUTES.RESOURCES}
       />
 
       <ServiceFeatures

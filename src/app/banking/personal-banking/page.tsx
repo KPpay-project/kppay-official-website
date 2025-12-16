@@ -132,7 +132,7 @@ export default function PersonalBankingPage() {
   const ctaButtons: CTAButton[] = [
     {
       text: 'Open Account Now',
-      href: '/integration',
+      // href: '/integration', // TODO: Route not created yet - decide to create or redirect to existing page
       variant: 'outlined-white',
       size: 'md',
       showArrow: true,
@@ -140,7 +140,7 @@ export default function PersonalBankingPage() {
     },
     {
       text: 'Download App',
-      href: '/sales',
+      // href: '/sales', // TODO: Route not created yet - decide to create or redirect to existing page
       variant: 'outlined-white',
       size: 'md',
       showArrow: true,
