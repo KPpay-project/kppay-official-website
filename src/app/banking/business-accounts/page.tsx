@@ -130,7 +130,7 @@ export default function BusinessAccountsPage() {
   const ctaButtons: CTAButton[] = [
     {
       text: 'Start Integration Now',
-      // href: '/integration', // TODO: Route not created yet - decide to create or redirect to existing page
+      href: ROUTES.RESOURCES,
       variant: 'outlined-white',
       size: 'md',
       showArrow: true,
@@ -138,7 +138,7 @@ export default function BusinessAccountsPage() {
     },
     {
       text: 'Contact Sales',
-      // href: '/sales', // TODO: Route not created yet - decide to create or redirect to existing page
+      href: ROUTES.CONTACT,
       variant: 'outlined-white',
       size: 'md',
       showArrow: true,

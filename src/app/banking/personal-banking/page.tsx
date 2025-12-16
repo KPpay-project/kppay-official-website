@@ -11,6 +11,7 @@ import {
   BusinessAccount,
   FlexibleBillingModels,
   CTABox,
+  ROUTES,
 } from '@/types';
 import { PiggyBank, Smartphone, Globe, CreditCard } from 'lucide-react';
 
@@ -132,7 +133,7 @@ export default function PersonalBankingPage() {
   const ctaButtons: CTAButton[] = [
     {
       text: 'Open Account Now',
-      // href: '/integration', // TODO: Route not created yet - decide to create or redirect to existing page
+      href: ROUTES.SIGNUP,
       variant: 'outlined-white',
       size: 'md',
       showArrow: true,
@@ -140,7 +141,7 @@ export default function PersonalBankingPage() {
     },
     {
       text: 'Download App',
-      // href: '/sales', // TODO: Route not created yet - decide to create or redirect to existing page
+      href: ROUTES.RESOURCES,
       variant: 'outlined-white',
       size: 'md',
       showArrow: true,

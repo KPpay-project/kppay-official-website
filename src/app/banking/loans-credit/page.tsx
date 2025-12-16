@@ -9,6 +9,7 @@ import {
   TrustStats,
   KPPayLoans,
   CTABox,
+  ROUTES,
 } from '@/types';
 
 export default function LoansPage() {
@@ -134,7 +135,7 @@ export default function LoansPage() {
   const ctaButtons: CTAButton[] = [
     {
       text: 'Apply Now',
-      // href: '/integration', // TODO: Route not created yet - decide to create or redirect to existing page
+      href: ROUTES.SIGNUP,
       variant: 'outlined-white',
       size: 'md',
       showArrow: true,
@@ -142,7 +143,7 @@ export default function LoansPage() {
     },
     {
       text: 'Speak to a Loan Advisor',
-      // href: '/sales', // TODO: Route not created yet - decide to create or redirect to existing page
+      href: ROUTES.CONTACT,
       variant: 'outlined-white',
       size: 'md',
       showArrow: true,

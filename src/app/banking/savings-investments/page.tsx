@@ -11,6 +11,7 @@ import {
   InvestmentPortfolio,
   FinancialPlanningTools,
   CTABox,
+  ROUTES,
 } from '@/types';
 import { TrendingUp, Award, Shield, Target } from 'lucide-react';
 
@@ -132,7 +133,7 @@ export default function SavingsInvestmentPage() {
   const ctaButtons: CTAButton[] = [
     {
       text: 'Open Savings Account',
-      // href: '/integration', // TODO: Route not created yet - decide to create or redirect to existing page
+      href: ROUTES.SIGNUP,
       variant: 'outlined-white',
       size: 'md',
       showArrow: true,
@@ -140,7 +141,7 @@ export default function SavingsInvestmentPage() {
     },
     {
       text: 'Start Investing',
-      // href: '/sales', // TODO: Route not created yet - decide to create or redirect to existing page
+      href: ROUTES.SIGNUP,
       variant: 'outlined-white',
       size: 'md',
       showArrow: true,
