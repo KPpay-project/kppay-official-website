@@ -24,6 +24,7 @@ const PartnersCategoriesSection = () => {
     { name: 'Safaricom', logo: images.partners.safaricom },
     { name: 'Flutterwave', logo: images.partners.flutterwave },
     { name: 'Orange', logo: images.partners.orange },
+    { name: 'Moov', logo: images.partners.moov },
   ];
 
   return (
