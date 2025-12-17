@@ -25,6 +25,7 @@ const PartnersSection: React.FC = () => {
     { name: 'Banque Atlantique', logo: images.partners.banqueAtlantique },
     { name: 'ICIC Bank', logo: images.partners.ICICBank },
     { name: 'Desjardins', logo: images.partners.desjardins },
+    { name: 'Moov', logo: images.partners.moov },
 
     // Payment Providers
     { name: 'Flutterwave', logo: images.partners.flutterwave },
