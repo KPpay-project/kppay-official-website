@@ -116,6 +116,11 @@ export { default as AboutHeroSection } from '@/components/sections/AboutUsPage/A
 export { default as DiscoverSection } from '@/components/sections/AboutUsPage/DiscoverSection';
 export { default as HiringSection } from '@/components/sections/AboutUsPage/HiringSection';
 
+// Careers Page Components
+export { default as CareersHero } from '@/components/sections/Careers/CareersHero';
+export { default as JobPositions } from '@/components/sections/Careers/JobPositions';
+export { default as WhyJoinUs } from '@/components/sections/Careers/WhyJoinUs';
+
 // Pricing Components
 export { default as IndividualPricingHero } from '@/components/sections/Individual/IndividualPricingHero';
 export { default as EnterprisePricingHero } from '@/components/sections/Enterprise/EnterprisePricingHero';
