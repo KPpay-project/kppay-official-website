@@ -20,6 +20,11 @@ export const routeLayouts: Record<string, LayoutConfig> = {
     footer: 'dark',
   },
 
+  '/careers': {
+    header: 'dark',
+    footer: 'dark',
+  },
+
   // Payment routes - light header, dark footer
   '/payments/online': {
     header: 'light',
