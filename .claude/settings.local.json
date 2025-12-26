@@ -35,7 +35,8 @@
       "Bash(npm run cleanup-blog:*)",
       "Bash(npm run seed-blog-images:*)",
       "Bash(tsx scripts/check-posts.ts:*)",
-      "Bash(npx tsx:*)"
+      "Bash(npx tsx:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []

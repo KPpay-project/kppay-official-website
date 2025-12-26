@@ -5,7 +5,7 @@ export default function StudioLayout({
 }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, padding: 0, height: '100vh' }}>
+      <body style={{ margin: 0, padding: 0, height: '100vh' }} suppressHydrationWarning>
         {children}
       </body>
     </html>

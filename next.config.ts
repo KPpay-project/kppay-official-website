@@ -20,6 +20,19 @@ const nextConfig = {
       },
     ],
   },
+  // Exclude problematic dependencies from production build
+  webpack: (config: any, { isServer }: { isServer: boolean }) => {
+    if (!isServer && process.env.NODE_ENV === 'production') {
+      // Ignore Sanity Studio in production builds
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@sanity/vision': false,
+        'sanity': false,
+        'next-sanity/studio': false,
+      };
+    }
+    return config;
+  },
 };
 
 export default nextConfig;

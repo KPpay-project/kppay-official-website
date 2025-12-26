@@ -75,10 +75,15 @@ export default async function BlogPostPage({ params }: Props) {
       <BlogPostHero post={post} />
       <BlogContent content={post.content} />
       <CTABox
-        title="Ready to Transform Your Payments?"
+        heading="Ready to Transform Your Payments?"
         description="Join thousands of businesses using KPPAY for secure, fast, and reliable payment processing."
-        buttonText="Get Started"
-        buttonLink="/contact"
+        buttons={[
+          {
+            text: 'Get Started',
+            href: '/contact',
+            variant: 'primary',
+          },
+        ]}
       />
     </main>
   );
