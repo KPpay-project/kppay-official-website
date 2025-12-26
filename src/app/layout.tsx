@@ -41,6 +41,11 @@ const pageSEO: Record<string, { title: string; description: string }> = {
     description:
       'Learn about KPPAY mission to provide secure, fast, and affordable financial solutions worldwide.',
   },
+  '/blog': {
+    title: 'Blog',
+    description:
+      'Explore the latest in payment technology, security best practices, and fintech innovation.',
+  },
   '/contact': {
     title: 'Contact Us',
     description:

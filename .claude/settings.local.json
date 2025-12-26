@@ -28,7 +28,14 @@
       "Bash(do echo \"$f\")",
       "Bash(done)",
       "Bash(npm run dev:*)",
-      "Bash(git merge:*)"
+      "Bash(git merge:*)",
+      "WebSearch",
+      "Bash(rm:*)",
+      "Bash(npm run seed-blog:*)",
+      "Bash(npm run cleanup-blog:*)",
+      "Bash(npm run seed-blog-images:*)",
+      "Bash(tsx scripts/check-posts.ts:*)",
+      "Bash(npx tsx:*)"
     ],
     "deny": [],
     "ask": []

@@ -144,6 +144,10 @@ export const routeLayouts: Record<string, LayoutConfig> = {
     header: 'dark',
     footer: 'dark',
   },
+  '/blog': {
+    header: 'light',
+    footer: 'dark',
+  },
 };
 
 /**

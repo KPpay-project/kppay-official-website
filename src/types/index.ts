@@ -316,3 +316,22 @@ export interface SDKSelectorProps {
   options: SDKOption[];
   className?: string;
 }
+
+// ============================================
+// Blog Components
+// ============================================
+export { default as BlogHero } from '@/components/sections/Blog/BlogHero';
+export { default as BlogGrid } from '@/components/sections/Blog/BlogGrid';
+export { default as BlogCard } from '@/components/sections/Blog/BlogCard';
+export { default as BlogListCard } from '@/components/sections/Blog/BlogListCard';
+export { default as BlogSearch } from '@/components/sections/Blog/BlogSearch';
+export { default as BlogPostHero } from '@/components/sections/Blog/BlogPostHero';
+export { default as BlogContent } from '@/components/sections/Blog/BlogContent';
+export { default as CategoryBadge } from '@/components/sections/Blog/CategoryBadge';
+export { default as Pagination } from '@/components/sections/Blog/Pagination';
+export { default as ViewToggle } from '@/components/sections/Blog/ViewToggle';
+export { default as BlogStats } from '@/components/sections/Blog/BlogStats';
+export type { ViewMode } from '@/components/sections/Blog/ViewToggle';
+
+// Sanity Types
+export type { BlogPost, BlogPostDetail, Category } from '@/lib/sanity/types';
