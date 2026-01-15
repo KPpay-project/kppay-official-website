@@ -364,7 +364,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
                 <Button
                   variant={useWhiteText ? 'outlined-white' : 'outlined'}
                   size="sm"
-                  href="https://dev.d32yml5hzs7qtc.amplifyapp.com/onboarding/login?user=user"
+                  href="https://www.app.kppay.fr"
                   className="md:text-xs md:px-2.5 md:py-1.5 lg:text-sm lg:px-4 lg:py-2"
                   target="_self"
                 >
@@ -373,7 +373,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
                 <Button
                   variant="primary"
                   size="sm"
-                  href="https://dev.d32yml5hzs7qtc.amplifyapp.com/onboarding/create-account"
+                  href="https://www.app.kppay.fr/onboarding/create-account"
                   className="md:text-xs md:px-2.5 md:py-1.5 lg:text-sm lg:py-2"
                   target="_self"
                 >
@@ -897,7 +897,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
               <Button
                 variant="outlined"
                 size="md"
-                href="https://dev.d32yml5hzs7qtc.amplifyapp.com/onboarding/login?user=user"
+                href="https://www.app.kppay.fr"
                 fullWidth
                 target="_self"
               >
@@ -906,7 +906,7 @@ export default function Header({ variant = 'light' }: HeaderProps) {
               <Button
                 variant="primary"
                 size="md"
-                href="https://dev.d32yml5hzs7qtc.amplifyapp.com/onboarding/create-account"
+                href="https://www.app.kppay.fr/onboarding/create-account"
                 fullWidth
                 target="_self"
               >

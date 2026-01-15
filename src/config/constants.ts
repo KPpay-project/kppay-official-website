@@ -2,8 +2,8 @@
 
 export const ROUTES = {
   // External auth routes
-  LOGIN: 'https://dev.d32yml5hzs7qtc.amplifyapp.com/onboarding/login?user=user',
-  SIGNUP: 'https://dev.d32yml5hzs7qtc.amplifyapp.com/onboarding/create-account',
+  LOGIN: 'https://www.app.kppay.fr',
+  SIGNUP: 'https://www.app.kppay.fr/onboarding/create-account',
 
   // Internal routes
   HOME: '/',

@@ -30,7 +30,7 @@ interface CTAButton {
 const ctaButtons: CTAButton[] = [
   {
     text: 'Create Account',
-    href: 'https://dev.d32yml5hzs7qtc.amplifyapp.com/onboarding/create-account',
+    href: 'https://www.app.kppay.fr/onboarding/create-account',
     variant: 'outlined-white',
     size: 'md',
     showArrow: true,
@@ -38,7 +38,7 @@ const ctaButtons: CTAButton[] = [
   },
   {
     text: 'Contact Sales',
-    href: "/contact",
+    href: '/contact',
     variant: 'outlined-white',
     size: 'md',
     showArrow: true,
