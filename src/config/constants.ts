@@ -52,6 +52,7 @@ export const ROUTES = {
   DEV_TRUST_SECURITY: '/developer-enterprise/trust-security',
 
   // Legal routes
+  LEGAL: '/legal',
   LEGAL_AML: '/legal/aml',
   LEGAL_ANTI_CORRUPTION: '/legal/anti-corruption',
   LEGAL_COOKIE_POLICY: '/legal/cookie-policy',

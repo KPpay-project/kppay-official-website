@@ -74,9 +74,8 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
 
   return (
     <footer
-      className={`py-12 md:py-16 ${
-        isLight ? 'bg-white' : 'bg-brand-secondary'
-      }`}
+      className={`py-12 md:py-16 ${isLight ? 'bg-white' : 'bg-brand-secondary'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Main Footer Content */}
@@ -86,9 +85,8 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
             {/* Logo */}
             <Link href="/" className="inline-block mb-6">
               <div
-                className={`rounded-sm p-4 relative w-[120px] h-[35px] mx-auto lg:mx-0 ${
-                  isLight ? 'bg-gray-100' : 'bg-white/60'
-                }`}
+                className={`rounded-sm p-4 relative w-[120px] h-[35px] mx-auto lg:mx-0 ${isLight ? 'bg-gray-100' : 'bg-white/60'
+                  }`}
               >
                 <Image
                   src={images.logos.primary}
@@ -102,9 +100,8 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
             {/* Newsletter Section */}
             <div className="mb-6">
               <h3
-                className={`font-semibold mb-3 ${
-                  isLight ? 'text-gray-900' : 'text-white'
-                }`}
+                className={`font-semibold mb-3 ${isLight ? 'text-gray-900' : 'text-white'
+                  }`}
               >
                 Stay Updated
               </h3>
@@ -115,11 +112,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
-                  className={`w-full px-4 py-2.5 rounded-lg focus:outline-none focus:ring-2 transition-all text-sm ${
-                    isLight
+                  className={`w-full px-4 py-2.5 rounded-lg focus:outline-none focus:ring-2 transition-all text-sm ${isLight
                       ? 'bg-gray-100 text-gray-900 placeholder:text-gray-500 focus:ring-blue-500'
                       : 'bg-white text-gray-900 placeholder:text-gray-500 focus:ring-blue-400'
-                  }`}
+                    }`}
                 />
                 <button
                   type="submit"
@@ -132,15 +128,14 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
 
                 {submitStatus.type && (
                   <div
-                    className={`p-2 rounded-lg text-xs ${
-                      submitStatus.type === 'success'
+                    className={`p-2 rounded-lg text-xs ${submitStatus.type === 'success'
                         ? isLight
                           ? 'bg-green-100 text-green-700'
                           : 'bg-green-500/20 text-green-300'
                         : isLight
-                        ? 'bg-red-100 text-red-700'
-                        : 'bg-red-500/20 text-red-300'
-                    }`}
+                          ? 'bg-red-100 text-red-700'
+                          : 'bg-red-500/20 text-red-300'
+                      }`}
                   >
                     {submitStatus.message}
                   </div>
@@ -193,9 +188,8 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
             {/* Company Column */}
             <div>
               <h3
-                className={`font-semibold mb-4 ${
-                  isLight ? 'text-gray-900' : 'text-white'
-                }`}
+                className={`font-semibold mb-4 ${isLight ? 'text-gray-900' : 'text-white'
+                  }`}
               >
                 Company
               </h3>
@@ -203,11 +197,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.ABOUT}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     About Us
                   </Link>
@@ -215,11 +208,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.CAREERS}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     Careers
                   </Link>
@@ -227,11 +219,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.BLOG}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     Newsroom
                   </Link>
@@ -239,11 +230,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.ENTERPRISE}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     Investor Relations
                   </Link>
@@ -251,11 +241,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.CONTACT}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     Contact Us
                   </Link>
@@ -266,9 +255,8 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
             {/* Products Column */}
             <div>
               <h3
-                className={`font-semibold mb-4 ${
-                  isLight ? 'text-gray-900' : 'text-white'
-                }`}
+                className={`font-semibold mb-4 ${isLight ? 'text-gray-900' : 'text-white'
+                  }`}
               >
                 Products
               </h3>
@@ -276,11 +264,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.PAYMENTS_ONLINE}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     Global Payments
                   </Link>
@@ -288,11 +275,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.PAYMENT_INFRA_VIRTUAL_CARDS}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     Virtual Cards
                   </Link>
@@ -300,11 +286,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.FINANCIAL_CONNECTIONS}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     Currency Exchange
                   </Link>
@@ -312,11 +297,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.PAYMENT_INFRA_CONNECT}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     Business Payment
                   </Link>
@@ -327,9 +311,8 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
             {/* Developers Column */}
             <div>
               <h3
-                className={`font-semibold mb-4 ${
-                  isLight ? 'text-gray-900' : 'text-white'
-                }`}
+                className={`font-semibold mb-4 ${isLight ? 'text-gray-900' : 'text-white'
+                  }`}
               >
                 Developers
               </h3>
@@ -337,11 +320,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.RESOURCES}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     API Documentation
                   </Link>
@@ -349,11 +331,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.RESOURCES}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     SDKs & Libraries
                   </Link>
@@ -361,11 +342,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.RESOURCES}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     Webhooks
                   </Link>
@@ -373,11 +353,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.RESOURCES}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     Developer Community
                   </Link>
@@ -388,9 +367,8 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
             {/* Resources & Support Column */}
             <div>
               <h3
-                className={`font-semibold mb-4 ${
-                  isLight ? 'text-gray-900' : 'text-white'
-                }`}
+                className={`font-semibold mb-4 ${isLight ? 'text-gray-900' : 'text-white'
+                  }`}
               >
                 Resources & Support
               </h3>
@@ -398,11 +376,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.FAQS}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     Help Center
                   </Link>
@@ -410,11 +387,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.BLOG}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     Blog
                   </Link>
@@ -422,11 +398,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.RESOURCES}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     Case Studies
                   </Link>
@@ -434,11 +409,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.RESOURCES}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     Guides
                   </Link>
@@ -446,11 +420,10 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
                 <li>
                   <Link
                     href={ROUTES.CONTACT}
-                    className={`transition-colors text-sm ${
-                      isLight
+                    className={`transition-colors text-sm ${isLight
                         ? 'text-gray-600 hover:text-gray-900'
                         : 'text-white/80 hover:text-white'
-                    }`}
+                      }`}
                   >
                     Customer Support
                   </Link>
@@ -464,31 +437,27 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
         <div className="pt-8">
           {/* Legal Links - Horizontal with borders */}
           <div
-            className={`border-t border-b py-6 ${
-              isLight ? 'border-gray-200' : 'border-white/20'
-            }`}
+            className={`border-t border-b py-6 ${isLight ? 'border-gray-200' : 'border-white/20'
+              }`}
           >
             <div
-              className={`flex flex-wrap items-center justify-center gap-3 md:gap-4 text-xs md:text-sm ${
-                isLight ? 'text-gray-700' : 'text-white/90'
-              }`}
+              className={`flex flex-wrap items-center justify-center gap-3 md:gap-4 text-xs md:text-sm ${isLight ? 'text-gray-700' : 'text-white/90'
+                }`}
             >
               <Link
-                href={ROUTES.LEGAL_TERMS}
-                className={`transition-colors ${
-                  isLight ? 'hover:text-gray-900' : 'hover:text-white'
-                }`}
+                href={ROUTES.LEGAL}
+                className={`transition-colors ${isLight ? 'hover:text-gray-900' : 'hover:text-white'
+                  }`}
               >
-                Terms and Condition
+                Compliance and Legal
               </Link>
               <span className={isLight ? 'text-gray-400' : 'text-white/40'}>
                 |
               </span>
               <Link
                 href={ROUTES.LEGAL_PRIVACY}
-                className={`transition-colors ${
-                  isLight ? 'hover:text-gray-900' : 'hover:text-white'
-                }`}
+                className={`transition-colors ${isLight ? 'hover:text-gray-900' : 'hover:text-white'
+                  }`}
               >
                 Privacy Policy
               </Link>
@@ -497,9 +466,8 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
               </span>
               <Link
                 href={ROUTES.LEGAL_COOKIE_POLICY}
-                className={`transition-colors ${
-                  isLight ? 'hover:text-gray-900' : 'hover:text-white'
-                }`}
+                className={`transition-colors ${isLight ? 'hover:text-gray-900' : 'hover:text-white'
+                  }`}
               >
                 Cookie Policy
               </Link>
@@ -508,9 +476,8 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
               </span>
               <Link
                 href={ROUTES.LEGAL_INTELLECTUAL_PROPERTY}
-                className={`transition-colors ${
-                  isLight ? 'hover:text-gray-900' : 'hover:text-white'
-                }`}
+                className={`transition-colors ${isLight ? 'hover:text-gray-900' : 'hover:text-white'
+                  }`}
               >
                 Intellectual Property Policy
               </Link>
@@ -519,9 +486,8 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
               </span>
               <Link
                 href={ROUTES.LEGAL_AML}
-                className={`transition-colors ${
-                  isLight ? 'hover:text-gray-900' : 'hover:text-white'
-                }`}
+                className={`transition-colors ${isLight ? 'hover:text-gray-900' : 'hover:text-white'
+                  }`}
               >
                 Anti-Money Laundry Policy
               </Link>
@@ -530,9 +496,8 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
               </span>
               <Link
                 href={ROUTES.LEGAL_ANTI_CORRUPTION}
-                className={`transition-colors ${
-                  isLight ? 'hover:text-gray-900' : 'hover:text-white'
-                }`}
+                className={`transition-colors ${isLight ? 'hover:text-gray-900' : 'hover:text-white'
+                  }`}
               >
                 Anti-Corruption Policy
               </Link>
@@ -541,9 +506,8 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
               </span>
               <Link
                 href={ROUTES.LEGAL_GIFT_POLICY}
-                className={`transition-colors ${
-                  isLight ? 'hover:text-gray-900' : 'hover:text-white'
-                }`}
+                className={`transition-colors ${isLight ? 'hover:text-gray-900' : 'hover:text-white'
+                  }`}
               >
                 Gift Policy
               </Link>
@@ -552,9 +516,8 @@ export default function Footer({ variant = 'dark' }: FooterProps) {
 
           {/* Copyright & Last Updated - Outside border */}
           <div
-            className={`flex flex-col sm:flex-row justify-between items-center gap-4 text-sm pt-6 ${
-              isLight ? 'text-gray-600' : 'text-white/70'
-            }`}
+            className={`flex flex-col sm:flex-row justify-between items-center gap-4 text-sm pt-6 ${isLight ? 'text-gray-600' : 'text-white/70'
+              }`}
           >
             <p>© {currentYear} KP Pay. All rights reserved.</p>
             <p>Last updated: {currentDate}</p>

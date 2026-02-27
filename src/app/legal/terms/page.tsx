@@ -129,7 +129,7 @@ export default function TermsAndConditions() {
             <div className="text-sm text-text-primary">
               <strong className="font-semibold">Important:</strong> By using our
               Services, you agree to these Terms in their entirety, as well as
-              our Privacy Policy.
+              our Privacy Policy and License Agreement.
             </div>
           </div>
         </div>
@@ -151,18 +151,16 @@ export default function TermsAndConditions() {
 
           {/* Sidebar Navigation */}
           <aside
-            className={`lg:col-span-1 ${
-              sidebarOpen
+            className={`lg:col-span-1 ${sidebarOpen
                 ? 'fixed inset-0 z-20 bg-black/50 lg:relative lg:bg-transparent'
                 : 'hidden lg:block'
-            }`}
+              }`}
           >
             <div
-              className={`${
-                sidebarOpen
+              className={`${sidebarOpen
                   ? 'absolute right-0 top-0 bottom-0 w-80 overflow-y-auto'
                   : ''
-              } lg:sticky lg:top-24`}
+                } lg:sticky lg:top-24`}
             >
               <div className="bg-white rounded-lg shadow-md p-6 h-full lg:h-auto">
                 <h3 className="font-semibold text-text-primary mb-4 text-sm uppercase tracking-wide">
@@ -173,11 +171,10 @@ export default function TermsAndConditions() {
                     <button
                       key={section.id}
                       onClick={() => scrollToSection(section.id)}
-                      className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors flex items-center gap-2 group ${
-                        section.part
+                      className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors flex items-center gap-2 group ${section.part
                           ? 'hover:bg-surface-secondary text-text-secondary'
                           : 'font-semibold text-brand-primary hover:bg-brand-primary/5'
-                      }`}
+                        }`}
                     >
                       <ChevronRight className="w-4 h-4 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
                       <span className="group-hover:text-text-primary">
