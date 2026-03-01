@@ -17,14 +17,16 @@ import {
 import Link from 'next/link';
 import { ROUTES } from '@/config/constants';
 
-const complianceDocuments = [
+type DocType = 'page' | 'pdf' | 'disabled';
+
+const complianceDocuments: { title: string; description: string; href: string; icon: typeof Award; type: DocType }[] = [
     {
         title: 'Attestation d\'Inscription',
         description:
             'Official registration certificate — Inscrit au Registre unique des intermédiaires en assurance, banque et finance.',
-        href: '/documents/legal/attestation-inscription.pdf',
+        href: '/documents/legal/attestation-inscription.pdf', // PDF disabled for now
         icon: Award,
-        type: 'pdf' as const,
+        type: 'disabled' as const,
     },
     {
         title: 'Terms and Conditions',
@@ -123,12 +125,21 @@ export default function ComplianceAndLegal() {
                             <Award className="w-6 h-6 text-brand-primary" />
                         </div>
                         <div>
-                            <h2 className="text-xl font-semibold text-text-primary mb-2">
+                            {/* <h2 className="text-xl font-semibold text-text-primary mb-2">
                                 Registration
+                            </h2> */}
+                            <h2 className="text-xl font-semibold text-text-primary mb-2">
+                                Licences and authorizations
                             </h2>
-                            <p className="text-text-secondary leading-relaxed">
+                            {/* <p className="text-text-secondary leading-relaxed">
                                 KPpay est inscrit au Registre unique des intermédiaires en
                                 assurance, banque et finance sous le numéro d'immatriculation{' '}
+                                <strong className="text-text-primary">26002277</strong>.
+                            </p> */}
+                            <p className="text-text-secondary leading-relaxed">
+                                KPpay SAS France est répertorié dans le registre de l'Orias en
+                                qualité de Courtier en opérations de banque et en services de
+                                paiement (COBSP) sous le numéro{' '}
                                 <strong className="text-text-primary">26002277</strong>.
                             </p>
                         </div>
@@ -144,37 +155,63 @@ export default function ComplianceAndLegal() {
                 <div className="space-y-4">
                     {complianceDocuments.map((doc) => {
                         const Icon = doc.icon;
-                        const isExternal = doc.type === 'pdf';
 
-                        return isExternal ? (
-                            <a
-                                key={doc.title}
-                                href={doc.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="group block bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md hover:border-brand-primary/30 transition-all duration-200"
-                            >
-                                <div className="flex items-start gap-4">
-                                    <div className="bg-brand-primary/10 p-3 rounded-lg flex-shrink-0 group-hover:bg-brand-primary/20 transition-colors">
-                                        <Icon className="w-5 h-5 text-brand-primary" />
-                                    </div>
-                                    <div className="flex-1 min-w-0">
-                                        <div className="flex items-center gap-2 mb-1">
-                                            <h3 className="text-lg font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                        if (doc.type === 'disabled') {
+                            return (
+                                <div
+                                    key={doc.title}
+                                    className="group block bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md hover:border-brand-primary/30 transition-all duration-200"
+                                >
+                                    <div className="flex items-start gap-4">
+                                        <div className="bg-brand-primary/10 p-3 rounded-lg flex-shrink-0 group-hover:bg-brand-primary/20 transition-colors">
+                                            <Icon className="w-5 h-5 text-brand-primary" />
+                                        </div>
+                                        <div className="flex-1 min-w-0">
+                                            <h3 className="text-lg font-semibold text-text-primary mb-1">
                                                 {doc.title}
                                             </h3>
-                                            <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-50 text-red-700">
-                                                PDF
-                                            </span>
+                                            <p className="text-text-secondary text-sm leading-relaxed">
+                                                {doc.description}
+                                            </p>
                                         </div>
-                                        <p className="text-text-secondary text-sm leading-relaxed">
-                                            {doc.description}
-                                        </p>
                                     </div>
-                                    <Download className="w-5 h-5 text-text-tertiary group-hover:text-brand-primary flex-shrink-0 mt-1 transition-colors" />
                                 </div>
-                            </a>
-                        ) : (
+                            );
+                        }
+
+                        if (doc.type === 'pdf') {
+                            return (
+                                <a
+                                    key={doc.title}
+                                    href={doc.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group block bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md hover:border-brand-primary/30 transition-all duration-200"
+                                >
+                                    <div className="flex items-start gap-4">
+                                        <div className="bg-brand-primary/10 p-3 rounded-lg flex-shrink-0 group-hover:bg-brand-primary/20 transition-colors">
+                                            <Icon className="w-5 h-5 text-brand-primary" />
+                                        </div>
+                                        <div className="flex-1 min-w-0">
+                                            <div className="flex items-center gap-2 mb-1">
+                                                <h3 className="text-lg font-semibold text-text-primary group-hover:text-brand-primary transition-colors">
+                                                    {doc.title}
+                                                </h3>
+                                                <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-50 text-red-700">
+                                                    PDF
+                                                </span>
+                                            </div>
+                                            <p className="text-text-secondary text-sm leading-relaxed">
+                                                {doc.description}
+                                            </p>
+                                        </div>
+                                        <Download className="w-5 h-5 text-text-tertiary group-hover:text-brand-primary flex-shrink-0 mt-1 transition-colors" />
+                                    </div>
+                                </a>
+                            );
+                        }
+
+                        return (
                             <Link
                                 key={doc.title}
                                 href={doc.href}
