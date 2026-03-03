@@ -20,14 +20,14 @@ import { ROUTES } from '@/config/constants';
 type DocType = 'page' | 'pdf' | 'disabled';
 
 const complianceDocuments: { title: string; description: string; href: string; icon: typeof Award; type: DocType }[] = [
-    {
-        title: 'Attestation d\'Inscription',
-        description:
-            'Official registration certificate — Inscrit au Registre unique des intermédiaires en assurance, banque et finance.',
-        href: '/documents/legal/attestation-inscription.pdf', // PDF disabled for now
-        icon: Award,
-        type: 'disabled' as const,
-    },
+    // {
+    //     title: 'Attestation d\'Inscription',
+    //     description:
+    //         'Official registration certificate — Inscrit au Registre unique des intermédiaires en assurance, banque et finance.',
+    //     href: '/documents/legal/attestation-inscription.pdf', // PDF disabled for now
+    //     icon: Award,
+    //     type: 'disabled' as const,
+    // },
     {
         title: 'Terms and Conditions',
         description:
