@@ -117,18 +117,16 @@ export default function PrivacyPolicy() {
 
           {/* Sidebar Navigation */}
           <aside
-            className={`lg:col-span-1 ${
-              sidebarOpen
+            className={`lg:col-span-1 ${sidebarOpen
                 ? 'fixed inset-0 z-20 bg-black/50 lg:relative lg:bg-transparent'
                 : 'hidden lg:block'
-            }`}
+              }`}
           >
             <div
-              className={`${
-                sidebarOpen
+              className={`${sidebarOpen
                   ? 'absolute right-0 top-0 bottom-0 w-80 overflow-y-auto'
                   : ''
-              } lg:sticky lg:top-24`}
+                } lg:sticky lg:top-24`}
             >
               <div className="bg-white rounded-lg shadow-md p-6 h-full lg:h-auto">
                 <h3 className="font-semibold text-text-primary mb-4 text-sm uppercase tracking-wide">
@@ -185,9 +183,13 @@ export default function PrivacyPolicy() {
                 <div className="prose prose-lg max-w-none">
                   <p className="text-text-secondary leading-relaxed">
                     The data controller responsible for your personal data is
-                    KPpay, a subsidiary of K-POLYGONE, located at [company
-                    address], registered under number [registration number]. You
-                    can contact us at: [contact email address].
+                    KPpay, a subsidiary of K-POLYGONE, located at 72 Rue
+                    Faubourg Saint Honoré, 75008 Paris - France, registered
+                    under number 26002277. You can contact us at:{' '}
+                    <span className="font-semibold text-brand-primary">
+                      contact@kppay.fr
+                    </span>
+                    .
                   </p>
                 </div>
               </section>

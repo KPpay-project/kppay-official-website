@@ -352,7 +352,7 @@ export default function ContactForm() {
     firstName: '',
     lastName: '',
     email: '',
-    countryCode: '+234',
+    countryCode: '+233',
     phoneNumber: '',
     message: '',
     agreeToPolicy: false,
@@ -393,7 +393,7 @@ export default function ContactForm() {
           firstName: '',
           lastName: '',
           email: '',
-          countryCode: '+234',
+          countryCode: '+233',
           phoneNumber: '',
           message: '',
           agreeToPolicy: false,
@@ -574,11 +574,10 @@ export default function ContactForm() {
 
         {submitStatus.type && (
           <div
-            className={`p-4 rounded-lg text-center ${
-              submitStatus.type === 'success'
+            className={`p-4 rounded-lg text-center ${submitStatus.type === 'success'
                 ? 'bg-success-light text-success'
                 : 'bg-error-light text-error'
-            }`}
+              }`}
           >
             {submitStatus.message}
           </div>
